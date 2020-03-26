@@ -3,7 +3,7 @@ import { FormGroup, FormControl } from "@angular/forms";
 import { Validators } from "@angular/forms";
 import { Observable } from "rxjs";
 import { User } from "projects/cardGamesOffline/src/app/modules/users-state/models/user";
-import { UsersDataContainerService } from "../../modules/users-state/services/users-data-container.service";
+import { UsersDataContainerService } from "../../../modules/users-state/services/users-data-container.service";
 
 @Component({
   selector: "app-user-form",

@@ -3,10 +3,7 @@ import { NgModule } from "@angular/core";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { UserFormComponent } from "./user-start-page/user-form/user-form.component";
-import { UserStartPageComponent } from "./user-start-page/user-start-page.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { MaterialModule } from "./material/material.module";
 import { ReactiveFormsModule } from "@angular/forms";
 import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
@@ -18,7 +15,7 @@ import { EffectsModule } from "@ngrx/effects";
 import { UsersStateModule } from "./modules/users-state/users-state.module";
 
 @NgModule({
-  declarations: [AppComponent, UserFormComponent, UserStartPageComponent],
+  declarations: [AppComponent],
   imports: [
     StoreModule.forRoot({}),
     UsersStateModule,
@@ -31,7 +28,6 @@ import { UsersStateModule } from "./modules/users-state/users-state.module";
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule,
     ReactiveFormsModule,
     TranslateModule.forRoot({
       loader: {
