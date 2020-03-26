@@ -5,11 +5,13 @@ import { createReducer, on, Action } from "@ngrx/store";
 export interface UsersState {
   firstUser: User;
   secondUser: User;
+  activeUser: User;
 }
 
 const initialState: UsersState = {
-  firstUser: { name: "di" } as User,
-  secondUser: null
+  firstUser: null,
+  secondUser: null,
+  activeUser: null
 };
 
 const usersReducer = createReducer(
@@ -21,6 +23,10 @@ const usersReducer = createReducer(
   on(UsersActions.initSecondUser, (state, { secondUser }) => ({
     ...state,
     secondUser: secondUser
+  })),
+  on(UsersActions.changeActiveUser, (state, { activeUser }) => ({
+    ...state,
+    activeUser: activeUser
   }))
 );
 
