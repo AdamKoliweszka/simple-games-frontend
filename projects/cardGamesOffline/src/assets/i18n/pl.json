@@ -3,6 +3,11 @@
     "FIRST_USER": "Nazwa pierwszego gracza",
     "SECOND_USER": "Nazwa drugiego gracza",
     "FIRST_USER_ERROR": "Nazwa pierwszego gracza jest wymagana",
-    "SECOND_USER_ERROR": "Nazwa drugiego gracza jest wymagana"
+    "SECOND_USER_ERROR": "Nazwa drugiego gracza jest wymagana",
+    "TITLE": "Gracze"
+  },
+  "PAGES": {
+    "NOT_FOUND": "Strona nie została odnaleziona!",
+    "RETURN_TO_HOME_PAGE": "Powrót do początkowej strony"
   }
 }
