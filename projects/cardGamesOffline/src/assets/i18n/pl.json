@@ -1,0 +1,8 @@
+{
+  "USERS_FORM": {
+    "FIRST_USER": "Nazwa pierwszego gracza",
+    "SECOND_USER": "Nazwa drugiego gracza",
+    "FIRST_USER_ERROR": "Nazwa pierwszego gracza jest wymagana",
+    "SECOND_USER_ERROR": "Nazwa drugiego gracza jest wymagana"
+  }
+}
