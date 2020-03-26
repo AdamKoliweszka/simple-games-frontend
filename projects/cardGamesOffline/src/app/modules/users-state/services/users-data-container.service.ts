@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core";
 import { Store, select } from "@ngrx/store";
-import { UsersState } from "./users-state.reducers";
-import { User } from "./user";
-import * as UsersActions from "./users-state.actions";
-import * as UsersSelectors from "./users-state.selectors";
+import { UsersState } from "../users-state.reducers";
+import { User } from "../models/user";
+import * as UsersActions from "../users-state.actions";
+import * as UsersSelectors from "../users-state.selectors";
 
 @Injectable({
   providedIn: "root"

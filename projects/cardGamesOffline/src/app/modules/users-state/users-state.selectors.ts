@@ -7,3 +7,8 @@ export const selectFirstUser = createSelector(
   selectUsersState,
   state => state.firstUser
 );
+
+export const selectSecondUser = createSelector(
+  selectUsersState,
+  state => state.secondUser
+);
