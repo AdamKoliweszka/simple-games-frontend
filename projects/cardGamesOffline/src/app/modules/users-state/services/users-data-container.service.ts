@@ -4,6 +4,7 @@ import { UsersState } from "../users-state.reducers";
 import { User } from "../models/user";
 import * as UsersActions from "../users-state.actions";
 import * as UsersSelectors from "../users-state.selectors";
+import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: "root"
@@ -21,15 +22,15 @@ export class UsersDataContainerService {
     this.store.dispatch(UsersActions.initSecondUser({ secondUser }));
   }
 
-  get firstUser() {
-    // this.store
-    //   .select(UsersSelectors.selectFirstUser)
-    //   .subscribe(value => console.log(value));
+  get firstUser(): Observable<User> {
     return this.store.select(UsersSelectors.selectFirstUser);
   }
 
-  get secondUser() {
-    // return this.store.pipe(select(UsersSelectors.selectSecondUser, {}));
-    return null;
+  get secondUser(): Observable<User> {
+    return this.store.select(UsersSelectors.selectSecondUser);
+  }
+
+  get isUsersInit(): Observable<boolean> {
+    return this.store.select(UsersSelectors.selectIsUsersInit);
   }
 }

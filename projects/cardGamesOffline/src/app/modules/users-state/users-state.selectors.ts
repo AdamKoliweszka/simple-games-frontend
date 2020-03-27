@@ -15,3 +15,8 @@ export const selectSecondUser = createSelector(
   selectUsersState,
   state => state.secondUser
 );
+
+export const selectIsUsersInit = createSelector(
+  selectUsersState,
+  state => state.secondUser != null && state.firstUser != null
+);
