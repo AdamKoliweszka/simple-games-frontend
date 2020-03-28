@@ -1,10 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { FormGroup, FormControl } from "@angular/forms";
 import { Validators } from "@angular/forms";
-import { Observable } from "rxjs";
-import { User } from "projects/cardGamesOffline/src/app/modules/users-state/models/user";
-import { UsersDataContainerService } from "../../../modules/users-state/services/users-data-container.service";
-import { Router } from "@angular/router";
 
 @Component({
   selector: "app-user-form",
@@ -12,13 +8,9 @@ import { Router } from "@angular/router";
   styleUrls: ["./user-form.component.scss"]
 })
 export class UserFormComponent implements OnInit {
-  userOne$: Observable<User>;
+  @Output() users: EventEmitter<string[]> = new EventEmitter<string[]>();
   usersForm: FormGroup;
-  constructor(
-    private usersDataContainerService: UsersDataContainerService,
-    private router: Router
-  ) {
-    this.userOne$ = this.usersDataContainerService.firstUser;
+  constructor() {
     this.usersForm = new FormGroup({
       firstUser: new FormControl("", Validators.required),
       secondUser: new FormControl("", Validators.required)
@@ -35,9 +27,7 @@ export class UserFormComponent implements OnInit {
 
   onSubmitForm() {
     if (this.usersForm.valid) {
-      this.usersDataContainerService.initFirstUser(this.firstUser.value);
-      this.usersDataContainerService.initSecondUser(this.secondUser.value);
-      this.router.navigate(["game-select"]);
+      this.users.emit([this.firstUser.value, this.secondUser.value]);
     } else {
       this.usersForm.markAllAsTouched();
     }
