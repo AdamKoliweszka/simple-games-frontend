@@ -6,9 +6,8 @@ import { User } from "../../modules/users-state/models/user";
   templateUrl: "./user-preview.component.html",
   styleUrls: ["./user-preview.component.scss"]
 })
-export class UserPreviewComponent implements OnInit {
+export class UserPreviewComponent {
   @Input() user: User;
-  constructor() {}
 
-  ngOnInit() {}
+  constructor() {}
 }
