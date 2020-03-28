@@ -12,9 +12,11 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { environment } from "../environments/environment";
 import { EffectsModule } from "@ngrx/effects";
 import { UsersStateModule } from "./modules/users-state/users-state.module";
+import { GamesListComponent } from "./games-list/games-list.component";
+import { GamesListItemComponent } from "./games-list/games-list-item/games-list-item.component";
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, GamesListComponent, GamesListItemComponent],
   imports: [
     StoreModule.forRoot({}),
     UsersStateModule,

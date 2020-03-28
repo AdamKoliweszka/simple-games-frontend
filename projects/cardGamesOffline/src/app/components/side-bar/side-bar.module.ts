@@ -1,11 +1,11 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { UserPreviewComponent } from "./user-preview.component";
 import { MaterialModule } from "../../modules/material/material.module";
+import { SideBarComponent } from "./side-bar.component";
 
 @NgModule({
-  declarations: [UserPreviewComponent],
+  declarations: [SideBarComponent],
   imports: [CommonModule, MaterialModule],
-  exports: [UserPreviewComponent]
+  exports: [SideBarComponent]
 })
-export class UserPreviewModule {}
+export class SideBarModule {}

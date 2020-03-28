@@ -5,6 +5,7 @@ import { MatInputModule } from "@angular/material/input";
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { MatDividerModule } from "@angular/material/divider";
+import { MatSidenavModule } from "@angular/material/sidenav";
 
 @NgModule({
   declarations: [],
@@ -14,14 +15,16 @@ import { MatDividerModule } from "@angular/material/divider";
     MatInputModule,
     MatCardModule,
     MatButtonModule,
-    MatDividerModule
+    MatDividerModule,
+    MatSidenavModule
   ],
   exports: [
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
     MatButtonModule,
-    MatDividerModule
+    MatDividerModule,
+    MatSidenavModule
   ]
 })
 export class MaterialModule {}
