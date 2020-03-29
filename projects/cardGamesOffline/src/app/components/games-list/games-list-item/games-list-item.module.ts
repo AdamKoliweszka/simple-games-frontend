@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { MaterialModule } from "../../modules/material/material.module";
+import { MaterialModule } from "../../../modules/material/material.module";
 import { GamesListItemComponent } from "./games-list-item.component";
 import { RouterModule } from "@angular/router";
 

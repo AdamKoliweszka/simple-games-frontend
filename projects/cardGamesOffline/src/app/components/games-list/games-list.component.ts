@@ -7,7 +7,7 @@ import { Game } from "./models/game";
   styleUrls: ["./games-list.component.scss"]
 })
 export class GamesListComponent implements OnInit {
-  games: Game[] = [{ name: "War card game", url: "/" } as Game];
+  games: Game[] = [{ name: "War card game", url: "/game/war-game" } as Game];
   constructor() {}
 
   ngOnInit() {}

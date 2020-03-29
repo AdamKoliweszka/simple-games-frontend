@@ -12,6 +12,7 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { environment } from "../environments/environment";
 import { EffectsModule } from "@ngrx/effects";
 import { UsersStateModule } from "./modules/users-state/users-state.module";
+import { GamePageComponent } from "./modules/offline-war-game/game-page/game-page.component";
 
 @NgModule({
   declarations: [AppComponent],

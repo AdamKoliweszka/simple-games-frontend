@@ -17,6 +17,13 @@ const routes: Routes = [
     canLoad: [GameSelectPageRouteGuardService]
   },
   {
+    path: "game/war-game",
+    loadChildren: () =>
+      import("./modules/offline-war-game/offline-war-game.module").then(
+        m => m.OfflineWarGameModule
+      )
+  },
+  {
     path: "404",
     loadChildren: () =>
       import("./pages/not-found-page/not-found-page.module").then(
