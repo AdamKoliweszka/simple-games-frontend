@@ -4,6 +4,7 @@ import { GameSelectPageComponent } from "./game-select-page.component";
 import { GameSelectPageRoutingModule } from "./game-select-page-routing.module";
 import { UsersPreviewModule } from "../../components/users-preview/users-preview.module";
 import { SideBarModule } from "../../components/side-bar/side-bar.module";
+import { GamesListModule } from "../../games-list/games-list.module";
 
 @NgModule({
   declarations: [GameSelectPageComponent],
@@ -11,7 +12,8 @@ import { SideBarModule } from "../../components/side-bar/side-bar.module";
     CommonModule,
     GameSelectPageRoutingModule,
     UsersPreviewModule,
-    SideBarModule
+    SideBarModule,
+    GamesListModule
   ]
 })
 export class GameSelectPageModule {}
