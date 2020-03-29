@@ -1,12 +1,11 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { MaterialModule } from "../../modules/material/material.module";
+import { GamesListItemComponent } from "./games-list-item.component";
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  declarations: [GamesListItemComponent],
+  imports: [CommonModule, MaterialModule],
+  exports: [GamesListItemComponent]
 })
-export class GamesListItemModule { }
+export class GamesListItemModule {}
