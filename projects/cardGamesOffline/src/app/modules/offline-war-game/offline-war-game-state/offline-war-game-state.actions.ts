@@ -30,3 +30,11 @@ export const addCardsToSecondPlayerCards = createAction(
   "[OFFLINE_WAR_GAME] Add cards to second players cards",
   props<{ cards: Card[] }>()
 );
+
+export const removeFirstCardOfFirstPlayer = createAction(
+  "[OFFLINE_WAR_GAME] Remove first card of first player"
+);
+
+export const removeFirstCardOfSecondPlayer = createAction(
+  "[OFFLINE_WAR_GAME] Remove first card of second player"
+);

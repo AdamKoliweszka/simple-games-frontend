@@ -37,6 +37,14 @@ const offlineWarGameReducer = createReducer(
   on(GamesActions.addCardsToSecondPlayerCards, (state, { cards }) => ({
     ...state,
     secondPlayerCards: [...state.secondPlayerCards, cards]
+  })),
+  on(GamesActions.removeFirstCardOfFirstPlayer, state => ({
+    ...state,
+    firstPlayerCards: state.firstPlayerCards.splice(0, 1)
+  })),
+  on(GamesActions.removeFirstCardOfSecondPlayer, state => ({
+    ...state,
+    secondPlayerCards: state.secondPlayerCards.splice(0, 1)
   }))
 );
 

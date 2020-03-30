@@ -27,3 +27,13 @@ export const selectFirstCardOfSecondPlayer = createSelector(
   state =>
     state.secondPlayerCards.length > 0 ? state.secondPlayerCards[0] : null
 );
+
+export const selectNumberOfCardsOfFirstPlayer = createSelector(
+  selectOfflineWarGameState,
+  state => state.firstPlayerCards.length
+);
+
+export const selectNumberOfCardsOfSecondPlayer = createSelector(
+  selectOfflineWarGameState,
+  state => state.secondPlayerCards.length
+);
