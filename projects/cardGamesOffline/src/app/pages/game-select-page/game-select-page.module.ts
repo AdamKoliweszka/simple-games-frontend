@@ -5,11 +5,13 @@ import { GameSelectPageRoutingModule } from "./game-select-page-routing.module";
 import { UsersPreviewModule } from "../../components/users-preview/users-preview.module";
 import { SideBarModule } from "../../components/side-bar/side-bar.module";
 import { GamesListModule } from "../../components/games-list/games-list.module";
+import { GamesStateModule } from "../../modules/games-state/games-state.module";
 
 @NgModule({
   declarations: [GameSelectPageComponent],
   imports: [
     CommonModule,
+    GamesStateModule,
     GameSelectPageRoutingModule,
     UsersPreviewModule,
     SideBarModule,

@@ -18,7 +18,6 @@ import { UsersStateModule } from "./modules/users-state/users-state.module";
   declarations: [AppComponent],
   imports: [
     StoreModule.forRoot({}),
-    GamesStateModule,
     UsersStateModule,
 
     StoreDevtoolsModule.instrument({
