@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { Game } from "./models/game";
+import { Game } from "../../modules/games-state/models/game";
+import { GamesDataContainerService } from "../../modules/games-state/services/games-data-container.service";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-games-list",
@@ -7,8 +9,10 @@ import { Game } from "./models/game";
   styleUrls: ["./games-list.component.scss"]
 })
 export class GamesListComponent implements OnInit {
-  games: Game[] = [{ name: "War card game", url: "/game/war-game" } as Game];
-  constructor() {}
+  games$: Observable<Game[]>;
+  constructor(private gamesDataService: GamesDataContainerService) {
+    this.games$ = this.gamesDataService.listOfGames;
+  }
 
   ngOnInit() {}
 }

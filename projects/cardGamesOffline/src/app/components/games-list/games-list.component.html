@@ -1,3 +1,7 @@
 <div class="container">
-  <app-games-list-item class="item" [game]="games[0]"></app-games-list-item>
+  <app-games-list-item
+    *ngFor="let game of games$ | async"
+    class="item"
+    [game]="game"
+  ></app-games-list-item>
 </div>
