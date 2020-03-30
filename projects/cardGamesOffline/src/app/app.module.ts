@@ -11,7 +11,6 @@ import { StoreModule } from "@ngrx/store";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { environment } from "../environments/environment";
 import { EffectsModule } from "@ngrx/effects";
-import { GamesStateModule } from "./modules/games-state/games-state.module";
 import { UsersStateModule } from "./modules/users-state/users-state.module";
 
 @NgModule({
@@ -19,7 +18,6 @@ import { UsersStateModule } from "./modules/users-state/users-state.module";
   imports: [
     StoreModule.forRoot({}),
     UsersStateModule,
-
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
