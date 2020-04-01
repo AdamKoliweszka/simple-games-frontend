@@ -7,7 +7,7 @@ export interface GamesState {
 }
 
 const initialState: GamesState = {
-  games: [{ name: "War card game", url: "/game/war-game" } as Game]
+  games: [{ name: "War card game", url: "war-game" } as Game]
 };
 
 const gamesReducer = createReducer(

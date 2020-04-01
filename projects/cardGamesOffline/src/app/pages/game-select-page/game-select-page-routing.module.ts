@@ -6,6 +6,13 @@ const routes: Routes = [
   {
     path: "",
     component: GameSelectPageComponent
+  },
+  {
+    path: "war-game",
+    loadChildren: () =>
+      import("../../modules/offline-war-game/offline-war-game.module").then(
+        m => m.OfflineWarGameModule
+      )
   }
 ];
 

@@ -16,7 +16,7 @@ export class HomePageComponent implements OnInit {
   onUsersSubmit(usersNames: string[]) {
     this.usersDataContainerService.initFirstUser(usersNames[0]);
     this.usersDataContainerService.initSecondUser(usersNames[1]);
-    this.router.navigate(["game-select"]);
+    this.router.navigate(["games"]);
   }
 
   ngOnInit() {}

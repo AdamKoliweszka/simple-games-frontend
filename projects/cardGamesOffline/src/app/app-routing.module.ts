@@ -9,28 +9,21 @@ const routes: Routes = [
       import("./pages/home-page/home-page.module").then(m => m.HomePageModule)
   },
   {
-    path: "game-select",
+    path: "games",
     loadChildren: () =>
       import("./pages/game-select-page/game-select-page.module").then(
         m => m.GameSelectPageModule
       ),
     canLoad: [GameSelectPageRouteGuardService]
-  },
-  {
-    path: "game/war-game",
-    loadChildren: () =>
-      import("./modules/offline-war-game/offline-war-game.module").then(
-        m => m.OfflineWarGameModule
-      )
-  },
-  {
-    path: "404",
-    loadChildren: () =>
-      import("./pages/not-found-page/not-found-page.module").then(
-        m => m.NotFoundPageModule
-      )
-  },
-  { path: "**", redirectTo: "/404" }
+  }
+  // {
+  //   path: "404",
+  //   loadChildren: () =>
+  //     import("./pages/not-found-page/not-found-page.module").then(
+  //       m => m.NotFoundPageModule
+  //     )
+  // },
+  // { path: "**", redirectTo: "/404" }
 ];
 
 @NgModule({
