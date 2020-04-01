@@ -4,6 +4,7 @@ import { OfflineWarGameStateModule } from "./offline-war-game-state/offline-war-
 import { OfflineWarGameRoutingModule } from "./offline-war-game-routing.module";
 import { GamePageComponent } from "./game-page/game-page.component";
 import { CardsBarModule } from "../cards/components/cards-bar/cards-bar.module";
+import { TopGameBarModule } from "../../components/top-game-bar/top-game-bar.module";
 
 @NgModule({
   declarations: [GamePageComponent],
@@ -11,7 +12,8 @@ import { CardsBarModule } from "../cards/components/cards-bar/cards-bar.module";
     CommonModule,
     OfflineWarGameStateModule,
     OfflineWarGameRoutingModule,
-    CardsBarModule
+    CardsBarModule,
+    TopGameBarModule
   ]
 })
 export class OfflineWarGameModule {}
