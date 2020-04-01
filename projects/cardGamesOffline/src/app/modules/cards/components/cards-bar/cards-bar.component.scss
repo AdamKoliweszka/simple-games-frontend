@@ -1,0 +1,18 @@
+.container {
+  width: 100vw;
+  height: 20vh;
+  background: white;
+  display: flex;
+  flex-direction: row;
+}
+.scroll-button {
+  width: 3vw;
+  height: 20vh;
+  line-height: 20vh;
+  text-align: center;
+}
+
+.content {
+  width: 94vw;
+  height: 20vh;
+}

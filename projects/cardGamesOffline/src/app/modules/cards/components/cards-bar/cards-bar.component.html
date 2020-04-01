@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="scroll-button">
+    <button
+      mat-icon-button
+      aria-label="Example icon-button with a heart icon"
+      [disabled]="firstIndex == 0"
+      (click)="onLeftArrowClick()"
+    >
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+  </div>
+  <div class="content">
+    <app-cards-collection [cards]="displayCards"></app-cards-collection>
+  </div>
+  <div class="scroll-button">
+    <button
+      mat-icon-button
+      aria-label="Example icon-button with a heart icon"
+      (click)="onRightArrowClick()"
+      [disabled]="lastIndex >= cards.length - 1"
+    >
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+  </div>
+</div>

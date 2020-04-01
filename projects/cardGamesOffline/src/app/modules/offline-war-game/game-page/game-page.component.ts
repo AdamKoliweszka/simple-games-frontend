@@ -1,5 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { OfflineWarGameManagerService } from "../services/offline-war-game-manager.service";
+import { OfflineWarGameDataContainerService } from "../offline-war-game-state/services/offline-war-game-data-container.service";
+import { Observable } from "rxjs";
+import { Card } from "../../cards/models/card";
 
 @Component({
   selector: "app-game-page",
@@ -7,8 +10,13 @@ import { OfflineWarGameManagerService } from "../services/offline-war-game-manag
   styleUrls: ["./game-page.component.scss"]
 })
 export class GamePageComponent implements OnInit {
-  constructor(private gameService: OfflineWarGameManagerService) {
+  cards$: Observable<Card[]>;
+  constructor(
+    private gameService: OfflineWarGameManagerService,
+    private dataContainerService: OfflineWarGameDataContainerService
+  ) {
     this.gameService.initGame();
+    this.cards$ = this.dataContainerService.firstPlayerCards;
   }
 
   ngOnInit() {}
