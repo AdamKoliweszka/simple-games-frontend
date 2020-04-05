@@ -22,6 +22,10 @@ export class UsersDataContainerService {
     this.store.dispatch(UsersActions.initSecondUser({ secondUser }));
   }
 
+  initPoints(points: number) {
+    this.store.dispatch(UsersActions.initPoints({ points }));
+  }
+
   get firstUser(): Observable<User> {
     return this.store.select(UsersSelectors.selectFirstUser);
   }

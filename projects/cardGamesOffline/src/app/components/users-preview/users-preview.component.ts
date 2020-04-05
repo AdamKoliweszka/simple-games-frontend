@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
 import { UsersDataContainerService } from "../../modules/users-state/services/users-data-container.service";
 import { Observable } from "rxjs";
 import { User } from "../../modules/users-state/models/user";
@@ -6,7 +6,8 @@ import { User } from "../../modules/users-state/models/user";
 @Component({
   selector: "app-users-preview",
   templateUrl: "./users-preview.component.html",
-  styleUrls: ["./users-preview.component.scss"]
+  styleUrls: ["./users-preview.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UsersPreviewComponent implements OnInit {
   firstUser$: Observable<User>;

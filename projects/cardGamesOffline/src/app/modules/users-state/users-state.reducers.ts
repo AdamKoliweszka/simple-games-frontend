@@ -31,6 +31,11 @@ const usersReducer = createReducer(
   on(UsersActions.changeActiveUser, (state, { activeUser }) => ({
     ...state,
     activeUser: activeUser
+  })),
+  on(UsersActions.initPoints, (state, { points }) => ({
+    ...state,
+    pointsFirstUser: points,
+    pointsSecondUser: points
   }))
 );
 
