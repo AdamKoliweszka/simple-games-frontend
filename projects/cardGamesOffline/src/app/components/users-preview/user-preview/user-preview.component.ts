@@ -8,6 +8,8 @@ import { User } from "../../../modules/users-state/models/user";
 })
 export class UserPreviewComponent {
   @Input() user: User;
+  @Input() points: number;
+  @Input() isActive: boolean;
 
   constructor() {}
 }

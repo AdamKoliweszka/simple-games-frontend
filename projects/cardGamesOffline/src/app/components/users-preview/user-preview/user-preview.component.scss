@@ -2,3 +2,18 @@ mat-card {
   width: 15vw;
   text-align: center;
 }
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.name {
+  width: 80%;
+}
+
+.points {
+  width: 20%;
+  border-left: grey 0.1vw solid;
+}

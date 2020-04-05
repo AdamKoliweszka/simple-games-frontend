@@ -1,4 +1,10 @@
 <div class="container">
-  <app-user-preview [user]="firstUser$ | async"></app-user-preview>
-  <app-user-preview [user]="secondUser$ | async"></app-user-preview>
+  <app-user-preview
+    [user]="firstUser$ | async"
+    [points]="10"
+  ></app-user-preview>
+  <app-user-preview
+    [user]="secondUser$ | async"
+    [points]="2"
+  ></app-user-preview>
 </div>
