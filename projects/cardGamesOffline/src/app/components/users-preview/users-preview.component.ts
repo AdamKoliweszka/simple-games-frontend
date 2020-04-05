@@ -11,10 +11,14 @@ import { User } from "../../modules/users-state/models/user";
 export class UsersPreviewComponent implements OnInit {
   firstUser$: Observable<User>;
   secondUser$: Observable<User>;
+  pointsFirstUser$: Observable<number>;
+  pointsSecondUser$: Observable<number>;
 
   constructor(private service: UsersDataContainerService) {
     this.firstUser$ = this.service.firstUser;
     this.secondUser$ = this.service.secondUser;
+    this.pointsFirstUser$ = this.service.pointsFirstUser;
+    this.pointsSecondUser$ = this.service.pointsSecondUser;
   }
 
   ngOnInit() {}

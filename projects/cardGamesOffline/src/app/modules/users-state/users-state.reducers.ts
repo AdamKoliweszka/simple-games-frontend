@@ -6,12 +6,16 @@ export interface UsersState {
   firstUser: User;
   secondUser: User;
   activeUser: User;
+  pointsFirstUser: number;
+  pointsSecondUser: number;
 }
 
 const initialState: UsersState = {
   firstUser: null,
   secondUser: null,
-  activeUser: null
+  activeUser: null,
+  pointsFirstUser: 0,
+  pointsSecondUser: 0
 };
 
 const usersReducer = createReducer(

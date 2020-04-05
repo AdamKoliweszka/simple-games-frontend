@@ -16,6 +16,16 @@ export const selectSecondUser = createSelector(
   state => state.secondUser
 );
 
+export const selectPointsFirstUser = createSelector(
+  selectUsersState,
+  state => state.pointsFirstUser
+);
+
+export const selectPointsSecondUser = createSelector(
+  selectUsersState,
+  state => state.pointsSecondUser
+);
+
 export const selectIsUsersInit = createSelector(
   selectUsersState,
   state => state.secondUser != null && state.firstUser != null

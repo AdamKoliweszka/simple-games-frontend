@@ -30,6 +30,14 @@ export class UsersDataContainerService {
     return this.store.select(UsersSelectors.selectSecondUser);
   }
 
+  get pointsFirstUser(): Observable<number> {
+    return this.store.select(UsersSelectors.selectPointsFirstUser);
+  }
+
+  get pointsSecondUser(): Observable<number> {
+    return this.store.select(UsersSelectors.selectPointsSecondUser);
+  }
+
   get isUsersInit(): Observable<boolean> {
     return this.store.select(UsersSelectors.selectIsUsersInit);
   }
