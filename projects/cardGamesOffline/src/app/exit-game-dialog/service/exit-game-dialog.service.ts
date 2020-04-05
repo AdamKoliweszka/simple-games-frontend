@@ -10,12 +10,12 @@ export class ExitGameDialogService {
   constructor(public dialog: MatDialog) {}
 
   openDialog(): Observable<boolean> {
-    console.log("test");
-    return of(true);
-    // const dialogRef = this.dialog.open(ExitGameDialogComponent, {
-    //   width: "250px"
-    // });
+    // console.log("test");
+    // return of(true);
+    const dialogRef = this.dialog.open(ExitGameDialogComponent, {
+      width: "250px"
+    });
 
-    // return dialogRef.afterClosed();
+    return dialogRef.afterClosed();
   }
 }
