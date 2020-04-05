@@ -12,6 +12,7 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { environment } from "../environments/environment";
 import { EffectsModule } from "@ngrx/effects";
 import { UsersStateModule } from "./modules/users-state/users-state.module";
+import { MaterialModule } from "./modules/material/material.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +24,7 @@ import { UsersStateModule } from "./modules/users-state/users-state.module";
       logOnly: environment.production
     }),
     EffectsModule.forRoot([]),
+    MaterialModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
