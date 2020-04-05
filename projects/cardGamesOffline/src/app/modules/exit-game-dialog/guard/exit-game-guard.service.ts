@@ -4,7 +4,7 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot
 } from "@angular/router";
-import { GameSelectPageComponent } from "../../pages/game-select-page/game-select-page.component";
+import { GameSelectPageComponent } from "../../../pages/game-select-page/game-select-page.component";
 import { ExitGameDialogService } from "../service/exit-game-dialog.service";
 import { Observable } from "rxjs";
 

@@ -1,8 +1,8 @@
 import { Routes, RouterModule } from "@angular/router";
 import { NgModule } from "@angular/core";
 import { GameSelectPageComponent } from "./game-select-page.component";
-import { ExitGameGuardService } from "../../exit-game-dialog/guard/exit-game-guard.service";
-import { ExitGameDialogModule } from "../../exit-game-dialog/exit-game-dialog.module";
+import { ExitGameGuardService } from "../../modules/exit-game-dialog/guard/exit-game-guard.service";
+import { ExitGameDialogModule } from "../../modules/exit-game-dialog/exit-game-dialog.module";
 
 const routes: Routes = [
   {

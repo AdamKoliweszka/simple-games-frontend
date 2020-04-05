@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { ExitGameDialogComponent } from "./exit-game-dialog.component";
-import { MaterialModule } from "../modules/material/material.module";
+import { MaterialModule } from "../material/material.module";
 import { ExitGameDialogService } from "./service/exit-game-dialog.service";
 import { ExitGameGuardService } from "./guard/exit-game-guard.service";
 
