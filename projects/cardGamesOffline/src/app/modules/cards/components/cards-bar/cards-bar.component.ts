@@ -32,5 +32,17 @@ export class CardsBarComponent implements OnInit {
     );
   }
 
+  get clickability() {
+    let clickability = [];
+    for (
+      let i = this.firstIndex;
+      i < this.lastIndex && i < this.cards.length;
+      i++
+    ) {
+      clickability.push(i === 0);
+    }
+    return clickability;
+  }
+
   ngOnInit() {}
 }

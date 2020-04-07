@@ -10,7 +10,10 @@
     </button>
   </div>
   <div class="content">
-    <app-cards-collection [cards]="displayCards"></app-cards-collection>
+    <app-cards-collection
+      [cards]="displayCards"
+      [clickability]="clickability"
+    ></app-cards-collection>
   </div>
   <div class="scroll-button">
     <button

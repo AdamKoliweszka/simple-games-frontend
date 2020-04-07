@@ -1,3 +1,7 @@
 <div class="container">
-  <app-card *ngFor="let card of cards" [card]="card"></app-card>
+  <app-card
+    *ngFor="let card of cards; let i = index"
+    [card]="card"
+    [clickable]="clickability[i]"
+  ></app-card>
 </div>

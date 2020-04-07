@@ -8,6 +8,7 @@ import { Card } from "../../models/card";
 })
 export class CardsCollectionComponent implements OnInit {
   @Input() cards: Card[];
+  @Input() clickability: boolean[];
   constructor() {}
 
   ngOnInit() {}
