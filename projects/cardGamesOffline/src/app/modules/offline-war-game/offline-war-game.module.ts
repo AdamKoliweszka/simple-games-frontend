@@ -6,6 +6,7 @@ import { GamePageComponent } from "./game-page/game-page.component";
 import { CardsBarModule } from "../cards/components/cards-bar/cards-bar.module";
 import { TopGameBarModule } from "../../components/top-game-bar/top-game-bar.module";
 import { UsersPreviewModule } from "../../components/users-preview/users-preview.module";
+import { GameContentModule } from "./game-content/game-content.module";
 
 @NgModule({
   declarations: [GamePageComponent],
@@ -15,7 +16,8 @@ import { UsersPreviewModule } from "../../components/users-preview/users-preview
     OfflineWarGameRoutingModule,
     CardsBarModule,
     TopGameBarModule,
-    UsersPreviewModule
-  ]
+    UsersPreviewModule,
+    GameContentModule,
+  ],
 })
 export class OfflineWarGameModule {}

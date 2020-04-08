@@ -37,3 +37,13 @@ export const selectNumberOfCardsOfSecondPlayer = createSelector(
   selectOfflineWarGameState,
   state => state.secondPlayerCards.length
 );
+
+export const selectActualCardOfFirstPlayer = createSelector(
+  selectOfflineWarGameState,
+  state => state.actualCardOfFirstPlayer
+);
+
+export const selectActualCardOfSecondPlayer = createSelector(
+  selectOfflineWarGameState,
+  state => state.actualCardOfSecondPlayer
+);

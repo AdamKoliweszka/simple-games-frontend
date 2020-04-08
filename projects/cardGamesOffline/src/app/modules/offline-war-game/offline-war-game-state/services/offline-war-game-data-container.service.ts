@@ -7,7 +7,7 @@ import * as GamesSelectors from "../offline-war-game-state.selectors";
 import * as GamesActions from "../offline-war-game-state.actions";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class OfflineWarGameDataContainerService {
   constructor(private store: Store<OfflineWarGameState>) {}
@@ -26,6 +26,14 @@ export class OfflineWarGameDataContainerService {
 
   get secondPlayerCards(): Observable<Card[]> {
     return this.store.select(GamesSelectors.selectSecondPlayerCards);
+  }
+
+  get actualFirstPlayerCard(): Observable<Card> {
+    return this.store.select(GamesSelectors.selectActualCardOfFirstPlayer);
+  }
+
+  get actualSecondPlayerCards(): Observable<Card> {
+    return this.store.select(GamesSelectors.selectActualCardOfSecondPlayer);
   }
 
   get firstCardOfFirstPlayer(): Observable<Card> {

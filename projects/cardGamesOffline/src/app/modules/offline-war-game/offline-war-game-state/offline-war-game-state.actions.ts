@@ -38,3 +38,13 @@ export const removeFirstCardOfFirstPlayer = createAction(
 export const removeFirstCardOfSecondPlayer = createAction(
   "[OFFLINE_WAR_GAME] Remove first card of second player"
 );
+
+export const setActualCardOfFirstPlayer = createAction(
+  "[OFFLINE_WAR_GAME] Set actual card of first player",
+  props<{ card: Card }>()
+);
+
+export const setActualCardOfSecondPlayer = createAction(
+  "[OFFLINE_WAR_GAME] Set actual card of second player",
+  props<{ card: Card }>()
+);

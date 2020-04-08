@@ -24,4 +24,8 @@ export class OfflineWarGameManagerService {
     this.cardsDataContainerService.setCardsOfSecondPlayer(secondPlayerCards);
     this.usersDataContainerService.initPoints(26);
   }
+
+  makeAMoveFirstPlayer() {}
+
+  makeAMoveSecondPlayer() {}
 }
