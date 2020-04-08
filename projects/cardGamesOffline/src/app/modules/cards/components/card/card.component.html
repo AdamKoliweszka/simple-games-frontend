@@ -1,4 +1,8 @@
-<mat-card id="card" [ngClass]="{ clickable: clickable }">
+<mat-card
+  id="card"
+  [ngClass]="{ clickable: clickable }"
+  (click)="onClickCard()"
+>
   <!-- <div class="color-1">{{ card.color }}</div> -->
   <div class="color-1">
     <mat-icon

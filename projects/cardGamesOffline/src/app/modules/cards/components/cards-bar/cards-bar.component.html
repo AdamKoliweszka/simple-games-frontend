@@ -13,6 +13,7 @@
     <app-cards-collection
       [cards]="displayCards"
       [clickability]="clickability"
+      (clickCard)="onClickCard($event)"
     ></app-cards-collection>
   </div>
   <div class="scroll-button">

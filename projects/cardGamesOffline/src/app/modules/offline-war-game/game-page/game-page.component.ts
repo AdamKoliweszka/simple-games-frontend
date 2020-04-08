@@ -7,7 +7,7 @@ import { Card } from "../../cards/models/card";
 @Component({
   selector: "app-game-page",
   templateUrl: "./game-page.component.html",
-  styleUrls: ["./game-page.component.scss"]
+  styleUrls: ["./game-page.component.scss"],
 })
 export class GamePageComponent implements OnInit {
   cards$: Observable<Card[]>;
@@ -17,6 +17,10 @@ export class GamePageComponent implements OnInit {
   ) {
     this.gameService.initGame();
     this.cards$ = this.dataContainerService.firstPlayerCards;
+  }
+
+  onCardClick(card: Card) {
+    console.log(card);
   }
 
   ngOnInit() {}

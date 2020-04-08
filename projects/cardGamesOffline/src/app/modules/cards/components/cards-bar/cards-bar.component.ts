@@ -1,13 +1,15 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { Card } from "../../models/card";
 
 @Component({
   selector: "app-cards-bar",
   templateUrl: "./cards-bar.component.html",
-  styleUrls: ["./cards-bar.component.scss"]
+  styleUrls: ["./cards-bar.component.scss"],
 })
 export class CardsBarComponent implements OnInit {
   @Input() cards: Card[];
+  @Output() clickCard: EventEmitter<Card> = new EventEmitter<Card>();
+
   firstIndex: number = 0;
   lastIndex: number = 4;
 
@@ -42,6 +44,10 @@ export class CardsBarComponent implements OnInit {
       clickability.push(i === 0);
     }
     return clickability;
+  }
+
+  onClickCard(card: Card) {
+    this.clickCard.emit(card);
   }
 
   ngOnInit() {}

@@ -3,5 +3,6 @@
     *ngFor="let card of cards; let i = index"
     [card]="card"
     [clickable]="clickability[i]"
+    (clickCard)="onClickCard($event)"
   ></app-card>
 </div>
