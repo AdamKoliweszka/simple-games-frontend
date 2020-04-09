@@ -1,6 +1,8 @@
 <mat-card *ngIf="user"
   ><div class="container">
-    <div class="name">{{ user.name }}</div>
+    <div class="name" [ngClass]="{ active: isActive, name: true }">
+      {{ user.name }}
+    </div>
     <div class="points">{{ points }}</div>
   </div></mat-card
 >

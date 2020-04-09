@@ -7,11 +7,12 @@ import { User } from "../../modules/users-state/models/user";
   selector: "app-users-preview",
   templateUrl: "./users-preview.component.html",
   styleUrls: ["./users-preview.component.scss"],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UsersPreviewComponent implements OnInit {
   firstUser$: Observable<User>;
   secondUser$: Observable<User>;
+  activeUser$: Observable<User>;
   pointsFirstUser$: Observable<number>;
   pointsSecondUser$: Observable<number>;
 
@@ -20,6 +21,7 @@ export class UsersPreviewComponent implements OnInit {
     this.secondUser$ = this.service.secondUser;
     this.pointsFirstUser$ = this.service.pointsFirstUser;
     this.pointsSecondUser$ = this.service.pointsSecondUser;
+    this.activeUser$ = this.service.activeUser;
   }
 
   ngOnInit() {}
