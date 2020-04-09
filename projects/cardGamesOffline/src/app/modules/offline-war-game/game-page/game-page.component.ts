@@ -12,16 +12,20 @@ import { UsersDataContainerService } from "../../users-state/services/users-data
   styleUrls: ["./game-page.component.scss"],
 })
 export class GamePageComponent implements OnInit {
-  cards$: Observable<Card[]>;
+  firstPlayerCards$: Observable<Card[]>;
+  secondPlayerCards$: Observable<Card[]>;
   actualPlayer$: Observable<User>;
+  firstPlayer$: Observable<User>;
   constructor(
     private gameService: OfflineWarGameManagerService,
     private dataContainerService: OfflineWarGameDataContainerService,
     private usersService: UsersDataContainerService
   ) {
     this.gameService.initGame();
-    this.cards$ = this.dataContainerService.firstPlayerCards;
+    this.firstPlayerCards$ = this.dataContainerService.firstPlayerCards;
+    this.secondPlayerCards$ = this.dataContainerService.secondPlayerCards;
     this.actualPlayer$ = this.usersService.activeUser;
+    this.firstPlayer$ = this.usersService.firstUser;
   }
 
   onCardClick(card: Card) {
