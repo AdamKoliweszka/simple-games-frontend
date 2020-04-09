@@ -1,4 +1,12 @@
 <div class="container">
-  <app-card [card]="firstPlayerCard$ | async" [clickable]="false"></app-card>
-  <app-card [card]="secondPlayerCard$ | async" [clickable]="false"></app-card>
+  <app-card
+    class="card"
+    [card]="firstPlayerCard$ | async"
+    [clickable]="false"
+  ></app-card>
+  <app-card
+    class="card"
+    [card]="secondPlayerCard$ | async"
+    [clickable]="false"
+  ></app-card>
 </div>

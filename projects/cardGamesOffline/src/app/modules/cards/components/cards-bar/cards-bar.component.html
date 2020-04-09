@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="scroll-button">
+  <div class="left-arrow">
     <button
       mat-icon-button
       aria-label="Example icon-button with a heart icon"
@@ -9,14 +9,16 @@
       <mat-icon>keyboard_arrow_left</mat-icon>
     </button>
   </div>
-  <div class="content">
-    <app-cards-collection
-      [cards]="displayCards"
-      [clickability]="clickability"
-      (clickCard)="onClickCard($event)"
-    ></app-cards-collection>
-  </div>
-  <div class="scroll-button">
+
+  <app-cards-collection
+    [cards]="displayCards"
+    [clickability]="clickability"
+    (clickCard)="onClickCard($event)"
+    class="content"
+  ></app-cards-collection>
+
+  <div class="user-container">test</div>
+  <div class="right-arrow">
     <button
       mat-icon-button
       aria-label="Example icon-button with a heart icon"
