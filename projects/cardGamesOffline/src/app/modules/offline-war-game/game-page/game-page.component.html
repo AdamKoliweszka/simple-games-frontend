@@ -2,6 +2,7 @@
 <app-game-content></app-game-content>
 <app-cards-bar
   class="bottom-bar"
+  [actualPlayer]="actualPlayer$ | async"
   [cards]="cards$ | async"
   (clickCard)="onCardClick($event)"
 ></app-cards-bar>

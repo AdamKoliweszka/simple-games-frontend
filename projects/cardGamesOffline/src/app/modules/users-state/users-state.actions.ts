@@ -10,7 +10,7 @@ export const initSecondUser = createAction(
   props<{ secondUser: User }>()
 );
 export const changeActiveUser = createAction(
-  "[USERS] Add second user",
+  "[USERS] Add active user",
   props<{ activeUser: User }>()
 );
 

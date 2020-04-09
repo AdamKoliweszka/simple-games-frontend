@@ -7,23 +7,25 @@ import * as UsersSelectors from "../users-state.selectors";
 import { Observable } from "rxjs";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class UsersDataContainerService {
   constructor(private store: Store<UsersState>) {}
 
-  initFirstUser(name: string) {
-    let firstUser = { name: name } as User;
+  initFirstUser(firstUser: User) {
     this.store.dispatch(UsersActions.initFirstUser({ firstUser }));
   }
 
-  initSecondUser(name: string) {
-    let secondUser = { name: name } as User;
+  initSecondUser(secondUser: User) {
     this.store.dispatch(UsersActions.initSecondUser({ secondUser }));
   }
 
   initPoints(points: number) {
     this.store.dispatch(UsersActions.initPoints({ points }));
+  }
+
+  setActiveUser(activeUser: User) {
+    this.store.dispatch(UsersActions.changeActiveUser({ activeUser }));
   }
 
   get firstUser(): Observable<User> {
@@ -44,5 +46,9 @@ export class UsersDataContainerService {
 
   get isUsersInit(): Observable<boolean> {
     return this.store.select(UsersSelectors.selectIsUsersInit);
+  }
+
+  get activeUser(): Observable<User> {
+    return this.store.select(UsersSelectors.selectActiveUser);
   }
 }

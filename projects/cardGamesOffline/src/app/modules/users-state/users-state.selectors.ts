@@ -8,25 +8,30 @@ export const selectUsersState = createFeatureSelector<UsersState>(
 
 export const selectFirstUser = createSelector(
   selectUsersState,
-  state => state.firstUser
+  (state) => state.firstUser
+);
+
+export const selectActiveUser = createSelector(
+  selectUsersState,
+  (state) => state.activeUser
 );
 
 export const selectSecondUser = createSelector(
   selectUsersState,
-  state => state.secondUser
+  (state) => state.secondUser
 );
 
 export const selectPointsFirstUser = createSelector(
   selectUsersState,
-  state => state.pointsFirstUser
+  (state) => state.pointsFirstUser
 );
 
 export const selectPointsSecondUser = createSelector(
   selectUsersState,
-  state => state.pointsSecondUser
+  (state) => state.pointsSecondUser
 );
 
 export const selectIsUsersInit = createSelector(
   selectUsersState,
-  state => state.secondUser != null && state.firstUser != null
+  (state) => state.secondUser != null && state.firstUser != null
 );

@@ -1,11 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 import { UsersDataContainerService } from "../../modules/users-state/services/users-data-container.service";
 import { Router } from "@angular/router";
+import { User } from "../../modules/users-state/models/user";
 
 @Component({
   selector: "app-home-page",
   templateUrl: "./home-page.component.html",
-  styleUrls: ["./home-page.component.scss"]
+  styleUrls: ["./home-page.component.scss"],
 })
 export class HomePageComponent implements OnInit {
   constructor(
@@ -14,8 +15,11 @@ export class HomePageComponent implements OnInit {
   ) {}
 
   onUsersSubmit(usersNames: string[]) {
-    this.usersDataContainerService.initFirstUser(usersNames[0]);
-    this.usersDataContainerService.initSecondUser(usersNames[1]);
+    let firstUser = { name: usersNames[0] } as User;
+    let secondUser = { name: usersNames[1] } as User;
+    this.usersDataContainerService.initFirstUser(firstUser);
+    this.usersDataContainerService.initSecondUser(secondUser);
+    this.usersDataContainerService.setActiveUser(firstUser);
     this.router.navigate(["games"]);
   }
 

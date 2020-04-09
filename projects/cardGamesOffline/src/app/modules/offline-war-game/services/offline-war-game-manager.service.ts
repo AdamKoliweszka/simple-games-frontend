@@ -5,7 +5,7 @@ import { CardShufflingService } from "../../cards/services/card-shuffing/card-sh
 import { UsersDataContainerService } from "../../users-state/services/users-data-container.service";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class OfflineWarGameManagerService {
   constructor(
