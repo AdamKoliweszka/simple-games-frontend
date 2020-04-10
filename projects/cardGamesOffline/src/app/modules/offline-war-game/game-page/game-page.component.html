@@ -7,14 +7,14 @@
   <app-top-game-bar><app-users-preview></app-users-preview> </app-top-game-bar>
   <app-game-content></app-game-content>
   <app-cards-bar
-    *ngIf="data.firstPlayer === data.actualPlayer"
+    *ngIf="data.firstPlayer.name === data.actualPlayer.name"
     class="bottom-bar"
     [actualPlayer]="data.actualPlayer"
     [cards]="firstPlayerCards$ | async"
     (clickCard)="onCardClick($event)"
   ></app-cards-bar>
   <app-cards-bar
-    *ngIf="data.firstPlayer !== data.actualPlayer"
+    *ngIf="data.firstPlayer.name !== data.actualPlayer.name"
     class="bottom-bar"
     [actualPlayer]="data.actualPlayer"
     [cards]="secondPlayerCards$ | async"

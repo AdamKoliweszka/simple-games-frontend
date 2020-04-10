@@ -9,10 +9,12 @@ export const initSecondUser = createAction(
   "[USERS] Add second user",
   props<{ secondUser: User }>()
 );
-export const changeActiveUser = createAction(
+export const initActiveUser = createAction(
   "[USERS] Add active user",
   props<{ activeUser: User }>()
 );
+
+export const changeActiveUser = createAction("[USERS] Change active user");
 
 export const initPoints = createAction(
   "[USERS] Init points of Users",

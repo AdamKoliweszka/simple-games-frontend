@@ -9,11 +9,11 @@
   <app-user-preview
     [user]="data.firstUser"
     [points]="pointsFirstUser$ | async"
-    [isActive]="data.firstUser === data.activeUser"
+    [isActive]="data.firstUser.name === data.activeUser.name"
   ></app-user-preview>
   <app-user-preview
     [user]="data.secondUser"
     [points]="pointsSecondUser$ | async"
-    [isActive]="data.secondUser === data.activeUser"
+    [isActive]="data.secondUser.name === data.activeUser.name"
   ></app-user-preview>
 </div>

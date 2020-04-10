@@ -17,6 +17,7 @@ export class HomePageComponent implements OnInit {
   onUsersSubmit(usersNames: string[]) {
     let firstUser = { name: usersNames[0] } as User;
     let secondUser = { name: usersNames[1] } as User;
+    console.log(firstUser);
     this.usersDataContainerService.initFirstUser(firstUser);
     this.usersDataContainerService.initSecondUser(secondUser);
     this.usersDataContainerService.setActiveUser(firstUser);

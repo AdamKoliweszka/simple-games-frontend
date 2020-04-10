@@ -5,7 +5,7 @@ import { Validators } from "@angular/forms";
 @Component({
   selector: "app-user-form",
   templateUrl: "./user-form.component.html",
-  styleUrls: ["./user-form.component.scss"]
+  styleUrls: ["./user-form.component.scss"],
 })
 export class UserFormComponent implements OnInit {
   @Output() users: EventEmitter<string[]> = new EventEmitter<string[]>();
@@ -13,7 +13,7 @@ export class UserFormComponent implements OnInit {
   constructor() {
     this.usersForm = new FormGroup({
       firstUser: new FormControl("", Validators.required),
-      secondUser: new FormControl("", Validators.required)
+      secondUser: new FormControl("", Validators.required),
     });
   }
 

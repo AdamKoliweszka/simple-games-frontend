@@ -28,9 +28,16 @@ const usersReducer = createReducer(
     ...state,
     secondUser: secondUser,
   })),
-  on(UsersActions.changeActiveUser, (state, { activeUser }) => ({
+  on(UsersActions.initActiveUser, (state, { activeUser }) => ({
     ...state,
     activeUser: activeUser,
+  })),
+  on(UsersActions.changeActiveUser, (state) => ({
+    ...state,
+    activeUser:
+      state.activeUser.name === state.firstUser.name
+        ? { ...state.secondUser }
+        : { ...state.firstUser },
   })),
   on(UsersActions.initPoints, (state, { points }) => ({
     ...state,

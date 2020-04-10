@@ -25,7 +25,12 @@ export class UsersDataContainerService {
   }
 
   setActiveUser(activeUser: User) {
-    this.store.dispatch(UsersActions.changeActiveUser({ activeUser }));
+    this.store.dispatch(UsersActions.initActiveUser({ activeUser }));
+  }
+
+  changeActiveUser() {
+    console.log("change");
+    this.store.dispatch(UsersActions.changeActiveUser());
   }
 
   get firstUser(): Observable<User> {
