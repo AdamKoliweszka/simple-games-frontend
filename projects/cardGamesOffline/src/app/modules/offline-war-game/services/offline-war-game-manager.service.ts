@@ -25,11 +25,7 @@ export class OfflineWarGameManagerService {
     this.usersDataContainerService.initPoints(26);
   }
 
-  makeAMoveFirstPlayer() {
-    this.cardsDataContainerService.makeMove();
-  }
-
-  makeAMoveSecondPlayer() {
+  makeMove() {
     this.cardsDataContainerService.makeMove();
   }
 }

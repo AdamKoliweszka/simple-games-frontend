@@ -29,7 +29,7 @@ export class GamePageComponent implements OnInit {
   }
 
   onCardClick(card: Card) {
-    this.gameService.makeAMoveFirstPlayer();
+    this.gameService.makeMove();
   }
 
   ngOnInit() {}
