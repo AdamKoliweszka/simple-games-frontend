@@ -26,10 +26,10 @@ export class OfflineWarGameManagerService {
   }
 
   makeAMoveFirstPlayer() {
-    this.usersDataContainerService.changeActiveUser();
+    this.cardsDataContainerService.makeMove();
   }
 
   makeAMoveSecondPlayer() {
-    this.usersDataContainerService.changeActiveUser();
+    this.cardsDataContainerService.makeMove();
   }
 }

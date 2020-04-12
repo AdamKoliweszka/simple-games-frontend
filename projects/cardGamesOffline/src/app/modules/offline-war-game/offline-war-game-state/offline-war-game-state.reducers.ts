@@ -14,14 +14,8 @@ export interface OfflineWarGameState {
 const initialState: OfflineWarGameState = {
   firstPlayerCards: null,
   secondPlayerCards: null,
-  actualCardOfFirstPlayer: {
-    value: CardValue.ACE,
-    color: CardColor.DIAMONDS,
-  } as Card,
-  actualCardOfSecondPlayer: {
-    value: CardValue.ACE,
-    color: CardColor.DIAMONDS,
-  } as Card,
+  actualCardOfFirstPlayer: null,
+  actualCardOfSecondPlayer: null,
 };
 
 const offlineWarGameReducer = createReducer(
@@ -42,21 +36,13 @@ const offlineWarGameReducer = createReducer(
     ...state,
     secondPlayerCards: [...state.secondPlayerCards, card],
   })),
-  on(GamesActions.addCardsToFirstPlayerCards, (state, { cards }) => ({
-    ...state,
-    firstPlayerCards: [...state.firstPlayerCards, cards],
-  })),
-  on(GamesActions.addCardsToSecondPlayerCards, (state, { cards }) => ({
-    ...state,
-    secondPlayerCards: [...state.secondPlayerCards, cards],
-  })),
   on(GamesActions.removeFirstCardOfFirstPlayer, (state) => ({
     ...state,
-    firstPlayerCards: state.firstPlayerCards.splice(0, 1),
+    firstPlayerCards: state.firstPlayerCards.slice(1),
   })),
   on(GamesActions.removeFirstCardOfSecondPlayer, (state) => ({
     ...state,
-    secondPlayerCards: state.secondPlayerCards.splice(0, 1),
+    secondPlayerCards: state.secondPlayerCards.slice(1),
   })),
   on(GamesActions.setActualCardOfFirstPlayer, (state, { card }) => ({
     ...state,

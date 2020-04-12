@@ -29,7 +29,6 @@ export class GamePageComponent implements OnInit {
   }
 
   onCardClick(card: Card) {
-    console.log(card);
     this.gameService.makeAMoveFirstPlayer();
   }
 

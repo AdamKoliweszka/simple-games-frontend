@@ -16,6 +16,11 @@ export const selectActiveUser = createSelector(
   (state) => state.activeUser
 );
 
+export const selectIsFirstUserActive = createSelector(
+  selectUsersState,
+  (state) => state.activeUser.name === state.firstUser.name
+);
+
 export const selectSecondUser = createSelector(
   selectUsersState,
   (state) => state.secondUser

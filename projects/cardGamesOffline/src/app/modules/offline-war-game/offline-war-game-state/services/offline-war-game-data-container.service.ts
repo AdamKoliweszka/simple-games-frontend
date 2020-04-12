@@ -12,6 +12,10 @@ import * as GamesActions from "../offline-war-game-state.actions";
 export class OfflineWarGameDataContainerService {
   constructor(private store: Store<OfflineWarGameState>) {}
 
+  makeMove() {
+    this.store.dispatch(GamesActions.makeMove());
+  }
+
   setCardsOfFirstPlayer(cards: Card[]) {
     this.store.dispatch(GamesActions.initFirstPlayerCards({ cards }));
   }

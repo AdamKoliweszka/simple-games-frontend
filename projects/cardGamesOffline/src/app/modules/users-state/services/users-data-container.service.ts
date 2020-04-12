@@ -29,7 +29,6 @@ export class UsersDataContainerService {
   }
 
   changeActiveUser() {
-    console.log("change");
     this.store.dispatch(UsersActions.changeActiveUser());
   }
 

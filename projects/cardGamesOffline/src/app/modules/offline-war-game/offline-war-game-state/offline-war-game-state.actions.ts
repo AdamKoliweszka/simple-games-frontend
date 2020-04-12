@@ -21,16 +21,6 @@ export const addCardToSecondPlayerCards = createAction(
   props<{ card: Card }>()
 );
 
-export const addCardsToFirstPlayerCards = createAction(
-  "[OFFLINE_WAR_GAME] Add cards to first players cards",
-  props<{ cards: Card[] }>()
-);
-
-export const addCardsToSecondPlayerCards = createAction(
-  "[OFFLINE_WAR_GAME] Add cards to second players cards",
-  props<{ cards: Card[] }>()
-);
-
 export const removeFirstCardOfFirstPlayer = createAction(
   "[OFFLINE_WAR_GAME] Remove first card of first player"
 );
@@ -47,4 +37,14 @@ export const setActualCardOfFirstPlayer = createAction(
 export const setActualCardOfSecondPlayer = createAction(
   "[OFFLINE_WAR_GAME] Set actual card of second player",
   props<{ card: Card }>()
+);
+
+export const makeMove = createAction("[OFFLINE_WAR_GAME] Make move");
+
+export const makeFirstPlayerMove = createAction(
+  "[OFFLINE_WAR_GAME] Make first player move"
+);
+
+export const makeSecondPlayerMove = createAction(
+  "[OFFLINE_WAR_GAME] Make second player move"
 );
