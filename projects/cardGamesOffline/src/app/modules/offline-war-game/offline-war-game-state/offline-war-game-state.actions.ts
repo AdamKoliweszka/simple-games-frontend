@@ -48,3 +48,8 @@ export const makeFirstPlayerMove = createAction(
 export const makeSecondPlayerMove = createAction(
   "[OFFLINE_WAR_GAME] Make second player move"
 );
+
+export const setReadyToCompareFlag = createAction(
+  "[OFFLINE_WAR_GAME] Set ready to compare flag",
+  props<{ readyToCompareFlag: boolean }>()
+);

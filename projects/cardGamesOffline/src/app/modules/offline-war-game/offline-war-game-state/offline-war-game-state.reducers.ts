@@ -9,6 +9,7 @@ export interface OfflineWarGameState {
   secondPlayerCards: Card[];
   actualCardOfFirstPlayer: Card;
   actualCardOfSecondPlayer: Card;
+  readyToCompareFlag: boolean;
 }
 
 const initialState: OfflineWarGameState = {
@@ -16,6 +17,7 @@ const initialState: OfflineWarGameState = {
   secondPlayerCards: null,
   actualCardOfFirstPlayer: null,
   actualCardOfSecondPlayer: null,
+  readyToCompareFlag: false,
 };
 
 const offlineWarGameReducer = createReducer(
@@ -51,6 +53,10 @@ const offlineWarGameReducer = createReducer(
   on(GamesActions.setActualCardOfSecondPlayer, (state, { card }) => ({
     ...state,
     actualCardOfSecondPlayer: card,
+  })),
+  on(GamesActions.setReadyToCompareFlag, (state, { readyToCompareFlag }) => ({
+    ...state,
+    readyToCompareFlag: readyToCompareFlag,
   }))
 );
 
