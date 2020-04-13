@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core";
-import { Card } from "projects/cards/src/lib/models/card";
 import { ResultOfRatingCard } from "../../enums/result-of-rating-card.enum";
+import { Card } from "../../models/card";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class RatingCardService {
   constructor() {}

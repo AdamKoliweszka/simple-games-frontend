@@ -3,6 +3,7 @@ import { OfflineWarGameDataContainerService } from "../offline-war-game-state/se
 import { CardFactoryService } from "../../cards/services/card-factory/card-factory.service";
 import { CardShufflingService } from "../../cards/services/card-shuffing/card-shuffling.service";
 import { UsersDataContainerService } from "../../users-state/services/users-data-container.service";
+import { RatingCardService } from "../../cards/services/rating-card/rating-card.service";
 
 @Injectable({
   providedIn: "root",
@@ -12,7 +13,8 @@ export class OfflineWarGameManagerService {
     private cardsDataContainerService: OfflineWarGameDataContainerService,
     private usersDataContainerService: UsersDataContainerService,
     private cardFactoryService: CardFactoryService,
-    private shufflingService: CardShufflingService
+    private shufflingService: CardShufflingService,
+    private ratingService: RatingCardService
   ) {}
 
   initGame() {
