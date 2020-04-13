@@ -4,6 +4,9 @@ import { CardFactoryService } from "../../cards/services/card-factory/card-facto
 import { CardShufflingService } from "../../cards/services/card-shuffing/card-shuffling.service";
 import { UsersDataContainerService } from "../../users-state/services/users-data-container.service";
 import { RatingCardService } from "../../cards/services/rating-card/rating-card.service";
+import { Card } from "../../cards/models/card";
+import { ResultOfRatingCard } from "../../cards/enums/result-of-rating-card.enum";
+import { ResultOfComparission } from "../models/result-of-comparission";
 
 @Injectable({
   providedIn: "root",
@@ -29,5 +32,36 @@ export class OfflineWarGameManagerService {
 
   makeMove() {
     this.cardsDataContainerService.makeMove();
+  }
+
+  compareCards(
+    cardOfFirstPlayer: Card,
+    cardOfSecondPlayer: Card
+  ): ResultOfComparission {
+    let finalResult = {
+      cardsOfFirstPlayer: [],
+      cardsOfSecondPlayer: [],
+    } as ResultOfComparission;
+    let result = this.ratingService.compareCard(
+      cardOfFirstPlayer,
+      cardOfSecondPlayer
+    );
+    switch (result) {
+      case ResultOfRatingCard.CARD_1_WIN:
+        finalResult.cardsOfFirstPlayer.push(cardOfFirstPlayer);
+        finalResult.cardsOfFirstPlayer.push(cardOfSecondPlayer);
+        this.shufflingService.shufflingCards(finalResult.cardsOfFirstPlayer);
+        break;
+      case ResultOfRatingCard.CARD_2_WIN:
+        finalResult.cardsOfSecondPlayer.push(cardOfFirstPlayer);
+        finalResult.cardsOfSecondPlayer.push(cardOfSecondPlayer);
+        this.shufflingService.shufflingCards(finalResult.cardsOfSecondPlayer);
+        break;
+      case ResultOfRatingCard.DRAW:
+        finalResult.cardsOfFirstPlayer.push(cardOfFirstPlayer);
+        finalResult.cardsOfSecondPlayer.push(cardOfSecondPlayer);
+        break;
+    }
+    return finalResult;
   }
 }
