@@ -8,6 +8,7 @@ import {
   makeSecondPlayerMove,
   removeFirstCardOfFirstPlayer,
   removeFirstCardOfSecondPlayer,
+  setReadyToCompareFlag,
 } from "./offline-war-game-state.actions";
 import { map, concatMap, withLatestFrom, tap, mergeMap } from "rxjs/operators";
 import { changeActiveUser } from "../../users-state/users-state.actions";
@@ -46,7 +47,6 @@ export class WarGameEffect {
     ofType(makeFirstPlayerMove),
     withLatestFrom(this.cardStore.pipe(select(selectFirstCardOfFirstPlayer))),
     mergeMap(([action, card]) => {
-      console.log(card);
       return [
         setActualCardOfFirstPlayer({ card }),
         removeFirstCardOfFirstPlayer(),
@@ -59,10 +59,11 @@ export class WarGameEffect {
     ofType(makeSecondPlayerMove),
     withLatestFrom(this.cardStore.pipe(select(selectFirstCardOfSecondPlayer))),
     mergeMap(([action, card]) => {
-      console.log(card);
+      let readyToCompareFlag = true;
       return [
         setActualCardOfSecondPlayer({ card }),
         removeFirstCardOfSecondPlayer(),
+        setReadyToCompareFlag({ readyToCompareFlag }),
       ];
     })
   );

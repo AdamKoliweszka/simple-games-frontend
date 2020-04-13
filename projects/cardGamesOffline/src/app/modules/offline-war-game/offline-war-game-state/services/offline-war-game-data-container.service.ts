@@ -24,6 +24,10 @@ export class OfflineWarGameDataContainerService {
     this.store.dispatch(GamesActions.initSecondPlayerCards({ cards }));
   }
 
+  get readyToCompareFlag(): Observable<boolean> {
+    return this.store.select(GamesSelectors.selectReadyToCompareFlag);
+  }
+
   get firstPlayerCards(): Observable<Card[]> {
     return this.store.select(GamesSelectors.selectFirstPlayerCards);
   }

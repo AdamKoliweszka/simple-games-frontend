@@ -7,6 +7,7 @@ import { RatingCardService } from "../../cards/services/rating-card/rating-card.
 import { Card } from "../../cards/models/card";
 import { ResultOfRatingCard } from "../../cards/enums/result-of-rating-card.enum";
 import { ResultOfComparission } from "../models/result-of-comparission";
+import { withLatestFrom, filter, map } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root",
@@ -28,6 +29,17 @@ export class OfflineWarGameManagerService {
     this.cardsDataContainerService.setCardsOfFirstPlayer(firstPlayerCards);
     this.cardsDataContainerService.setCardsOfSecondPlayer(secondPlayerCards);
     this.usersDataContainerService.initPoints(26);
+    this.cardsDataContainerService.readyToCompareFlag
+      .pipe(
+        filter((value) => value),
+        withLatestFrom(
+          this.cardsDataContainerService.actualFirstPlayerCard,
+          this.cardsDataContainerService.actualSecondPlayerCards
+        )
+      )
+      .subscribe((values) => {
+        console.log(this.compareCards(values[1], values[2]));
+      });
   }
 
   makeMove() {

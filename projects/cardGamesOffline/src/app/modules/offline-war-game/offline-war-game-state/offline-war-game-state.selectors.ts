@@ -51,3 +51,8 @@ export const selectActualCardOfSecondPlayer = createSelector(
   selectOfflineWarGameState,
   (state) => state.actualCardOfSecondPlayer
 );
+
+export const selectReadyToCompareFlag = createSelector(
+  selectOfflineWarGameState,
+  (state) => state.readyToCompareFlag
+);
