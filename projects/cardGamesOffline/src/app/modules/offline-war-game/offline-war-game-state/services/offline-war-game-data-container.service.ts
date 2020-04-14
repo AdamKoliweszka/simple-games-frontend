@@ -5,6 +5,7 @@ import { Observable } from "rxjs";
 import { Card } from "../../../cards/models/card";
 import * as GamesSelectors from "../offline-war-game-state.selectors";
 import * as GamesActions from "../offline-war-game-state.actions";
+import { ResultOfComparission } from "../../models/result-of-comparission";
 
 @Injectable({
   providedIn: "root",
@@ -22,6 +23,10 @@ export class OfflineWarGameDataContainerService {
 
   setCardsOfSecondPlayer(cards: Card[]) {
     this.store.dispatch(GamesActions.initSecondPlayerCards({ cards }));
+  }
+
+  addResultOfRound(result: ResultOfComparission) {
+    this.store.dispatch(GamesActions.addResultOfRound({ result }));
   }
 
   get readyToCompareFlag(): Observable<boolean> {

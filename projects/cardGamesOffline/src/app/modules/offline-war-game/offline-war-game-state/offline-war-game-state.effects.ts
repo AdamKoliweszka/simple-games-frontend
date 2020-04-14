@@ -9,9 +9,17 @@ import {
   removeFirstCardOfFirstPlayer,
   removeFirstCardOfSecondPlayer,
   setReadyToCompareFlag,
+  addResultOfRound,
+  addCardsToFirstPlayerCards,
+  addCardsToSecondPlayerCards,
+  removeActualCards,
 } from "./offline-war-game-state.actions";
-import { map, concatMap, withLatestFrom, tap, mergeMap } from "rxjs/operators";
-import { changeActiveUser } from "../../users-state/users-state.actions";
+import { withLatestFrom, tap, mergeMap } from "rxjs/operators";
+import {
+  changeActiveUser,
+  addPointsToFirstUser,
+  addPointsToSecondUser,
+} from "../../users-state/users-state.actions";
 import { UsersState } from "../../users-state/users-state.reducers";
 import { Store, select } from "@ngrx/store";
 import { selectIsFirstUserActive } from "../../users-state/users-state.selectors";
@@ -65,6 +73,28 @@ export class WarGameEffect {
         removeFirstCardOfSecondPlayer(),
         setReadyToCompareFlag({ readyToCompareFlag }),
       ];
+    })
+  );
+
+  @Effect()
+  addResult$ = this.action.pipe(
+    ofType(addResultOfRound),
+    mergeMap((action) => {
+      let result = action.result;
+      let cardsOfFirstPlayer = result.cardsOfFirstPlayer;
+      let cardsOfSecondPlayer = result.cardsOfSecondPlayer;
+      let readyToCompareFlag = false;
+      let actions = [
+        addCardsToFirstPlayerCards({ cardsOfFirstPlayer }),
+        addCardsToSecondPlayerCards({ cardsOfSecondPlayer }),
+        removeActualCards(),
+        setReadyToCompareFlag({ readyToCompareFlag }),
+      ];
+      if (cardsOfSecondPlayer.length > 1)
+        actions.push(addPointsToSecondUser() as any);
+      else if (cardsOfSecondPlayer.length == 0)
+        actions.push(addPointsToFirstUser() as any);
+      return actions;
     })
   );
 }

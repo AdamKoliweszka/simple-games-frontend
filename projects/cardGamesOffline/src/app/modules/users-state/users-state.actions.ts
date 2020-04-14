@@ -20,3 +20,11 @@ export const initPoints = createAction(
   "[USERS] Init points of Users",
   props<{ points: number }>()
 );
+
+export const addPointsToFirstUser = createAction(
+  "[USERS] Add points to first User"
+);
+
+export const addPointsToSecondUser = createAction(
+  "[USERS] Add points to second User"
+);

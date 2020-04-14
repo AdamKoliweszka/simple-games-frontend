@@ -28,7 +28,7 @@ export class OfflineWarGameManagerService {
     let secondPlayerCards = cards.slice(cards.length / 2);
     this.cardsDataContainerService.setCardsOfFirstPlayer(firstPlayerCards);
     this.cardsDataContainerService.setCardsOfSecondPlayer(secondPlayerCards);
-    this.usersDataContainerService.initPoints(26);
+    this.usersDataContainerService.initPoints(0);
     this.cardsDataContainerService.readyToCompareFlag
       .pipe(
         filter((value) => value),
@@ -38,7 +38,10 @@ export class OfflineWarGameManagerService {
         )
       )
       .subscribe((values) => {
-        console.log(this.compareCards(values[1], values[2]));
+        setTimeout(() => {
+          let result = this.compareCards(values[1], values[2]);
+          this.cardsDataContainerService.addResultOfRound(result);
+        }, 5000);
       });
   }
 

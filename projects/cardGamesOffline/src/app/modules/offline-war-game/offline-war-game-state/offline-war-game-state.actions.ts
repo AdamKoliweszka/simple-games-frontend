@@ -1,5 +1,6 @@
 import { createAction, props } from "@ngrx/store";
 import { Card } from "../../cards/models/card";
+import { ResultOfComparission } from "../models/result-of-comparission";
 
 export const initFirstPlayerCards = createAction(
   "[OFFLINE_WAR_GAME] Init first player cards",
@@ -11,14 +12,14 @@ export const initSecondPlayerCards = createAction(
   props<{ cards: Card[] }>()
 );
 
-export const addCardToFirstPlayerCards = createAction(
-  "[OFFLINE_WAR_GAME] Add card to first players cards",
-  props<{ card: Card }>()
+export const addCardsToFirstPlayerCards = createAction(
+  "[OFFLINE_WAR_GAME] Add cards to first players cards",
+  props<{ cardsOfFirstPlayer: Card[] }>()
 );
 
-export const addCardToSecondPlayerCards = createAction(
-  "[OFFLINE_WAR_GAME] Add card to second players cards",
-  props<{ card: Card }>()
+export const addCardsToSecondPlayerCards = createAction(
+  "[OFFLINE_WAR_GAME] Add cards to second players cards",
+  props<{ cardsOfSecondPlayer: Card[] }>()
 );
 
 export const removeFirstCardOfFirstPlayer = createAction(
@@ -39,6 +40,10 @@ export const setActualCardOfSecondPlayer = createAction(
   props<{ card: Card }>()
 );
 
+export const removeActualCards = createAction(
+  "[OFFLINE_WAR_GAME] Remove actual cards"
+);
+
 export const makeMove = createAction("[OFFLINE_WAR_GAME] Make move");
 
 export const makeFirstPlayerMove = createAction(
@@ -52,4 +57,9 @@ export const makeSecondPlayerMove = createAction(
 export const setReadyToCompareFlag = createAction(
   "[OFFLINE_WAR_GAME] Set ready to compare flag",
   props<{ readyToCompareFlag: boolean }>()
+);
+
+export const addResultOfRound = createAction(
+  "[OFFLINE_WAR_GAME] Add result of round",
+  props<{ result: ResultOfComparission }>()
 );

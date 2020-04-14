@@ -30,14 +30,22 @@ const offlineWarGameReducer = createReducer(
     ...state,
     secondPlayerCards: cards,
   })),
-  on(GamesActions.addCardToFirstPlayerCards, (state, { card }) => ({
-    ...state,
-    firstPlayerCards: [...state.firstPlayerCards, card],
-  })),
-  on(GamesActions.addCardToSecondPlayerCards, (state, { card }) => ({
-    ...state,
-    secondPlayerCards: [...state.secondPlayerCards, card],
-  })),
+  on(
+    GamesActions.addCardsToFirstPlayerCards,
+    (state, { cardsOfFirstPlayer }) => ({
+      ...state,
+      firstPlayerCards: [...state.firstPlayerCards.concat(cardsOfFirstPlayer)],
+    })
+  ),
+  on(
+    GamesActions.addCardsToSecondPlayerCards,
+    (state, { cardsOfSecondPlayer }) => ({
+      ...state,
+      secondPlayerCards: [
+        ...state.secondPlayerCards.concat(cardsOfSecondPlayer),
+      ],
+    })
+  ),
   on(GamesActions.removeFirstCardOfFirstPlayer, (state) => ({
     ...state,
     firstPlayerCards: state.firstPlayerCards.slice(1),
@@ -57,6 +65,11 @@ const offlineWarGameReducer = createReducer(
   on(GamesActions.setReadyToCompareFlag, (state, { readyToCompareFlag }) => ({
     ...state,
     readyToCompareFlag: readyToCompareFlag,
+  })),
+  on(GamesActions.removeActualCards, (state) => ({
+    ...state,
+    actualCardOfFirstPlayer: null,
+    actualCardOfSecondPlayer: null,
   }))
 );
 
