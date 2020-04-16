@@ -14,9 +14,9 @@ export class HomePageComponent implements OnInit {
     private router: Router
   ) {}
 
-  onUsersSubmit(usersNames: string[]) {
-    let firstUser = { name: usersNames[0] } as User;
-    let secondUser = { name: usersNames[1] } as User;
+  onPlayersSubmit(playersNames: string[]) {
+    let firstUser = { name: playersNames[0] } as User;
+    let secondUser = { name: playersNames[1] } as User;
     this.usersDataContainerService.initFirstUser(firstUser);
     this.usersDataContainerService.initSecondUser(secondUser);
     this.usersDataContainerService.setActiveUser(firstUser);

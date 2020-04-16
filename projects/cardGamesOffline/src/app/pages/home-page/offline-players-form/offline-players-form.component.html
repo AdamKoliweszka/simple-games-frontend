@@ -4,18 +4,18 @@
   </mat-card-header>
   <mat-divider></mat-divider>
   <mat-card-content>
-    <form [formGroup]="usersForm">
+    <form [formGroup]="playersForm">
       <mat-form-field appearance="fill" class="input margin-top">
         <mat-label>{{ "USERS_FORM.FIRST_USER" | translate }}</mat-label>
-        <input matInput formControlName="firstUser" />
-        <mat-error *ngIf="firstUser.hasError('required')">
+        <input matInput formControlName="firstPlayer" />
+        <mat-error *ngIf="firstPlayer.hasError('required')">
           {{ "USERS_FORM.FIRST_USER_ERROR" | translate }}
         </mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill" class="input">
         <mat-label>{{ "USERS_FORM.SECOND_USER" | translate }}</mat-label>
-        <input matInput formControlName="secondUser" />
-        <mat-error *ngIf="secondUser.hasError('required')">
+        <input matInput formControlName="secondPlayer" />
+        <mat-error *ngIf="secondPlayer.hasError('required')">
           {{ "USERS_FORM.SECOND_USER_ERROR" | translate }}
         </mat-error>
       </mat-form-field>
