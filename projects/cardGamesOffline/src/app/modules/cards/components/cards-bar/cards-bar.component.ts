@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { Card } from "../../models/card";
-import { User } from '../../../users-state/models/user';
+import { User } from "../../../users-state/models/user";
 
 @Component({
   selector: "app-cards-bar",
@@ -9,6 +9,7 @@ import { User } from '../../../users-state/models/user';
 })
 export class CardsBarComponent implements OnInit {
   @Input() cards: Card[];
+  @Input() clickability: boolean[];
   @Input() actualPlayer: User;
   @Output() clickCard: EventEmitter<Card> = new EventEmitter<Card>();
 
@@ -34,18 +35,6 @@ export class CardsBarComponent implements OnInit {
         ? this.lastIndex + 1
         : this.cards.length - 1
     );
-  }
-
-  get clickability() {
-    let clickability = [];
-    for (
-      let i = this.firstIndex;
-      i < this.lastIndex && i < this.cards.length;
-      i++
-    ) {
-      clickability.push(i === 0);
-    }
-    return clickability;
   }
 
   onClickCard(card: Card) {

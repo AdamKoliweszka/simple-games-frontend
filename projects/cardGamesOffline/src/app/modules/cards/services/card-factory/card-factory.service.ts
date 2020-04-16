@@ -4,7 +4,7 @@ import { CardColor } from "../../enums/card-color.enum";
 import { CardValue } from "../../enums/card-value.enum";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class CardFactoryService {
   constructor() {}
@@ -14,7 +14,7 @@ export class CardFactoryService {
 
     for (let color in CardColor) {
       for (let value in CardValue) {
-        let card = { color: color, value: value } as Card;
+        let card = { color: color, value: value, isClickable: false } as Card;
         cards.push(card);
       }
     }

@@ -8,7 +8,6 @@ import { Card } from "../../models/card";
 })
 export class CardsCollectionComponent implements OnInit {
   @Input() cards: Card[];
-  @Input() clickability: boolean[];
   @Output() clickCard: EventEmitter<Card> = new EventEmitter<Card>();
   constructor() {}
 

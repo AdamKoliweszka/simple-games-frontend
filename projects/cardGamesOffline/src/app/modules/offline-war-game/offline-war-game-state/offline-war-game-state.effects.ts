@@ -13,8 +13,10 @@ import {
   addCardsToFirstPlayerCards,
   addCardsToSecondPlayerCards,
   removeActualCards,
+  initFirstPlayerCards,
+  initSecondPlayerCards,
 } from "./offline-war-game-state.actions";
-import { withLatestFrom, tap, mergeMap } from "rxjs/operators";
+import { withLatestFrom, tap, mergeMap, map } from "rxjs/operators";
 import {
   changeActiveUser,
   addPointsToFirstUser,
@@ -27,6 +29,8 @@ import { OfflineWarGameState } from "./offline-war-game-state.reducers";
 import {
   selectFirstCardOfFirstPlayer,
   selectFirstCardOfSecondPlayer,
+  selectFirstPlayerCards,
+  selectSecondPlayerCards,
 } from "./offline-war-game-state.selectors";
 
 @Injectable()
@@ -95,6 +99,23 @@ export class WarGameEffect {
       else if (cardsOfSecondPlayer.length == 0)
         actions.push(addPointsToFirstUser() as any);
       return actions;
+    })
+  );
+
+  @Effect()
+  addClickability$ = this.action.pipe(
+    ofType(removeActualCards),
+    withLatestFrom(
+      this.cardStore.pipe(select(selectFirstPlayerCards)),
+      this.cardStore.pipe(select(selectSecondPlayerCards))
+    ),
+    mergeMap(([action, cardsOfFirstPlayer, cardsOfSecondPlayer]) => {
+      cardsOfFirstPlayer[0].isClickable = true;
+      cardsOfSecondPlayer[0].isClickable = true;
+      return [
+        initFirstPlayerCards({ cards: cardsOfFirstPlayer }),
+        initSecondPlayerCards({ cards: cardsOfSecondPlayer }),
+      ];
     })
   );
 }

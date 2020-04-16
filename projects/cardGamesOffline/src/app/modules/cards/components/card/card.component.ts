@@ -9,13 +9,12 @@ import { CardColor } from "../../enums/card-color.enum";
 })
 export class CardComponent implements OnInit {
   @Input() card: Card;
-  @Input() clickable: boolean;
   @Output() clickCard: EventEmitter<Card> = new EventEmitter<Card>();
   CardColor = CardColor;
   constructor() {}
 
   onClickCard() {
-    if (this.clickable) {
+    if (this.card.isClickable) {
       this.clickCard.emit(this.card);
     }
   }

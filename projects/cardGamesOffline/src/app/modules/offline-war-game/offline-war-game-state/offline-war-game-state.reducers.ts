@@ -56,11 +56,11 @@ const offlineWarGameReducer = createReducer(
   })),
   on(GamesActions.setActualCardOfFirstPlayer, (state, { card }) => ({
     ...state,
-    actualCardOfFirstPlayer: card,
+    actualCardOfFirstPlayer: { ...card, isClickable: false },
   })),
   on(GamesActions.setActualCardOfSecondPlayer, (state, { card }) => ({
     ...state,
-    actualCardOfSecondPlayer: card,
+    actualCardOfSecondPlayer: { ...card, isClickable: false },
   })),
   on(GamesActions.setReadyToCompareFlag, (state, { readyToCompareFlag }) => ({
     ...state,

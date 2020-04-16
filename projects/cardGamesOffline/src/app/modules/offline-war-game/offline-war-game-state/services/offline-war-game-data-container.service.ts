@@ -18,10 +18,12 @@ export class OfflineWarGameDataContainerService {
   }
 
   setCardsOfFirstPlayer(cards: Card[]) {
+    cards[0].isClickable = true;
     this.store.dispatch(GamesActions.initFirstPlayerCards({ cards }));
   }
 
   setCardsOfSecondPlayer(cards: Card[]) {
+    cards[0].isClickable = true;
     this.store.dispatch(GamesActions.initSecondPlayerCards({ cards }));
   }
 

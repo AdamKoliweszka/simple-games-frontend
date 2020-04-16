@@ -63,3 +63,7 @@ export const addResultOfRound = createAction(
   "[OFFLINE_WAR_GAME] Add result of round",
   props<{ result: ResultOfComparission }>()
 );
+
+export const disableClickabilityOfActualCards = createAction(
+  "[OFFLINE_WAR_GAME] Disable clickability of actual cards"
+);

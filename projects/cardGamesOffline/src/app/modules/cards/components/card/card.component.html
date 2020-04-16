@@ -1,4 +1,4 @@
-<div *ngIf="card" [ngClass]="{ clickable: clickable, container: true }">
+<div *ngIf="card" [ngClass]="{ clickable: card.isClickable, container: true }">
   <mat-card id="card" (click)="onClickCard()">
     <div class="color-1">
       <mat-icon
