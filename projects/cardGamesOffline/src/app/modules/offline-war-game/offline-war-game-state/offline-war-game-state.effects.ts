@@ -49,7 +49,7 @@ export class WarGameEffect {
       if (isFirstUserActive) {
         return [changeActiveUser(), makeFirstPlayerMove()];
       } else {
-        return [changeActiveUser(), makeSecondPlayerMove()];
+        return [makeSecondPlayerMove()];
       }
     })
   );
@@ -115,6 +115,7 @@ export class WarGameEffect {
       return [
         initFirstPlayerCards({ cards: cardsOfFirstPlayer }),
         initSecondPlayerCards({ cards: cardsOfSecondPlayer }),
+        changeActiveUser(),
       ];
     })
   );
