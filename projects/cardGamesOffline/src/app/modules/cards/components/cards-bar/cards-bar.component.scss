@@ -3,10 +3,10 @@
   height: 30vh;
   display: grid;
   grid-template-columns: 10% 80% 10%;
-  grid-template-rows: 80% 20%;
+  grid-template-rows: 20% 80%;
   grid-template-areas:
-    "left-arrow cards right-arrow"
-    "empty1 user empty2";
+    "empty1 user empty2"
+    "left-arrow cards right-arrow";
 }
 .content {
   width: 100%;
