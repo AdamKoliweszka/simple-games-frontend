@@ -1,11 +1,11 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { UserPreviewComponent } from "./user-preview.component";
+import { PlayerPreviewComponent } from "./player-preview.component";
 import { MaterialModule } from "../../../modules/material/material.module";
 
 @NgModule({
-  declarations: [UserPreviewComponent],
+  declarations: [PlayerPreviewComponent],
   imports: [CommonModule, MaterialModule],
-  exports: [UserPreviewComponent]
+  exports: [PlayerPreviewComponent],
 })
-export class UserPreviewModule {}
+export class PlayerPreviewModule {}

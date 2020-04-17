@@ -18,13 +18,11 @@ import {
 } from "./offline-war-game-state.actions";
 import { withLatestFrom, tap, mergeMap, map } from "rxjs/operators";
 import {
-  changeActiveUser,
-  addPointsToFirstUser,
-  addPointsToSecondUser,
-} from "../../users-state/users-state.actions";
-import { UsersState } from "../../users-state/users-state.reducers";
+  changeActivePlayer,
+  addPointsToPlayerOfIndex,
+} from "../../offline-players-state/offline-players-state.actions";
+import { OfflinePlayersState } from "../../offline-players-state/offline-players-state.reducers";
 import { Store, select } from "@ngrx/store";
-import { selectIsFirstUserActive } from "../../users-state/users-state.selectors";
 import { OfflineWarGameState } from "./offline-war-game-state.reducers";
 import {
   selectFirstCardOfFirstPlayer,
@@ -32,22 +30,29 @@ import {
   selectFirstPlayerCards,
   selectSecondPlayerCards,
 } from "./offline-war-game-state.selectors";
+import {
+  selectActivePlayer,
+  selectPlayer,
+} from "../../offline-players-state/users-state.selectors";
 
 @Injectable()
 export class WarGameEffect {
   constructor(
     private action: Actions,
-    private usersStore: Store<UsersState>,
+    private usersStore: Store<OfflinePlayersState>,
     private cardStore: Store<OfflineWarGameState>
   ) {}
 
   @Effect()
   makeMove$ = this.action.pipe(
     ofType(makeMove),
-    withLatestFrom(this.usersStore.pipe(select(selectIsFirstUserActive))),
-    mergeMap(([action, isFirstUserActive]) => {
-      if (isFirstUserActive) {
-        return [changeActiveUser(), makeFirstPlayerMove()];
+    withLatestFrom(
+      this.usersStore.pipe(select(selectActivePlayer)),
+      this.usersStore.pipe(select(selectPlayer, { index: 0 }))
+    ),
+    mergeMap(([action, activePlayer, firstPlayer]) => {
+      if (activePlayer.name === firstPlayer.name) {
+        return [changeActivePlayer(), makeFirstPlayerMove()];
       } else {
         return [makeSecondPlayerMove()];
       }
@@ -95,9 +100,9 @@ export class WarGameEffect {
         setReadyToCompareFlag({ readyToCompareFlag }),
       ];
       if (cardsOfSecondPlayer.length > 1)
-        actions.push(addPointsToSecondUser() as any);
+        actions.push(addPointsToPlayerOfIndex({ index: 1 }) as any);
       else if (cardsOfSecondPlayer.length == 0)
-        actions.push(addPointsToFirstUser() as any);
+        actions.push(addPointsToPlayerOfIndex({ index: 0 }) as any);
       return actions;
     })
   );
@@ -115,7 +120,7 @@ export class WarGameEffect {
       return [
         initFirstPlayerCards({ cards: cardsOfFirstPlayer }),
         initSecondPlayerCards({ cards: cardsOfSecondPlayer }),
-        changeActiveUser(),
+        changeActivePlayer(),
       ];
     })
   );

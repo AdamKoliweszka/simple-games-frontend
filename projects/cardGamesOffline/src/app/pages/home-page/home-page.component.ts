@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { UsersDataContainerService } from "../../modules/users-state/services/users-data-container.service";
+import { OfflinePlayersDataContainerService } from "../../modules/offline-players-state/services/offline-players-data-container.service";
 import { Router } from "@angular/router";
-import { User } from "../../modules/users-state/models/user";
+import { OfflinePlayer } from "../../modules/offline-players-state/models/offline-player";
 
 @Component({
   selector: "app-home-page",
@@ -10,16 +10,16 @@ import { User } from "../../modules/users-state/models/user";
 })
 export class HomePageComponent implements OnInit {
   constructor(
-    private usersDataContainerService: UsersDataContainerService,
+    private playersDataContainerService: OfflinePlayersDataContainerService,
     private router: Router
   ) {}
 
   onPlayersSubmit(playersNames: string[]) {
-    let firstUser = { name: playersNames[0] } as User;
-    let secondUser = { name: playersNames[1] } as User;
-    this.usersDataContainerService.initFirstUser(firstUser);
-    this.usersDataContainerService.initSecondUser(secondUser);
-    this.usersDataContainerService.setActiveUser(firstUser);
+    let firstUser = { name: playersNames[0], points: 0 } as OfflinePlayer;
+    let secondUser = { name: playersNames[1], points: 0 } as OfflinePlayer;
+    this.playersDataContainerService.initPlayer(firstUser);
+    this.playersDataContainerService.initPlayer(secondUser);
+    this.playersDataContainerService.setActivePlayer(firstUser);
     this.router.navigate(["games"]);
   }
 

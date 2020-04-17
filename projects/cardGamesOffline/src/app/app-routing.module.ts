@@ -6,16 +6,18 @@ const routes: Routes = [
   {
     path: "",
     loadChildren: () =>
-      import("./pages/home-page/home-page.module").then(m => m.HomePageModule)
+      import("./pages/home-page/home-page.module").then(
+        (m) => m.HomePageModule
+      ),
   },
   {
     path: "games",
     loadChildren: () =>
       import("./pages/game-select-page/game-select-page.module").then(
-        m => m.GameSelectPageModule
+        (m) => m.GameSelectPageModule
       ),
-    canLoad: [GameSelectPageRouteGuardService]
-  }
+    canLoad: [GameSelectPageRouteGuardService],
+  },
   // {
   //   path: "404",
   //   loadChildren: () =>
@@ -29,6 +31,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [GameSelectPageRouteGuardService]
+  providers: [GameSelectPageRouteGuardService],
 })
 export class AppRoutingModule {}

@@ -4,7 +4,9 @@
     firstPlayer: firstPlayer$ | async
   } as data"
 >
-  <app-top-game-bar><app-users-preview></app-users-preview> </app-top-game-bar>
+  <app-top-game-bar
+    ><app-players-preview></app-players-preview>
+  </app-top-game-bar>
   <app-game-content></app-game-content>
   <app-cards-bar
     *ngIf="data.firstPlayer.name === data.actualPlayer.name"

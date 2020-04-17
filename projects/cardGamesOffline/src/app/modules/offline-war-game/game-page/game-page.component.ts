@@ -3,8 +3,8 @@ import { OfflineWarGameManagerService } from "../services/offline-war-game-manag
 import { OfflineWarGameDataContainerService } from "../offline-war-game-state/services/offline-war-game-data-container.service";
 import { Observable } from "rxjs";
 import { Card } from "../../cards/models/card";
-import { User } from "../../users-state/models/user";
-import { UsersDataContainerService } from "../../users-state/services/users-data-container.service";
+import { OfflinePlayer } from "../../offline-players-state/models/offline-player";
+import { OfflinePlayersDataContainerService } from "../../offline-players-state/services/offline-players-data-container.service";
 
 @Component({
   selector: "app-game-page",
@@ -14,18 +14,18 @@ import { UsersDataContainerService } from "../../users-state/services/users-data
 export class GamePageComponent implements OnInit {
   firstPlayerCards$: Observable<Card[]>;
   secondPlayerCards$: Observable<Card[]>;
-  actualPlayer$: Observable<User>;
-  firstPlayer$: Observable<User>;
+  actualPlayer$: Observable<OfflinePlayer>;
+  firstPlayer$: Observable<OfflinePlayer>;
   constructor(
     private gameService: OfflineWarGameManagerService,
     private dataContainerService: OfflineWarGameDataContainerService,
-    private usersService: UsersDataContainerService
+    private playersService: OfflinePlayersDataContainerService
   ) {
     this.gameService.initGame();
     this.firstPlayerCards$ = this.dataContainerService.firstPlayerCards;
     this.secondPlayerCards$ = this.dataContainerService.secondPlayerCards;
-    this.actualPlayer$ = this.usersService.activeUser;
-    this.firstPlayer$ = this.usersService.firstUser;
+    this.actualPlayer$ = this.playersService.activePlayer;
+    this.firstPlayer$ = this.playersService.getPlayer(0);
   }
 
   onCardClick(card: Card) {

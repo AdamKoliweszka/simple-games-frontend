@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { OfflineWarGameDataContainerService } from "../offline-war-game-state/services/offline-war-game-data-container.service";
 import { CardFactoryService } from "../../cards/services/card-factory/card-factory.service";
 import { CardShufflingService } from "../../cards/services/card-shuffing/card-shuffling.service";
-import { UsersDataContainerService } from "../../users-state/services/users-data-container.service";
+import { OfflinePlayersDataContainerService } from "../../offline-players-state/services/offline-players-data-container.service";
 import { RatingCardService } from "../../cards/services/rating-card/rating-card.service";
 import { Card } from "../../cards/models/card";
 import { ResultOfRatingCard } from "../../cards/enums/result-of-rating-card.enum";
@@ -15,7 +15,7 @@ import { withLatestFrom, filter, map } from "rxjs/operators";
 export class OfflineWarGameManagerService {
   constructor(
     private cardsDataContainerService: OfflineWarGameDataContainerService,
-    private usersDataContainerService: UsersDataContainerService,
+    private playersDataContainerService: OfflinePlayersDataContainerService,
     private cardFactoryService: CardFactoryService,
     private shufflingService: CardShufflingService,
     private ratingService: RatingCardService
@@ -28,7 +28,7 @@ export class OfflineWarGameManagerService {
     let secondPlayerCards = cards.slice(cards.length / 2);
     this.cardsDataContainerService.setCardsOfFirstPlayer(firstPlayerCards);
     this.cardsDataContainerService.setCardsOfSecondPlayer(secondPlayerCards);
-    this.usersDataContainerService.initPoints(0);
+    this.playersDataContainerService.initPoints(0);
     this.cardsDataContainerService.readyToCompareFlag
       .pipe(
         filter((value) => value),
