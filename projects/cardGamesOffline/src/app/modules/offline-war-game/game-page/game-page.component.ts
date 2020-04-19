@@ -3,8 +3,8 @@ import { OfflineWarGameManagerService } from "../services/offline-war-game-manag
 import { OfflineWarGameDataContainerService } from "../offline-war-game-state/services/offline-war-game-data-container.service";
 import { Observable } from "rxjs";
 import { Card } from "../../cards/models/card";
-import { OfflinePlayer } from "../../offline-players-state/models/offline-player";
-import { OfflinePlayersDataContainerService } from "../../offline-players-state/services/offline-players-data-container.service";
+import { OfflinePlayer } from "../../offline-players/offline-players-state/models/offline-player";
+import { OfflinePlayersDataContainerService } from "../../offline-players/offline-players-state/services/offline-players-data-container.service";
 
 @Component({
   selector: "app-game-page",

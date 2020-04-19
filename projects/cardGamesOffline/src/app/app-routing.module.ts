@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { GameSelectPageRouteGuardService } from "./pages/game-select-page/guard/game-select-page-route-guard.service";
 
 const routes: Routes = [
   {
@@ -16,7 +15,6 @@ const routes: Routes = [
       import("./pages/game-select-page/game-select-page.module").then(
         (m) => m.GameSelectPageModule
       ),
-    canLoad: [GameSelectPageRouteGuardService],
   },
   // {
   //   path: "404",
@@ -31,6 +29,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [GameSelectPageRouteGuardService],
+  providers: [],
 })
 export class AppRoutingModule {}

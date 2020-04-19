@@ -8,7 +8,9 @@ import { Validators } from "@angular/forms";
   styleUrls: ["./offline-players-form.component.scss"],
 })
 export class OfflinePlayersFormComponent implements OnInit {
-  @Output() players: EventEmitter<string[]> = new EventEmitter<string[]>();
+  @Output() playersSubmit: EventEmitter<string[]> = new EventEmitter<
+    string[]
+  >();
   playersForm: FormGroup;
   constructor() {
     this.playersForm = new FormGroup({
@@ -27,7 +29,10 @@ export class OfflinePlayersFormComponent implements OnInit {
 
   onSubmitForm() {
     if (this.playersForm.valid) {
-      this.players.emit([this.firstPlayer.value, this.secondPlayer.value]);
+      this.playersSubmit.emit([
+        this.firstPlayer.value,
+        this.secondPlayer.value,
+      ]);
     } else {
       this.playersForm.markAllAsTouched();
     }

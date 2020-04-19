@@ -5,5 +5,6 @@ import { UserOfServiceFormComponent } from "./user-of-service-form.component";
 @NgModule({
   declarations: [UserOfServiceFormComponent],
   imports: [CommonModule],
+  exports: [UserOfServiceFormComponent],
 })
 export class UserOfServiceFormModule {}

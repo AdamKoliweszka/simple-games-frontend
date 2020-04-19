@@ -1,5 +1,5 @@
 import { Component, Input, ChangeDetectionStrategy } from "@angular/core";
-import { OfflinePlayer } from "../../../modules/offline-players-state/models/offline-player";
+import { OfflinePlayer } from "../../../modules/offline-players/offline-players-state/models/offline-player";
 
 @Component({
   selector: "app-player-preview",

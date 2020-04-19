@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import { OfflinePlayer } from "projects/cardGamesOffline/src/app/modules/offline-players-state/models/offline-player";
+import { OfflinePlayer } from "projects/cardGamesOffline/src/app/modules/offline-players/offline-players-state/models/offline-player";
 
 export const addPlayer = createAction(
   "[Offline_Players] Add player",

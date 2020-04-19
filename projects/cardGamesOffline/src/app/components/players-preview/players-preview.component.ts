@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
-import { OfflinePlayersDataContainerService } from "../../modules/offline-players-state/services/offline-players-data-container.service";
+import { OfflinePlayersDataContainerService } from "../../modules/offline-players/offline-players-state/services/offline-players-data-container.service";
 import { Observable } from "rxjs";
-import { OfflinePlayer } from "../../modules/offline-players-state/models/offline-player";
+import { OfflinePlayer } from "../../modules/offline-players/offline-players-state/models/offline-player";
 
 @Component({
   selector: "app-players-preview",

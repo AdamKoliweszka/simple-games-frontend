@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { OfflineWarGameDataContainerService } from "../offline-war-game-state/services/offline-war-game-data-container.service";
 import { CardFactoryService } from "../../cards/services/card-factory/card-factory.service";
 import { CardShufflingService } from "../../cards/services/card-shuffing/card-shuffling.service";
-import { OfflinePlayersDataContainerService } from "../../offline-players-state/services/offline-players-data-container.service";
+import { OfflinePlayersDataContainerService } from "../../offline-players/offline-players-state/services/offline-players-data-container.service";
 import { RatingCardService } from "../../cards/services/rating-card/rating-card.service";
 import { Card } from "../../cards/models/card";
 import { ResultOfRatingCard } from "../../cards/enums/result-of-rating-card.enum";

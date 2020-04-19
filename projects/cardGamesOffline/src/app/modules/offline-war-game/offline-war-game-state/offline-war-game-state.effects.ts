@@ -20,8 +20,8 @@ import { withLatestFrom, tap, mergeMap, map } from "rxjs/operators";
 import {
   changeActivePlayer,
   addPointsToPlayerOfIndex,
-} from "../../offline-players-state/offline-players-state.actions";
-import { OfflinePlayersState } from "../../offline-players-state/offline-players-state.reducers";
+} from "../../offline-players/offline-players-state/offline-players-state.actions";
+import { OfflinePlayersState } from "../../offline-players/offline-players-state/offline-players-state.reducers";
 import { Store, select } from "@ngrx/store";
 import { OfflineWarGameState } from "./offline-war-game-state.reducers";
 import {
@@ -33,7 +33,7 @@ import {
 import {
   selectActivePlayer,
   selectPlayer,
-} from "../../offline-players-state/users-state.selectors";
+} from "../../offline-players/offline-players-state/users-state.selectors";
 
 @Injectable()
 export class WarGameEffect {

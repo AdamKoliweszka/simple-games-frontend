@@ -7,6 +7,7 @@ import { CardsBarModule } from "../cards/components/cards-bar/cards-bar.module";
 import { TopGameBarModule } from "../../components/top-game-bar/top-game-bar.module";
 import { PlayersPreviewModule } from "../../components/players-preview/players-preview.module";
 import { GameContentModule } from "./game-content/game-content.module";
+import { OfflinePlayersModule } from "../offline-players/offline-players.module";
 
 @NgModule({
   declarations: [GamePageComponent],
@@ -14,6 +15,7 @@ import { GameContentModule } from "./game-content/game-content.module";
     CommonModule,
     OfflineWarGameStateModule,
     OfflineWarGameRoutingModule,
+    OfflinePlayersModule,
     CardsBarModule,
     TopGameBarModule,
     PlayersPreviewModule,

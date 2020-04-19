@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { Card } from "../../models/card";
-import { OfflinePlayer } from "../../../offline-players-state/models/offline-player";
+import { OfflinePlayer } from "../../../offline-players/offline-players-state/models/offline-player";
 
 @Component({
   selector: "app-cards-bar",

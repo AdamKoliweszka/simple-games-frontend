@@ -11,19 +11,19 @@ import { StoreModule } from "@ngrx/store";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { environment } from "../environments/environment";
 import { EffectsModule } from "@ngrx/effects";
-import { OfflinePlayersStateModule } from "./modules/offline-players-state/offline-players-state.module";
 import { MaterialModule } from "./modules/material/material.module";
+import { UserOfServiceModule } from "./modules/user-of-service/user-of-service.module";
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     StoreModule.forRoot({}),
-    OfflinePlayersStateModule,
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
     }),
     EffectsModule.forRoot([]),
+    UserOfServiceModule,
     MaterialModule,
     BrowserModule,
     HttpClientModule,

@@ -6,5 +6,6 @@ import { UserOfServiceFormModule } from "./user-of-service-form/user-of-service-
 @NgModule({
   declarations: [],
   imports: [CommonModule, UserOfServiceStateModule, UserOfServiceFormModule],
+  exports: [UserOfServiceFormModule],
 })
 export class UserOfServiceModule {}
