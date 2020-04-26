@@ -1,2 +1,29 @@
-<p>user-of-service-form works!</p>
-<button mat-button (click)="onSubmitForm()">Loguj</button>
+<mat-card class="form">
+  <mat-card-header class="margin-bottom">
+    <span>{{ "LOGIN_FORM.TITLE" | translate }}</span>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <form [formGroup]="userForm">
+      <mat-form-field appearance="fill" class="input margin-top">
+        <mat-label>{{ "LOGIN_FORM.LOGIN_INPUT" | translate }}</mat-label>
+        <input matInput formControlName="loginOfUser" />
+        <mat-error *ngIf="loginOfUser.hasError('required')">
+          {{ "LOGIN_FORM.LOGIN_INPUT_ERROR" | translate }}
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="input">
+        <mat-label>{{ "LOGIN_FORM.PASSWORD_INPUT" | translate }}</mat-label>
+        <input matInput type="password" formControlName="passwordOfUser" />
+        <mat-error *ngIf="passwordOfUser.hasError('required')">
+          {{ "LOGIN_FORM.PASSWORD_INPUT_ERROR" | translate }}
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="onSubmitForm()">
+      {{ "LOGIN_FORM.LOGIN" | translate }}
+    </button>
+  </mat-card-actions>
+</mat-card>

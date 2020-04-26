@@ -1,22 +1,22 @@
 <mat-card class="form">
   <mat-card-header class="margin-bottom">
-    <span>{{ "USERS_FORM.TITLE" | translate }}</span>
+    <span>{{ "PLAYERS_FORM.TITLE" | translate }}</span>
   </mat-card-header>
   <mat-divider></mat-divider>
   <mat-card-content>
     <form [formGroup]="playersForm">
       <mat-form-field appearance="fill" class="input margin-top">
-        <mat-label>{{ "USERS_FORM.FIRST_USER" | translate }}</mat-label>
+        <mat-label>{{ "PLAYERS_FORM.FIRST_PLAYER" | translate }}</mat-label>
         <input matInput formControlName="firstPlayer" />
         <mat-error *ngIf="firstPlayer.hasError('required')">
-          {{ "USERS_FORM.FIRST_USER_ERROR" | translate }}
+          {{ "PLAYERS_FORM.FIRST_PLAYER_ERROR" | translate }}
         </mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill" class="input">
-        <mat-label>{{ "USERS_FORM.SECOND_USER" | translate }}</mat-label>
+        <mat-label>{{ "PLAYERS_FORM.SECOND_PLAYER" | translate }}</mat-label>
         <input matInput formControlName="secondPlayer" />
         <mat-error *ngIf="secondPlayer.hasError('required')">
-          {{ "USERS_FORM.SECOND_USER_ERROR" | translate }}
+          {{ "PLAYERS_FORM.SECOND_PLAYER_ERROR" | translate }}
         </mat-error>
       </mat-form-field>
     </form>
