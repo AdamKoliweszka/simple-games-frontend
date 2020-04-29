@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { User } from "../models/user";
 import { Router } from "@angular/router";
-import { AuthApiServiceService } from "../services/auth-api-service.service";
+import { AuthApiService } from "../services/auth-api.service";
+import { AuthService } from "../services/auth.service";
 
 @Component({
   selector: "app-user-of-service-page",
@@ -9,17 +10,11 @@ import { AuthApiServiceService } from "../services/auth-api-service.service";
   styleUrls: ["./user-of-service-page.component.scss"],
 })
 export class UserOfServicePageComponent implements OnInit {
-  constructor(
-    private router: Router,
-    private authApiServiceService: AuthApiServiceService
-  ) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit() {}
 
   onUserSubmit(user: User) {
-    this.authApiServiceService
-      .loginUser(user)
-      .subscribe((value) => console.log(value));
-    this.router.navigate(["games"]);
+    this.authService.loginUser(user);
   }
 }
