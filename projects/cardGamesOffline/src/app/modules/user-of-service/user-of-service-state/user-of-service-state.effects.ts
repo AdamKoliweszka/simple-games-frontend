@@ -11,6 +11,7 @@ import {
   setAccessToken,
   setRefreshToken,
   loadTokens,
+  logoutUser,
 } from "./user-of-service-state.actions";
 import { AuthApiService } from "../services/auth-api.service";
 import { AuthStorageContainerService } from "../services/auth-storage-container.service";
@@ -63,6 +64,16 @@ export class UserOfServiceEffect {
     ofType(setRefreshToken),
     map((action) => {
       this.router.navigate([""]);
+    })
+  );
+
+  @Effect({ dispatch: false })
+  logout$ = this.action.pipe(
+    ofType(logoutUser),
+    map((action) => {
+      this.authStorageService.removeAccessToken();
+      this.authStorageService.removeRefreshToken();
+      this.router.navigate(["login"]);
     })
   );
 }

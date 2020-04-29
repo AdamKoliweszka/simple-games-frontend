@@ -28,7 +28,6 @@ export class OfflinePlayersLoadRouteGuardService implements CanActivate {
       take(1),
       tap((value) => {
         if (!value) this.router.navigate([""]);
-        console.log(value);
       })
     );
   }

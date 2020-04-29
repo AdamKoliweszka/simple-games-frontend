@@ -21,7 +21,6 @@ export class IsNotLogedGuardService implements CanActivate {
     return this.authService.isLoged.pipe(
       take(1),
       map((value) => {
-        // console.log("s");
         if (value) {
           this.router.navigate(["games"]);
         }

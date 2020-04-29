@@ -20,6 +20,11 @@ const userOfServiceReducer = createReducer(
   on(UsersActions.setRefreshToken, (state, { refreshToken }) => ({
     ...state,
     refreshToken: refreshToken,
+  })),
+  on(UsersActions.logoutUser, (state) => ({
+    ...state,
+    accessToken: null,
+    refreshToken: null,
   }))
 );
 

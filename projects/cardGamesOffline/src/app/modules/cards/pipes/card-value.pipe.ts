@@ -2,12 +2,10 @@ import { Pipe, PipeTransform } from "@angular/core";
 import { CardValue } from "../enums/card-value.enum";
 
 @Pipe({
-  name: "cardValue"
+  name: "cardValue",
 })
 export class CardValuePipe implements PipeTransform {
   transform(value: CardValue): string {
-    console.log(value);
-    if (value.valueOf() === CardValue.ACE.valueOf()) console.log("as");
     switch (value) {
       case CardValue.ACE:
         return "ACE";

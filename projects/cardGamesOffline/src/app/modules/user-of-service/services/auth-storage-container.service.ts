@@ -14,6 +14,14 @@ export class AuthStorageContainerService {
     localStorage.setItem("refreshToken", refreshToken);
   }
 
+  removeAccessToken() {
+    localStorage.removeItem("accessToken");
+  }
+
+  removeRefreshToken() {
+    localStorage.removeItem("refreshToken");
+  }
+
   get accessToken(): string {
     return localStorage.getItem("accessToken");
   }

@@ -21,7 +21,6 @@ export class IsLogedGuardService implements CanActivate {
     return this.authService.isLoged.pipe(
       take(1),
       tap((value) => {
-        console.log(value);
         if (!value) this.router.navigate(["login"]);
       })
     );

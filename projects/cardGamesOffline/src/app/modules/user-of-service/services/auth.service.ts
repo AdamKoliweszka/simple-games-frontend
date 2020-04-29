@@ -26,6 +26,10 @@ export class AuthService {
     this.store.dispatch(UserActions.loginUser({ user }));
   }
 
+  logoutUser() {
+    this.store.dispatch(UserActions.logoutUser());
+  }
+
   initTokens() {
     this.store.dispatch(UserActions.loadTokens());
   }
