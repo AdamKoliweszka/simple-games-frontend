@@ -16,6 +16,7 @@ import {
 import { AuthApiService } from "../services/auth-api.service";
 import { AuthStorageContainerService } from "../services/auth-storage-container.service";
 import { Router } from "@angular/router";
+import { selectRefreshToken } from "./users-of-service.selectors";
 
 @Injectable()
 export class UserOfServiceEffect {
@@ -71,6 +72,8 @@ export class UserOfServiceEffect {
   logout$ = this.action.pipe(
     ofType(logoutUser),
     map((action) => {
+      let refreshToken = this.authStorageService.refreshToken;
+      this.authApiService.logoutUser(refreshToken).subscribe((value) => {});
       this.authStorageService.removeAccessToken();
       this.authStorageService.removeRefreshToken();
       this.router.navigate(["login"]);

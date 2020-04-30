@@ -28,7 +28,7 @@ export class AuthApiService {
   logoutUser(refreshToken: string) {
     return this.http.post(
       "http://" + environment.apiIp + ":" + environment.apiPort + "/logout",
-      refreshToken
+      { refreshToken }
     );
   }
 
