@@ -33,7 +33,7 @@ export class UserOfServiceFormComponent implements OnInit {
   onSubmitForm() {
     if (this.userForm.valid) {
       this.userSubmit.emit({
-        username: this.loginOfUser.value,
+        username: this.loginOfUser.value.trim(),
         password: this.passwordOfUser.value,
       } as User);
     } else {
