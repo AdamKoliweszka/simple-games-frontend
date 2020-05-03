@@ -37,6 +37,7 @@ export class TokenInterceptorService implements HttpInterceptor {
             Authorization: `Bearer ${accessToken}`,
           },
         });
+        if (request.url.includes("login")) return next.handle(request);
         return next.handle(request).pipe(
           catchError((error) => {
             if (error instanceof HttpErrorResponse && error.status === 401)

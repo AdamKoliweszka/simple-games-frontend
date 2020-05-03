@@ -26,6 +26,10 @@ export class AuthService {
     return this.store.select(UserSelectors.selectAccessToken);
   }
 
+  get isLastLoginBad(): Observable<boolean> {
+    return this.store.select(UserSelectors.selectIsLastLoginBad);
+  }
+
   loginUser(user: User) {
     this.store.dispatch(UserActions.loginUser({ user }));
   }

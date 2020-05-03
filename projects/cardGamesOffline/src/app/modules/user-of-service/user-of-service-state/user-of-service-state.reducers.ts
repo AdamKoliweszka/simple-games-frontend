@@ -5,12 +5,14 @@ export interface UserOfServiceState {
   accessToken: string;
   refreshToken: string;
   isRefreshing: boolean;
+  isLastLoginBad: boolean;
 }
 
 const initialState: UserOfServiceState = {
   accessToken: null,
   refreshToken: null,
   isRefreshing: false,
+  isLastLoginBad: false,
 };
 
 const userOfServiceReducer = createReducer(
@@ -31,6 +33,10 @@ const userOfServiceReducer = createReducer(
   on(UsersActions.setRefreshingFlag, (state, { refreshFlag }) => ({
     ...state,
     isRefreshing: refreshFlag,
+  })),
+  on(UsersActions.setIsLastLoginBad, (state, { isLastLoginBad }) => ({
+    ...state,
+    isLastLoginBad: isLastLoginBad,
   }))
 );
 

@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Actions, Effect, ofType } from "@ngrx/effects";
 
-import { withLatestFrom, tap, mergeMap, map } from "rxjs/operators";
+import { withLatestFrom, tap, mergeMap, map, catchError } from "rxjs/operators";
 
 import { Store, select } from "@ngrx/store";
 
@@ -15,6 +15,7 @@ import {
   refreshAccessToken,
   setRefreshingFlag,
   tryRefreshAccessToken,
+  setIsLastLoginBad,
 } from "./user-of-service-state.actions";
 import { AuthApiService } from "../services/auth-api.service";
 import { AuthStorageContainerService } from "../services/auth-storage-container.service";
@@ -24,7 +25,8 @@ import {
   selectAccessToken,
   selectIsRefreshFlag,
 } from "./users-of-service.selectors";
-import { EMPTY } from "rxjs";
+import { EMPTY, throwError } from "rxjs";
+import { HttpErrorResponse } from "@angular/common/http";
 
 @Injectable()
 export class UserOfServiceEffect {
@@ -47,7 +49,13 @@ export class UserOfServiceEffect {
           return [
             setAccessToken({ accessToken: value.accessToken }),
             setRefreshToken({ refreshToken: value.refreshToken }),
+            setIsLastLoginBad({ isLastLoginBad: false }),
           ];
+        }),
+        catchError((error) => {
+          if (error instanceof HttpErrorResponse && error.status === 401)
+            return [setIsLastLoginBad({ isLastLoginBad: true })];
+          return throwError(error);
         })
       );
     })

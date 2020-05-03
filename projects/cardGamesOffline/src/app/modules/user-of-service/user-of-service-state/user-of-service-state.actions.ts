@@ -37,3 +37,8 @@ export const setRefreshingFlag = createAction(
   "[User_Of_Service] Set refresh flag of access token",
   props<{ refreshFlag: boolean }>()
 );
+
+export const setIsLastLoginBad = createAction(
+  "[User_Of_Service] Set flag of last login",
+  props<{ isLastLoginBad: boolean }>()
+);

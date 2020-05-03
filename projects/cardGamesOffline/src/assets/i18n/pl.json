@@ -5,7 +5,8 @@
     "LOGIN_INPUT_ERROR": "Login jest wymagany",
     "PASSWORD_INPUT_ERROR": "Hasło jest wymagane",
     "TITLE": "Logowanie",
-    "LOGIN": "Loguj"
+    "LOGIN": "Loguj",
+    "BAD_LOGIN": "Niepoprawny login lub hasło!"
   },
   "PLAYERS_FORM": {
     "FIRST_PLAYER": "Nazwa pierwszego gracza",

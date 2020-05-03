@@ -25,3 +25,8 @@ export const selectIsRefreshFlag = createSelector(
   selectUserOfServiceState,
   (state) => state.isRefreshing
 );
+
+export const selectIsLastLoginBad = createSelector(
+  selectUserOfServiceState,
+  (state) => state.isLastLoginBad
+);
