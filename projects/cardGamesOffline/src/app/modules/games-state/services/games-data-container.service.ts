@@ -7,13 +7,13 @@ import * as GamesSelectors from "../games-state.selectors";
 import * as GamesActions from "../games-state.actions";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class GamesDataContainerService {
   constructor(private store: Store<GamesState>) {}
 
-  initGamesList(games: Game[]) {
-    this.store.dispatch(GamesActions.initGamesList({ games }));
+  loadGamesList() {
+    this.store.dispatch(GamesActions.loadGamesList());
   }
 
   get listOfGames(): Observable<Game[]> {

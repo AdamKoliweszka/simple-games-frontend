@@ -12,11 +12,19 @@ import {
   setRefreshToken,
   loadTokens,
   logoutUser,
+  refreshAccessToken,
+  setRefreshingFlag,
+  tryRefreshAccessToken,
 } from "./user-of-service-state.actions";
 import { AuthApiService } from "../services/auth-api.service";
 import { AuthStorageContainerService } from "../services/auth-storage-container.service";
 import { Router } from "@angular/router";
-import { selectRefreshToken } from "./users-of-service.selectors";
+import {
+  selectRefreshToken,
+  selectAccessToken,
+  selectIsRefreshFlag,
+} from "./users-of-service.selectors";
+import { EMPTY } from "rxjs";
 
 @Injectable()
 export class UserOfServiceEffect {
@@ -77,6 +85,37 @@ export class UserOfServiceEffect {
       this.authStorageService.removeAccessToken();
       this.authStorageService.removeRefreshToken();
       this.router.navigate(["login"]);
+    })
+  );
+
+  @Effect()
+  tryRefreshAccessToken$ = this.action.pipe(
+    ofType(tryRefreshAccessToken),
+    withLatestFrom(
+      this.usersStore.select(selectRefreshToken),
+      this.usersStore.select(selectAccessToken),
+      this.usersStore.select(selectIsRefreshFlag)
+    ),
+    mergeMap(([action, refreshToken, accessToken, isRefreshFlag]) => {
+      if (action.accessToken !== accessToken || isRefreshFlag) return EMPTY;
+      return [setRefreshingFlag({ refreshFlag: true }), refreshAccessToken()];
+    })
+  );
+
+  @Effect()
+  refreshAccessToken$ = this.action.pipe(
+    ofType(refreshAccessToken),
+    withLatestFrom(this.usersStore.select(selectRefreshToken)),
+    mergeMap(([action, refreshToken]) => {
+      return this.authApiService.refreshAccessToken(refreshToken).pipe(
+        mergeMap((value) => {
+          this.authStorageService.setAccessToken(value.accessToken);
+          return [
+            setAccessToken({ accessToken: value.accessToken }),
+            setRefreshingFlag({ refreshFlag: false }),
+          ];
+        })
+      );
     })
   );
 }

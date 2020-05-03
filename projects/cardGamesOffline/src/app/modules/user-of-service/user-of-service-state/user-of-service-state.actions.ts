@@ -23,3 +23,17 @@ export const loginUser = createAction(
 export const logoutUser = createAction(
   "[User_Of_Service] Start process of logout of user"
 );
+
+export const tryRefreshAccessToken = createAction(
+  "[User_Of_Service] Check if refresh access token is needed and dispatch refresh",
+  props<{ accessToken: string }>()
+);
+
+export const refreshAccessToken = createAction(
+  "[User_Of_Service] Refresh access token"
+);
+
+export const setRefreshingFlag = createAction(
+  "[User_Of_Service] Set refresh flag of access token",
+  props<{ refreshFlag: boolean }>()
+);

@@ -22,6 +22,10 @@ export class AuthService {
     return this.store.select(UserSelectors.selectIsUserLoged);
   }
 
+  get accessToken(): Observable<string> {
+    return this.store.select(UserSelectors.selectAccessToken);
+  }
+
   loginUser(user: User) {
     this.store.dispatch(UserActions.loginUser({ user }));
   }
@@ -32,5 +36,9 @@ export class AuthService {
 
   initTokens() {
     this.store.dispatch(UserActions.loadTokens());
+  }
+
+  refreshAccessToken(accessToken: string) {
+    this.store.dispatch(UserActions.tryRefreshAccessToken({ accessToken }));
   }
 }

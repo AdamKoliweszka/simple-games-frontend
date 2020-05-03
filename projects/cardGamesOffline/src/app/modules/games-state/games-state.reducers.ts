@@ -7,14 +7,14 @@ export interface GamesState {
 }
 
 const initialState: GamesState = {
-  games: [{ name: "War card game", url: "war-game" } as Game]
+  games: null, //[{ name: "War card game", url: "war-game" } as Game]
 };
 
 const gamesReducer = createReducer(
   initialState,
   on(GamesActions.initGamesList, (state, { games }) => ({
     ...state,
-    games: games
+    games: [...games],
   }))
 );
 

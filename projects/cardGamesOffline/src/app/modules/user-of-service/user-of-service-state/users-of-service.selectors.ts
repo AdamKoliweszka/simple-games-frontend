@@ -20,3 +20,8 @@ export const selectIsUserLoged = createSelector(
   selectUserOfServiceState,
   (state) => Boolean(state.refreshToken && state.accessToken)
 );
+
+export const selectIsRefreshFlag = createSelector(
+  selectUserOfServiceState,
+  (state) => state.isRefreshing
+);

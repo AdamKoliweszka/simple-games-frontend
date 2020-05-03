@@ -4,6 +4,7 @@ import { User } from "../models/user";
 import { environment } from "projects/cardGamesOffline/src/environments/environment";
 import { LoginResponse } from "../models/loginResponse";
 import { Observable } from "rxjs";
+import { RefreshResponse } from "../models/refreshResponse";
 
 @Injectable({
   providedIn: "root",
@@ -32,10 +33,10 @@ export class AuthApiService {
     );
   }
 
-  refreshAccessToken(refreshToken: string) {
-    return this.http.post(
+  refreshAccessToken(refreshToken: string): Observable<RefreshResponse> {
+    return this.http.post<RefreshResponse>(
       "http://" + environment.apiIp + ":" + environment.apiPort + "/tokens",
-      refreshToken
+      { refreshToken }
     );
   }
 }

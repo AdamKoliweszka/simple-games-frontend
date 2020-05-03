@@ -6,11 +6,12 @@ import { Observable } from "rxjs";
 @Component({
   selector: "app-games-list",
   templateUrl: "./games-list.component.html",
-  styleUrls: ["./games-list.component.scss"]
+  styleUrls: ["./games-list.component.scss"],
 })
 export class GamesListComponent implements OnInit {
   games$: Observable<Game[]>;
   constructor(private gamesDataService: GamesDataContainerService) {
+    this.gamesDataService.loadGamesList();
     this.games$ = this.gamesDataService.listOfGames;
   }
 

@@ -4,11 +4,13 @@ import { createReducer, on, Action } from "@ngrx/store";
 export interface UserOfServiceState {
   accessToken: string;
   refreshToken: string;
+  isRefreshing: boolean;
 }
 
 const initialState: UserOfServiceState = {
   accessToken: null,
   refreshToken: null,
+  isRefreshing: false,
 };
 
 const userOfServiceReducer = createReducer(
@@ -25,6 +27,10 @@ const userOfServiceReducer = createReducer(
     ...state,
     accessToken: null,
     refreshToken: null,
+  })),
+  on(UsersActions.setRefreshingFlag, (state, { refreshFlag }) => ({
+    ...state,
+    isRefreshing: refreshFlag,
   }))
 );
 
