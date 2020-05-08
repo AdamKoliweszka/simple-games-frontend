@@ -1,16 +1,114 @@
-.form {
-  width: 30vw;
-  height: 30vh;
-  margin-left: 35vw;
-  margin-top: 35vh;
-}
-.input {
+.container {
   width: 100%;
-}
-.margin-top {
-  margin-top: 3vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
-.margin-bottom {
-  margin-bottom: 1vh;
+form {
+  width: 30%;
+  height: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid #1ae8ad 0.2vw;
+  border-radius: 10px;
+  animation-name: form-appear;
+  animation-duration: 0.5s;
+  position: relative;
+
+  input {
+    width: calc(80% - 0.4vw);
+    height: 2.5vh;
+    margin-left: 10%;
+    border: solid #cededb 0.1vw;
+    outline-color: #1ae8ad;
+  }
+
+  input::placeholder {
+    color: #cededb;
+    text-align: center;
+  }
+
+  button {
+    width: 80%;
+    height: 3vh;
+    background-color: #1ae8ad;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  label {
+    margin-left: 10%;
+    font-size: 1.5vh;
+    font-weight: bold;
+  }
+  .error {
+    color: #d11a0f;
+    font-size: 1.5vh;
+    line-height: 1.5vh;
+    height: 2vh;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .form-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 70%;
+    margin-top: 10%;
+  }
+
+  .error-input {
+    border: solid #d11a0f 0.1vw;
+  }
+
+  .error-input:focus {
+    border: solid #1ae8ad 0.2vw;
+  }
+
+  .login-button {
+    width: 2vw;
+    height: 2vw;
+    background-color: #cededb;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 1.5vw;
+    font-size: 1.5vw;
+  }
+
+  .register-button {
+    width: 2vw;
+    height: 2vw;
+    background-color: #1ae8ad;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 1.5vw;
+    font-size: 1.5vw;
+  }
+
+  .navigation-bar {
+    position: relative;
+    top: -1.1vw;
+    display: flex;
+    flex-direction: row-reverse;
+    width: 20%;
+    margin-left: 70%;
+    justify-content: space-between;
+  }
+}
+
+@keyframes form-appear {
+  0% {
+    top: -50vh;
+  }
+  100% {
+    top: 0vh;
+  }
 }

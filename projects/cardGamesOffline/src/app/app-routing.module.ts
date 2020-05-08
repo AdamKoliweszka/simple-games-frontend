@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { UserOfServicePageComponent } from "./modules/user-of-service/user-of-service-page/user-of-service-page.component";
 import { IsLogedGuardService } from "./modules/user-of-service/guards/is-loged-guard.service";
 import { IsNotLogedGuardService } from "./modules/user-of-service/guards/is-not-loged-guard.service";
 
@@ -22,7 +21,10 @@ const routes: Routes = [
   },
   {
     path: "login",
-    component: UserOfServicePageComponent,
+    loadChildren: () =>
+      import(
+        "./modules/user-of-service/user-of-service-page/user-of-service-page.module"
+      ).then((m) => m.UserOfServicePageModule),
     canActivate: [IsNotLogedGuardService],
   },
   { path: "games", redirectTo: "" },
