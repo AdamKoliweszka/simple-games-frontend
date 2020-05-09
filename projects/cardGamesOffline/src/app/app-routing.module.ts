@@ -5,7 +5,7 @@ import { IsNotLogedGuardService } from "./modules/user-of-service/guards/is-not-
 
 const routes: Routes = [
   {
-    path: "",
+    path: "games",
     loadChildren: () =>
       import("./pages/game-select-page/game-select-page.module").then(
         (m) => m.GameSelectPageModule
@@ -27,7 +27,7 @@ const routes: Routes = [
       ).then((m) => m.UserOfServicePageModule),
     canActivate: [IsNotLogedGuardService],
   },
-  { path: "games", redirectTo: "" },
+  { path: "", redirectTo: "games", pathMatch: "full" },
   { path: "**", redirectTo: "/404" },
 ];
 
