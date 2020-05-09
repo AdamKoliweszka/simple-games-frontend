@@ -80,7 +80,7 @@ export class UserOfServiceEffect {
   setRefreshToken$ = this.action.pipe(
     ofType(setRefreshToken),
     map((action) => {
-      this.router.navigate([""]);
+      this.router.navigate(["/games"]);
     })
   );
 
@@ -92,7 +92,7 @@ export class UserOfServiceEffect {
       this.authApiService.logoutUser(refreshToken).subscribe((value) => {});
       this.authStorageService.removeAccessToken();
       this.authStorageService.removeRefreshToken();
-      this.router.navigate(["login"]);
+      this.router.navigate(["/login"]);
     })
   );
 
