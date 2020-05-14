@@ -1,4 +1,67 @@
-mat-card {
+@import "../../../variables.scss";
+.container {
   width: 100%;
   height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.item {
+  width: 100%;
+  height: calc(100% / 6);
+  text-align: center;
+  line-height: 16.5%;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-around;
+}
+mat-icon {
+  font-size: 5vh;
+  text-align: center;
+  height: 5vh;
+  width: 100%;
+}
+p {
+  font-size: 1vh;
+}
+.item-content {
+  cursor: pointer;
+}
+.logo {
+  margin-left: auto;
+  margin-right: auto;
+  width: 5vh;
+  cursor: pointer;
+}
+.non-active {
+  background-color: $primary-color;
+}
+
+.up-active-item {
+  border-top-right-radius: 40px;
+}
+
+.down-active-item {
+  border-bottom-right-radius: 40px;
+}
+
+.active {
+  background-color: #ffffff;
+}
+
+// .item:hover {
+//   background-color: #ffffff;
+//   animation-name: hover-appear;
+//   animation-duration: 5s;
+// }
+
+@keyframes hover-appear {
+  from {
+    background-color: linear-gradient($primary-color 100%, #ffffff 0%);
+  }
+  to {
+    background-color: linear-gradient($primary-color 0%, #ffffff 100%);
+  }
 }

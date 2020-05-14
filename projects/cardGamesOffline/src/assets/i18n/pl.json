@@ -1,4 +1,13 @@
 {
+  "SIDE_BAR": {
+    "HOME_PAGE": "Strona główna",
+    "MESSAGES": "Wiadomości",
+    "LOGOUT": "Wylogowywanie",
+    "SETTINGS": "Ustawienia",
+    "FRIENDS": "Przyjaciele",
+    "ACHIEVEMENTS": "Osiągnięcia",
+    "GAMES": "Gry"
+  },
   "LOGIN_FORM": {
     "LOGIN_INPUT_ERROR": "Login jest wymagany!",
     "PASSWORD_INPUT_ERROR": "Hasło jest wymagane!",

@@ -1,7 +1,121 @@
-<mat-card>
-  <button mat-button>Strona główna</button>
-  <button mat-button>Ulubione gry</button>
-  <button mat-button>Przyjaciele</button>
-  <button mat-button>Ustawienia</button>
-  <button mat-button (click)="onLogout()">Wyloguj</button>
-</mat-card>
+<div class="container">
+  <div
+    [ngClass]="{
+      item: true,
+      'non-active': !isHomeActive,
+      active: isHomeActive,
+      'down-active-item': isGamesActive
+    }"
+    (mouseenter)="mouseEnter('home')"
+    (mouseleave)="mouseLeave()"
+  >
+    <div class="item-content">
+      <mat-icon>home</mat-icon>
+      <p>{{ "SIDE_BAR.HOME_PAGE" | translate }}</p>
+    </div>
+  </div>
+  <div
+    [ngClass]="{
+      item: true,
+      'non-active': !isGamesActive,
+      active: isGamesActive,
+      'up-active-item': isHomeActive,
+      'down-active-item': isChatActive
+    }"
+    (mouseenter)="mouseEnter('games')"
+    (mouseleave)="mouseLeave()"
+  >
+    <div class="item-content">
+      <div class="logo">
+        <object
+          type="image/svg+xml"
+          data="../../../../../assets/icons/game.svg"
+          class="game-icon"
+        >
+          Game icon
+        </object>
+      </div>
+      <p>{{ "SIDE_BAR.GAMES" | translate }}</p>
+    </div>
+  </div>
+  <div
+    [ngClass]="{
+      item: true,
+      'non-active': !isChatActive,
+      active: isChatActive,
+      'up-active-item': isGamesUrl,
+      'up-active-item': isGamesActive,
+      'down-active-item': isFriendsActive
+    }"
+    (mouseenter)="mouseEnter('chat')"
+    (mouseleave)="mouseLeave()"
+  >
+    <div class="item-content">
+      <mat-icon>chat</mat-icon>
+      <p>{{ "SIDE_BAR.MESSAGES" | translate }}</p>
+    </div>
+  </div>
+  <div
+    [ngClass]="{
+      item: true,
+      'non-active': !isFriendsActive,
+      active: isFriendsActive,
+      'up-active-item': isChatActive,
+      'down-active-item': isAchievementsActive
+    }"
+    (mouseenter)="mouseEnter('friends')"
+    (mouseleave)="mouseLeave()"
+  >
+    <div class="item-content">
+      <mat-icon>person</mat-icon>
+      <p>{{ "SIDE_BAR.FRIENDS" | translate }}</p>
+    </div>
+  </div>
+  <div
+    [ngClass]="{
+      item: true,
+      'non-active': !isAchievementsActive,
+      active: isAchievementsActive,
+      'up-active-item': isFriendsActive,
+      'down-active-item': isSettingsActive
+    }"
+    (mouseenter)="mouseEnter('achievements')"
+    (mouseleave)="mouseLeave()"
+  >
+    <div class="item-content">
+      <mat-icon>star</mat-icon>
+      <p>{{ "SIDE_BAR.ACHIEVEMENTS" | translate }}</p>
+    </div>
+  </div>
+  <div
+    [ngClass]="{
+      item: true,
+      'non-active': !isSettingsActive,
+      active: isSettingsActive,
+      'up-active-item': isAchievementsActive,
+      'down-active-item': isLogoutActive
+    }"
+    (mouseenter)="mouseEnter('settings')"
+    (mouseleave)="mouseLeave()"
+  >
+    <div class="item-content">
+      <mat-icon>settings</mat-icon>
+      <p>{{ "SIDE_BAR.SETTINGS" | translate }}</p>
+    </div>
+  </div>
+  <div
+    [ngClass]="{
+      item: true,
+      'non-active': !isLogoutActive,
+      active: isLogoutActive,
+      'up-active-item': isSettingsActive
+    }"
+    (mouseenter)="mouseEnter('logout')"
+    (mouseleave)="mouseLeave()"
+  >
+    <div class="item-content" (click)="onLogout()">
+      <mat-icon>power_settings_new</mat-icon>
+      <p>{{ "SIDE_BAR.LOGOUT" | translate }}</p>
+    </div>
+  </div>
+</div>
