@@ -80,7 +80,7 @@ export class UserOfServiceEffect {
   setRefreshToken$ = this.action.pipe(
     ofType(setRefreshToken),
     map((action) => {
-      this.router.navigate(["/games"]);
+      // this.router.navigate(["/"]);
     })
   );
 

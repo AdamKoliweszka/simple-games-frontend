@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { TranslateService } from "@ngx-translate/core";
 import { AuthService } from "./modules/user-of-service/services/auth.service";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-root",
@@ -15,5 +16,9 @@ export class AppComponent {
   ) {
     this.authService.initTokens();
     translate.setDefaultLang("pl");
+  }
+
+  get isLoged(): Observable<boolean> {
+    return this.authService.isLoged;
   }
 }

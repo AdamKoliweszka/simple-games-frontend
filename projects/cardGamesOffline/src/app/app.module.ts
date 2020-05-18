@@ -18,6 +18,8 @@ import { EffectsModule } from "@ngrx/effects";
 import { MaterialModule } from "./modules/material/material.module";
 import { UserOfServiceModule } from "./modules/user-of-service/user-of-service.module";
 import { TokenInterceptorService } from "./modules/user-of-service/services/token-interceptor.service";
+import { SideBarModule } from "./components/side-bar/side-bar.module";
+import { HomeSideBarModule } from "./components/home-side-bar/home-side-bar.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,6 +30,7 @@ import { TokenInterceptorService } from "./modules/user-of-service/services/toke
       logOnly: environment.production,
     }),
     EffectsModule.forRoot([]),
+    SideBarModule,
     UserOfServiceModule,
     MaterialModule,
     BrowserModule,
@@ -35,6 +38,7 @@ import { TokenInterceptorService } from "./modules/user-of-service/services/toke
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    HomeSideBarModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

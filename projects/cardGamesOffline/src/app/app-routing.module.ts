@@ -13,6 +13,14 @@ const routes: Routes = [
     canActivate: [IsLogedGuardService],
   },
   {
+    path: "messages",
+    loadChildren: () =>
+      import("./modules/messages/messages.module").then(
+        (m) => m.MessagesModule
+      ),
+    canActivate: [IsLogedGuardService],
+  },
+  {
     path: "404",
     loadChildren: () =>
       import("./pages/not-found-page/not-found-page.module").then(

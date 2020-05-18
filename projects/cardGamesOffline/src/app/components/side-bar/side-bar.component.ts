@@ -14,33 +14,45 @@ export class SideBarComponent implements OnInit {
   ngOnInit() {}
 
   get isGamesActive(): boolean {
-    return this.router.url === "/games" || this.houverItem === "games";
+    return (
+      this.router.url.indexOf("/games") === 0 || this.houverItem === "games"
+    );
   }
 
   get isHomeActive(): boolean {
-    return this.router.url === "/home" || this.houverItem === "home";
+    return this.router.url.indexOf("/home") === 0 || this.houverItem === "home";
   }
 
   get isChatActive(): boolean {
-    return this.router.url === "/chat" || this.houverItem === "chat";
+    return (
+      this.router.url.indexOf("/messages") === 0 || this.houverItem === "chat"
+    );
   }
 
   get isFriendsActive(): boolean {
-    return this.router.url === "/friends" || this.houverItem === "friends";
+    return (
+      this.router.url.indexOf("/friends") === 0 || this.houverItem === "friends"
+    );
   }
 
   get isAchievementsActive(): boolean {
     return (
-      this.router.url === "/achievements" || this.houverItem === "achievements"
+      this.router.url.indexOf("/achievements") === 0 ||
+      this.houverItem === "achievements"
     );
   }
 
   get isSettingsActive(): boolean {
-    return this.router.url === "/settings" || this.houverItem === "settings";
+    return (
+      this.router.url.indexOf("/settings") === 0 ||
+      this.houverItem === "settings"
+    );
   }
 
   get isLogoutActive(): boolean {
-    return this.router.url === "/logout" || this.houverItem === "logout";
+    return (
+      this.router.url.indexOf("/logout") === 0 || this.houverItem === "logout"
+    );
   }
 
   onLogout() {

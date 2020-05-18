@@ -24,6 +24,7 @@
     }"
     (mouseenter)="mouseEnter('games')"
     (mouseleave)="mouseLeave()"
+    [routerLink]="['games']"
   >
     <div class="item-content">
       <div class="logo">
@@ -49,6 +50,7 @@
     }"
     (mouseenter)="mouseEnter('chat')"
     (mouseleave)="mouseLeave()"
+    [routerLink]="['\messages']"
   >
     <div class="item-content">
       <mat-icon>chat</mat-icon>

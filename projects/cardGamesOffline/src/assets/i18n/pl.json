@@ -1,4 +1,9 @@
 {
+  "MESSAGES_TOP_BAR": {
+    "CHAT": "Czat",
+    "FORUM": "Forum",
+    "PW": "PW"
+  },
   "SIDE_BAR": {
     "HOME_PAGE": "Strona główna",
     "MESSAGES": "Wiadomości",
