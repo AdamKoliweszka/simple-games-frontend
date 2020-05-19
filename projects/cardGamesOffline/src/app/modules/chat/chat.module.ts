@@ -5,9 +5,10 @@ import { ChatPageComponent } from "./chat-page/chat-page.component";
 import { ChatOutputComponent } from "./chat-output/chat-output.component";
 import { ChatInputComponent } from "./chat-input/chat-input.component";
 import { TranslateModule } from "@ngx-translate/core";
+import { AutosizeModule } from "ngx-autosize";
 
 @NgModule({
   declarations: [ChatPageComponent, ChatOutputComponent, ChatInputComponent],
-  imports: [CommonModule, ChatRoutingModule, TranslateModule],
+  imports: [CommonModule, ChatRoutingModule, TranslateModule, AutosizeModule],
 })
 export class ChatModule {}

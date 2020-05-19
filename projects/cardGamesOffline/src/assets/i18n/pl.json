@@ -1,4 +1,12 @@
 {
+  "CHAT": {
+    "INPUT_LABEL": "Wiadomość...",
+    "INPUT_SEND_BUTTON": "Wyślij"
+  },
+  "SEARCH_BAR": {
+    "LABEL": "Wyszukiwany tytuł gry...",
+    "BUTTON": "Szukaj"
+  },
   "MESSAGES_TOP_BAR": {
     "CHAT": "Czat",
     "FORUM": "Forum",
