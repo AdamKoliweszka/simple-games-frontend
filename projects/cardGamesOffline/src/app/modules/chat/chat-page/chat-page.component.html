@@ -2,5 +2,5 @@
   <app-chat-output></app-chat-output>
 </div>
 <div class="chat-input">
-  <app-chat-input></app-chat-input>
+  <app-chat-input (messageSubmit)="sendMessage($event)"></app-chat-input>
 </div>

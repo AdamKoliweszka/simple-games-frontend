@@ -1,6 +1,11 @@
-<textarea
-  autosize
-  placeholder="{{ 'CHAT.INPUT_LABEL' | translate }}"
-  id="login-input"
-></textarea>
-<button>{{ "CHAT.INPUT_SEND_BUTTON" | translate }}</button>
+<form [formGroup]="chatForm">
+  <textarea
+    autosize
+    placeholder="{{ 'CHAT.INPUT_LABEL' | translate }}"
+    id="login-input"
+    formControlName="message"
+  ></textarea>
+  <button (click)="sendMessage()">
+    {{ "CHAT.INPUT_SEND_BUTTON" | translate }}
+  </button>
+</form>
