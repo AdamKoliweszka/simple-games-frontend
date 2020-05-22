@@ -1,0 +1,25 @@
+@import "../../../../variables.scss";
+
+textarea {
+  width: calc(85% - 0.5vw);
+  height: 100%;
+  border: solid #cededb 0.1vw;
+  outline-color: #1ae8ad;
+  resize: none;
+  float: left;
+}
+
+textarea::placeholder {
+  color: #cededb;
+  text-align: center;
+}
+
+button {
+  width: 15%;
+  height: 5vh;
+  background-color: #1ae8ad;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  float: right;
+}

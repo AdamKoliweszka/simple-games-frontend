@@ -1,0 +1,66 @@
+<div class="container">
+  <form [formGroup]="userForm" class="form">
+    <div class="navigation-bar">
+      <div class="register-button">
+        <mat-icon>person_add</mat-icon>
+      </div>
+      <div class="login-button">
+        <mat-icon>person</mat-icon>
+      </div>
+    </div>
+    <div class="form-content">
+      <div>
+        <label for="login-input">{{
+          "LOGIN_FORM.LOGIN_LABEL" | translate
+        }}</label>
+        <input
+          formControlName="loginOfUser"
+          placeholder="{{ 'LOGIN_FORM.LOGIN_EXAMPLE' | translate }}"
+          id="login-input"
+          [ngClass]="{
+            'error-input':
+              loginOfUser.hasError('required') && loginOfUser.touched
+          }"
+        />
+        <div class="error">
+          <span *ngIf="loginOfUser.hasError('required') && loginOfUser.touched">
+            {{ "LOGIN_FORM.BAD_LOGIN" | translate }}
+          </span>
+        </div>
+      </div>
+
+      <div>
+        <label for="password-input">{{ "LOGIN_FORM.PASSWORD_LABEL" | translate }}</label>
+        <input
+          formControlName="passwordOfUser"
+          type="password"
+          placeholder="{{ 'LOGIN_FORM.PASSWORD_EXAMPLE' | translate }}"
+          id="password-input"
+          [ngClass]="{
+            'error-input':
+              passwordOfUser.hasError('required') && passwordOfUser.touched
+          }"
+        />
+        <div class="error">
+          <span
+            *ngIf="
+              passwordOfUser.hasError('required') && passwordOfUser.touched
+            "
+          >
+            {{ "LOGIN_FORM.PASSWORD_INPUT_ERROR" | translate }}
+          </span>
+        </div>
+      </div>
+
+      <div class="error">
+        <span *ngIf="badLogin$ | async">
+          {{ "LOGIN_FORM.BAD_LOGIN" | translate }}
+        </span>
+      </div>
+
+      <button (click)="onSubmitForm()" class="button">
+        {{ "LOGIN_FORM.LOGIN" | translate }}
+      </button>
+    </div>
+  </form>
+</div>

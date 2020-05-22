@@ -1,0 +1,43 @@
+.container {
+  width: 100vw;
+  height: 30vh;
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+  grid-template-rows: 20% 80%;
+  grid-template-areas:
+    "empty1 user empty2"
+    "left-arrow cards right-arrow";
+}
+.content {
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: flex;
+  flex-direction: row;
+  grid-area: cards;
+}
+.left-arrow {
+  width: 100%;
+  height: 100%;
+  grid-area: left-arrow;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.right-arrow {
+  width: 100%;
+  height: 100%;
+  grid-area: right-arrow;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.user-container {
+  width: 100%;
+  height: 100%;
+  line-height: 100%;
+  text-align: center;
+  grid-area: user;
+}

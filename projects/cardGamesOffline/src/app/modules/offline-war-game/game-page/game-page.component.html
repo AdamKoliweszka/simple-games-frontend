@@ -1,0 +1,25 @@
+<div
+  *ngIf="{
+    actualPlayer: actualPlayer$ | async,
+    firstPlayer: firstPlayer$ | async
+  } as data"
+>
+  <app-top-game-bar
+    ><app-players-preview></app-players-preview>
+  </app-top-game-bar>
+  <app-game-content></app-game-content>
+  <app-cards-bar
+    *ngIf="data.firstPlayer.name === data.actualPlayer.name"
+    class="bottom-bar"
+    [actualPlayer]="data.actualPlayer"
+    [cards]="firstPlayerCards$ | async"
+    (clickCard)="onCardClick($event)"
+  ></app-cards-bar>
+  <app-cards-bar
+    *ngIf="data.firstPlayer.name !== data.actualPlayer.name"
+    class="bottom-bar"
+    [actualPlayer]="data.actualPlayer"
+    [cards]="secondPlayerCards$ | async"
+    (clickCard)="onCardClick($event)"
+  ></app-cards-bar>
+</div>

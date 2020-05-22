@@ -1,0 +1,8 @@
+<mat-card *ngIf="player"
+  ><div class="container">
+    <div class="name" [ngClass]="{ active: isActive, name: true }">
+      {{ player.name }}
+    </div>
+    <div class="points">{{ player.points }}</div>
+  </div></mat-card
+>

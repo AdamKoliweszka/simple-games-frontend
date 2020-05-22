@@ -1,0 +1,17 @@
+<div
+  class="container"
+  *ngIf="{
+    firstPlayer: firstPlayer$ | async,
+    secondPlayer: secondPlayer$ | async,
+    activePlayer: activePlayer$ | async
+  } as data"
+>
+  <app-player-preview
+    [player]="data.firstPlayer"
+    [isActive]="data.firstPlayer.name === data.activePlayer.name"
+  ></app-player-preview>
+  <app-player-preview
+    [player]="data.secondPlayer"
+    [isActive]="data.secondPlayer.name === data.activePlayer.name"
+  ></app-player-preview>
+</div>

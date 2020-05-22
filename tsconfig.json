@@ -17,7 +17,33 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "cards": [
+        "dist/cards"
+      ],
+      "cards/*": [
+        "dist/cards/*"
+      ],
+      "card-war": [
+        "dist/card-war"
+      ],
+      "card-war/*": [
+        "dist/card-war/*"
+      ],
+      "users": [
+        "dist/users"
+      ],
+      "users/*": [
+        "dist/users/*"
+      ],
+      "game-turns": [
+        "dist/game-turns"
+      ],
+      "game-turns/*": [
+        "dist/game-turns/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

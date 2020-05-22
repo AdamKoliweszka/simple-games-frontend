@@ -1,0 +1,7 @@
+<div class="container">
+  <app-card
+    *ngFor="let card of cards; let i = index"
+    [card]="card"
+    (clickCard)="onClickCard($event)"
+  ></app-card>
+</div>

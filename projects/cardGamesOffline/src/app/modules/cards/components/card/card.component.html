@@ -1,0 +1,161 @@
+<div *ngIf="card" [ngClass]="{ clickable: card.isClickable, container: true }">
+  <mat-card id="card" (click)="onClickCard()">
+    <div class="color-1">
+      <mat-icon
+        *ngIf="card.color === CardColor.HEARTS"
+        class="heart"
+        aria-hidden="false"
+        aria-label="Example home icon"
+        >favorite</mat-icon
+      >
+      <mat-icon
+        *ngIf="card.color === CardColor.SPADES"
+        class="wine"
+        aria-hidden="false"
+        aria-label="Example home icon"
+        >favorite</mat-icon
+      >
+
+      <svg
+        *ngIf="card.color === CardColor.DIAMONDS"
+        class="diamond"
+        width="24"
+        height="24"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:serif="http://www.serif.com/"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+      >
+        <path serif:id="shape 21" d="M12 .001l12 12-12 12-12-12 12-12z" />
+      </svg>
+      <object
+        *ngIf="card.color === CardColor.CLUBS"
+        type="image/svg+xml"
+        data="../../../../../assets/icons/club.svg"
+        class="club"
+        width="24"
+        height="24"
+      >
+        Club Logo
+      </object>
+    </div>
+    <div class="color-2">
+      <mat-icon
+        *ngIf="card.color === CardColor.HEARTS"
+        class="heart"
+        aria-hidden="false"
+        aria-label="Example home icon"
+        >favorite</mat-icon
+      >
+      <mat-icon
+        *ngIf="card.color === CardColor.SPADES"
+        class="wine"
+        aria-hidden="false"
+        aria-label="Example home icon"
+        >favorite</mat-icon
+      >
+
+      <svg
+        *ngIf="card.color === CardColor.DIAMONDS"
+        class="diamond"
+        width="24"
+        height="24"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:serif="http://www.serif.com/"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+      >
+        <path serif:id="shape 21" d="M12 .001l12 12-12 12-12-12 12-12z" />
+      </svg>
+      <object
+        *ngIf="card.color === CardColor.CLUBS"
+        type="image/svg+xml"
+        data="../../../../../assets/icons/club.svg"
+        class="club"
+        width="24"
+        height="24"
+      >
+        Club Logo
+      </object>
+    </div>
+    <div class="value">{{ card.value | translate }}</div>
+    <div class="color-3">
+      <mat-icon
+        *ngIf="card.color === CardColor.HEARTS"
+        class="heart"
+        aria-hidden="false"
+        aria-label="Example home icon"
+        >favorite</mat-icon
+      >
+      <mat-icon
+        *ngIf="card.color === CardColor.SPADES"
+        class="wine"
+        aria-hidden="false"
+        aria-label="Example home icon"
+        >favorite</mat-icon
+      >
+
+      <svg
+        *ngIf="card.color === CardColor.DIAMONDS"
+        class="diamond"
+        width="24"
+        height="24"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:serif="http://www.serif.com/"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+      >
+        <path serif:id="shape 21" d="M12 .001l12 12-12 12-12-12 12-12z" />
+      </svg>
+      <object
+        *ngIf="card.color === CardColor.CLUBS"
+        type="image/svg+xml"
+        data="../../../../../assets/icons/club.svg"
+        class="club"
+        width="24"
+        height="24"
+      >
+        Club Logo
+      </object>
+    </div>
+    <div class="color-4">
+      <mat-icon
+        *ngIf="card.color === CardColor.HEARTS"
+        class="heart"
+        aria-hidden="false"
+        aria-label="Example home icon"
+        >favorite</mat-icon
+      >
+      <mat-icon
+        *ngIf="card.color === CardColor.SPADES"
+        class="wine"
+        aria-hidden="false"
+        aria-label="Example home icon"
+        >favorite</mat-icon
+      >
+
+      <svg
+        *ngIf="card.color === CardColor.DIAMONDS"
+        class="diamond"
+        width="24"
+        height="24"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:serif="http://www.serif.com/"
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+      >
+        <path serif:id="shape 21" d="M12 .001l12 12-12 12-12-12 12-12z" />
+      </svg>
+      <object
+        *ngIf="card.color === CardColor.CLUBS"
+        type="image/svg+xml"
+        data="../../../../../assets/icons/club.svg"
+        class="club"
+        width="24"
+        height="24"
+      >
+        Club Logo
+      </object>
+    </div>
+  </mat-card>
+</div>
