@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ChatApiService } from "../services/chat-api.service";
+import { ChatWsService } from "../services/chat-ws.service";
 
 @Component({
   selector: "app-chat-page",
@@ -7,12 +8,14 @@ import { ChatApiService } from "../services/chat-api.service";
   styleUrls: ["./chat-page.component.scss"],
 })
 export class ChatPageComponent implements OnInit {
-  constructor(private chatApiService: ChatApiService) {}
+  constructor(
+    private chatApiService: ChatApiService,
+    private chatWsService: ChatWsService
+  ) {}
 
   ngOnInit() {}
 
   sendMessage(message: string) {
-    console.log(message);
     this.chatApiService.sendMessage(message).subscribe();
   }
 }

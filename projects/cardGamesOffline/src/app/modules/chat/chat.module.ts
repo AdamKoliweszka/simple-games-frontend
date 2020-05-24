@@ -7,6 +7,8 @@ import { ChatInputComponent } from "./chat-input/chat-input.component";
 import { TranslateModule } from "@ngx-translate/core";
 import { AutosizeModule } from "ngx-autosize";
 import { ReactiveFormsModule } from "@angular/forms";
+import { ChatMessagesManagerService } from "./services/chat-messages-manager.service";
+import { ChatStateModule } from "./chat-state/chat-state.module";
 
 @NgModule({
   declarations: [ChatPageComponent, ChatOutputComponent, ChatInputComponent],
@@ -16,6 +18,7 @@ import { ReactiveFormsModule } from "@angular/forms";
     TranslateModule,
     AutosizeModule,
     ReactiveFormsModule,
+    ChatStateModule,
   ],
 })
 export class ChatModule {}
