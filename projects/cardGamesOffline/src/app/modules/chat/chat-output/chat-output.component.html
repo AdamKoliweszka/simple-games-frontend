@@ -1,1 +1,6 @@
-<div class="container"></div>
+<div class="container">
+  <app-chat-message-output
+    *ngFor="let chatMessage of chatMessages"
+    [chatMessage]="chatMessage"
+  ></app-chat-message-output>
+</div>

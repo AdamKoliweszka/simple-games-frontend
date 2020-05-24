@@ -9,9 +9,10 @@ import { AutosizeModule } from "ngx-autosize";
 import { ReactiveFormsModule } from "@angular/forms";
 import { ChatMessagesManagerService } from "./services/chat-messages-manager.service";
 import { ChatStateModule } from "./chat-state/chat-state.module";
+import { ChatMessageOutputComponent } from './chat-message-output/chat-message-output.component';
 
 @NgModule({
-  declarations: [ChatPageComponent, ChatOutputComponent, ChatInputComponent],
+  declarations: [ChatPageComponent, ChatOutputComponent, ChatInputComponent, ChatMessageOutputComponent],
   imports: [
     CommonModule,
     ChatRoutingModule,

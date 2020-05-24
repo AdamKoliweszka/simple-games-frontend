@@ -1,5 +1,5 @@
 <div class="chat-output">
-  <app-chat-output></app-chat-output>
+  <app-chat-output [chatMessages]="chatMessages$ | async"></app-chat-output>
 </div>
 <div class="chat-input">
   <app-chat-input (messageSubmit)="sendMessage($event)"></app-chat-input>

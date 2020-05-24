@@ -7,7 +7,13 @@ export interface ChatState {
 }
 
 const initialState: ChatState = {
-  chatMessages: [],
+  chatMessages: [
+    // {
+    //   username: "test",
+    //   message: "testowa wiadomość",
+    //   date: new Date(),
+    // } as ChatMessage,
+  ],
 };
 
 const chatReducer = createReducer(
