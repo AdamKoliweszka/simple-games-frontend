@@ -24,7 +24,7 @@ const chatReducer = createReducer(
   })),
   on(ChatActions.addChatMessages, (state, { messages }) => ({
     ...state,
-    chatMessages: [...state.chatMessages, messages],
+    chatMessages: state.chatMessages.concat(messages),
   })),
   on(ChatActions.removeLastChatMessages, (state) => ({
     ...state,

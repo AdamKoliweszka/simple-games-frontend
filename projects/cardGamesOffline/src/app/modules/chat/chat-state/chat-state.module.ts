@@ -6,6 +6,7 @@ import { chatStateKey } from "./chat-state.key";
 import { ChatEffect } from "./chat-state.effects";
 import * as fromChat from "./chat-state.reducers";
 import { ChatMessagesManagerService } from "../services/chat-messages-manager.service";
+import { ChatDataContainerService } from "./services/chat-data-container.service";
 
 @NgModule({
   declarations: [],
@@ -17,5 +18,10 @@ import { ChatMessagesManagerService } from "../services/chat-messages-manager.se
   providers: [ChatMessagesManagerService],
 })
 export class ChatStateModule {
-  constructor(private chatMangerService: ChatMessagesManagerService) {}
+  constructor(
+    private chatMangerService: ChatMessagesManagerService,
+    private chatDataContainer: ChatDataContainerService
+  ) {
+    this.chatDataContainer.initMessages();
+  }
 }
