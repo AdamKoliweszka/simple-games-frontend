@@ -42,7 +42,6 @@ const config: SocketIoConfig = { url: "http://localhost:3001", options: {} };
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HomeSideBarModule,
-
     SocketIoModule.forRoot(config),
     TranslateModule.forRoot({
       loader: {
