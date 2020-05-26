@@ -20,6 +20,9 @@ import { UserOfServiceModule } from "./modules/user-of-service/user-of-service.m
 import { TokenInterceptorService } from "./modules/user-of-service/services/token-interceptor.service";
 import { SideBarModule } from "./components/side-bar/side-bar.module";
 import { HomeSideBarModule } from "./components/home-side-bar/home-side-bar.module";
+import { SocketIoModule, SocketIoConfig } from "ngx-socket-io";
+
+const config: SocketIoConfig = { url: "http://localhost:3001", options: {} };
 
 @NgModule({
   declarations: [AppComponent],
@@ -39,6 +42,7 @@ import { HomeSideBarModule } from "./components/home-side-bar/home-side-bar.modu
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HomeSideBarModule,
+    SocketIoModule.forRoot(config),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

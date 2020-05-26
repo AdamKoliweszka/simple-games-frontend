@@ -7,9 +7,7 @@ import { Router } from "@angular/router";
   styleUrls: ["./messages-top-bar.component.scss"],
 })
 export class MessagesTopBarComponent implements OnInit {
-  constructor(private router: Router) {
-    console.log(this.router.url);
-  }
+  constructor(private router: Router) {}
 
   get isOnChat(): boolean {
     return this.router.url.indexOf("/chat") >= 0;
