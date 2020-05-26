@@ -1,13 +1,13 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { UserOfServiceFormComponent } from "./user-of-service-form.component";
+import { UserLoginFormComponent } from "./user-login-form.component";
 import { MaterialModule } from "../../material/material.module";
 import { TranslateModule } from "@ngx-translate/core";
 import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
-  declarations: [UserOfServiceFormComponent],
+  declarations: [UserLoginFormComponent],
   imports: [CommonModule, MaterialModule, TranslateModule, ReactiveFormsModule],
-  exports: [UserOfServiceFormComponent],
+  exports: [UserLoginFormComponent],
 })
-export class UserOfServiceFormModule {}
+export class UserLoginFormModule {}
