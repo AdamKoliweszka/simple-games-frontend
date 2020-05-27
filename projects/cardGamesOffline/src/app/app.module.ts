@@ -16,11 +16,11 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { environment } from "../environments/environment";
 import { EffectsModule } from "@ngrx/effects";
 import { MaterialModule } from "./modules/material/material.module";
-import { UserOfServiceModule } from "./modules/user-of-service/user-of-service.module";
 import { TokenInterceptorService } from "./modules/user-of-service/services/token-interceptor.service";
 import { SideBarModule } from "./components/side-bar/side-bar.module";
 import { HomeSideBarModule } from "./components/home-side-bar/home-side-bar.module";
 import { SocketIoModule, SocketIoConfig } from "ngx-socket-io";
+import { UserOfServiceStateModule } from "./modules/user-of-service/user-of-service-state/user-of-service-state.module";
 
 const config: SocketIoConfig = { url: "http://localhost:3001", options: {} };
 
@@ -34,7 +34,6 @@ const config: SocketIoConfig = { url: "http://localhost:3001", options: {} };
     }),
     EffectsModule.forRoot([]),
     SideBarModule,
-    UserOfServiceModule,
     MaterialModule,
     BrowserModule,
     HttpClientModule,
@@ -42,6 +41,7 @@ const config: SocketIoConfig = { url: "http://localhost:3001", options: {} };
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HomeSideBarModule,
+    UserOfServiceStateModule,
     SocketIoModule.forRoot(config),
     TranslateModule.forRoot({
       loader: {

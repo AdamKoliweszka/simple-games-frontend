@@ -5,11 +5,11 @@ import { AuthApiService } from "../services/auth-api.service";
 import { AuthService } from "../services/auth.service";
 
 @Component({
-  selector: "app-user-of-service-page",
-  templateUrl: "./user-of-service-page.component.html",
-  styleUrls: ["./user-of-service-page.component.scss"],
+  selector: "app-login-page",
+  templateUrl: "./user-login-page.component.html",
+  styleUrls: ["./user-login-page.component.scss"],
 })
-export class UserOfServicePageComponent implements OnInit {
+export class UserLoginPageComponent implements OnInit {
   constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit() {}

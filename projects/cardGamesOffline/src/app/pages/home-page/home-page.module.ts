@@ -5,7 +5,6 @@ import { MaterialModule } from "../../modules/material/material.module";
 import { ReactiveFormsModule } from "@angular/forms";
 import { HomePageRoutingModule } from "./home-page-routing.module";
 import { TranslateModule } from "@ngx-translate/core";
-import { UserOfServiceModule } from "../../modules/user-of-service/user-of-service.module";
 
 @NgModule({
   declarations: [HomePageComponent],
@@ -13,7 +12,6 @@ import { UserOfServiceModule } from "../../modules/user-of-service/user-of-servi
     CommonModule,
     MaterialModule,
     ReactiveFormsModule,
-    UserOfServiceModule,
     HomePageRoutingModule,
     TranslateModule,
   ],

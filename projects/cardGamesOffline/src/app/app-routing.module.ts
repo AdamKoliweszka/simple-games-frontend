@@ -28,15 +28,16 @@ const routes: Routes = [
       ),
   },
   {
-    path: "login",
+    path: "users",
     loadChildren: () =>
-      import(
-        "./modules/user-of-service/user-of-service-page/user-of-service-page.module"
-      ).then((m) => m.UserOfServicePageModule),
+      import("./modules/user-of-service/user-of-service.module").then(
+        (m) => m.UserOfServiceModule
+      ),
     canActivate: [IsNotLogedGuardService],
   },
   { path: "", redirectTo: "games", pathMatch: "full" },
   { path: "**", redirectTo: "/404" },
+  { path: "login", redirectTo: "/404" },
 ];
 
 @NgModule({
