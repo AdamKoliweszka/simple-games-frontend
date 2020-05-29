@@ -8,7 +8,7 @@
 
 form {
   width: 30%;
-  height: 30%;
+  height: 60%;
   margin-left: auto;
   margin-right: auto;
   border: solid #1ae8ad 0.2vw;
@@ -18,7 +18,7 @@ form {
   position: relative;
   background-color: #ffffff;
 
-  input {
+  .text-input {
     width: calc(80% - 0.4vw);
     height: 2.5vh;
     margin-left: 10%;
@@ -26,7 +26,7 @@ form {
     outline-color: #1ae8ad;
   }
 
-  input::placeholder {
+  .text-input::placeholder {
     color: #cededb;
     text-align: center;
   }
@@ -42,7 +42,7 @@ form {
     cursor: pointer;
   }
 
-  label {
+  .main-label {
     margin-left: 10%;
     font-size: 1.5vh;
     font-weight: bold;
@@ -61,7 +61,7 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 70%;
+    height: 80%;
     margin-top: 10%;
   }
 
@@ -112,4 +112,23 @@ form {
   100% {
     top: 0vh;
   }
+}
+
+.sex-container {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.radio-input {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+
+.radio-label {
+  font-size: 1vh;
+  line-height: 2vh;
 }

@@ -15,10 +15,11 @@ export class UserRegisterFormComponent implements OnInit {
   constructor(private authService: AuthService) {
     this.userForm = new FormGroup({
       loginOfUser: new FormControl("", Validators.required),
+      emailOfUser: new FormControl("", Validators.required),
       passwordOfUser: new FormControl("", Validators.required),
       passwordOfUser2: new FormControl("", Validators.required),
       dateOfBirthOfUser: new FormControl("", Validators.required),
-      sexOfUser: new FormControl("", Validators.required),
+      sexOfUser: new FormControl("male", Validators.required),
     });
   }
 
@@ -27,6 +28,10 @@ export class UserRegisterFormComponent implements OnInit {
   }
   get loginOfUser() {
     return this.userForm.get("loginOfUser");
+  }
+
+  get emailOfUser() {
+    return this.userForm.get("emailOfUser");
   }
 
   get passwordOfUser() {

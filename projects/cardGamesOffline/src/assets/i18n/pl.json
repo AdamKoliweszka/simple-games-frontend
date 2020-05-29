@@ -31,6 +31,28 @@
     "PASSWORD_LABEL": "Hasło",
     "PASSWORD_EXAMPLE": "Hasło"
   },
+  "REGISTER_FORM": {
+    "LOGIN_INPUT_ERROR": "Login jest wymagany!",
+    "EMAIL_INPUT_ERROR": "Email jest wymagany!",
+    "PASSWORD_INPUT_ERROR": "Hasło jest wymagane!",
+    "PASSWORD_INPUT_ERROR2": "Hasło jest wymagane!",
+    "REGISTER": "Zarejestruj",
+    "BAD_LOGIN": "Niepoprawny login!",
+    "BAD_DATE": "Niepoprawna data!",
+    "BAD_EMAIL": "Niepoprawny email!",
+    "LOGIN_LABEL": "Login",
+    "LOGIN_EXAMPLE": "Login",
+    "EMAIL_EXAMPLE": "jan.kowalski@email.com",
+    "EMAIL_LABEL": "Email",
+    "PASSWORD_LABEL": "Hasło",
+    "PASSWORD_EXAMPLE": "Hasło",
+    "PASSWORD_LABEL2": "Powtórzone hasło",
+    "PASSWORD_EXAMPLE2": "Powtórzone hasło",
+    "DATE_LABEL": "Data urodzin",
+    "SEX_LABEL": "Płeć",
+    "SEX_MALE_LABEL": "Mężczyzna",
+    "SEX_FEMALE_LABEL": "Kobieta"
+  },
   "PLAYERS_FORM": {
     "FIRST_PLAYER": "Nazwa pierwszego gracza",
     "SECOND_PLAYER": "Nazwa drugiego gracza",

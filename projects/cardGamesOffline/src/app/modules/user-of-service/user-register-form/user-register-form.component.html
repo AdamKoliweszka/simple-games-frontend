@@ -10,35 +10,60 @@
     </div>
     <div class="form-content">
       <div>
-        <label for="login-input">{{
-          "LOGIN_FORM.LOGIN_LABEL" | translate
+        <label class="main-label" for="login-input">{{
+          "REGISTER_FORM.LOGIN_LABEL" | translate
         }}</label>
         <input
           formControlName="loginOfUser"
-          placeholder="{{ 'LOGIN_FORM.LOGIN_EXAMPLE' | translate }}"
+          placeholder="{{ 'REGISTER_FORM.LOGIN_EXAMPLE' | translate }}"
           id="login-input"
           [ngClass]="{
             'error-input':
-              loginOfUser.hasError('required') && loginOfUser.touched
+              loginOfUser.hasError('required') && loginOfUser.touched,
+            'text-input': true
           }"
         />
         <div class="error">
           <span *ngIf="loginOfUser.hasError('required') && loginOfUser.touched">
-            {{ "LOGIN_FORM.BAD_LOGIN" | translate }}
+            {{ "REGISTER_FORM.BAD_LOGIN" | translate }}
           </span>
         </div>
       </div>
 
       <div>
-        <label for="password-input">{{ "LOGIN_FORM.PASSWORD_LABEL" | translate }}</label>
+        <label class="main-label" for="email-input">{{
+          "REGISTER_FORM.EMAIL_LABEL" | translate
+        }}</label>
+        <input
+          formControlName="emailOfUser"
+          placeholder="{{ 'REGISTER_FORM.EMAIL_EXAMPLE' | translate }}"
+          id="email-input"
+          [ngClass]="{
+            'error-input':
+              emailOfUser.hasError('required') && emailOfUser.touched,
+            'text-input': true
+          }"
+        />
+        <div class="error">
+          <span *ngIf="emailOfUser.hasError('required') && emailOfUser.touched">
+            {{ "REGISTER_FORM.BAD_EMAIL" | translate }}
+          </span>
+        </div>
+      </div>
+
+      <div>
+        <label class="main-label" for="password-input">{{
+          "REGISTER_FORM.PASSWORD_LABEL" | translate
+        }}</label>
         <input
           formControlName="passwordOfUser"
           type="password"
-          placeholder="{{ 'LOGIN_FORM.PASSWORD_EXAMPLE' | translate }}"
+          placeholder="{{ 'REGISTER_FORM.PASSWORD_EXAMPLE' | translate }}"
           id="password-input"
           [ngClass]="{
             'error-input':
-              passwordOfUser.hasError('required') && passwordOfUser.touched
+              passwordOfUser.hasError('required') && passwordOfUser.touched,
+            'text-input': true
           }"
         />
         <div class="error">
@@ -47,19 +72,105 @@
               passwordOfUser.hasError('required') && passwordOfUser.touched
             "
           >
-            {{ "LOGIN_FORM.PASSWORD_INPUT_ERROR" | translate }}
+            {{ "REGISTER_FORM.PASSWORD_INPUT_ERROR" | translate }}
           </span>
+        </div>
+      </div>
+
+      <div>
+        <label class="main-label" for="password-input2">{{
+          "REGISTER_FORM.PASSWORD_LABEL2" | translate
+        }}</label>
+        <input
+          formControlName="passwordOfUser2"
+          type="password"
+          placeholder="{{ 'REGISTER_FORM.PASSWORD_EXAMPLE2' | translate }}"
+          id="password-input2"
+          [ngClass]="{
+            'error-input':
+              passwordOfUser2.hasError('required') && passwordOfUser2.touched,
+            'text-input': true
+          }"
+        />
+        <div class="error">
+          <span
+            *ngIf="
+              passwordOfUser2.hasError('required') && passwordOfUser2.touched
+            "
+          >
+            {{ "REGISTER_FORM.PASSWORD_INPUT_ERROR2" | translate }}
+          </span>
+        </div>
+      </div>
+
+      <div>
+        <label class="main-label" for="date-input">{{
+          "REGISTER_FORM.DATE_LABEL" | translate
+        }}</label>
+        <input
+          type="date"
+          formControlName="dateOfBirthOfUser"
+          placeholder="{{ 'REGISTER_FORM.DATE_EXAMPLE' | translate }}"
+          id="date-input"
+          [ngClass]="{
+            'error-input':
+              dateOfBirthOfUser.hasError('required') &&
+              dateOfBirthOfUser.touched,
+            'text-input': true
+          }"
+        />
+        <div class="error">
+          <span
+            *ngIf="
+              dateOfBirthOfUser.hasError('required') &&
+              dateOfBirthOfUser.touched
+            "
+          >
+            {{ "REGISTER_FORM.BAD_DATE" | translate }}
+          </span>
+        </div>
+      </div>
+      <div>
+        <label class="main-label">{{
+          "REGISTER_FORM.SEX_LABEL" | translate
+        }}</label>
+        <div class="sex-container">
+          <div class="radio-input">
+            <input
+              type="radio"
+              id="male"
+              name="sex"
+              value="male"
+              formControlName="sexOfUser"
+            />
+
+            <label for="male" class="radio-label">{{
+              "REGISTER_FORM.SEX_MALE_LABEL" | translate
+            }}</label>
+          </div>
+          <div class="radio-input">
+            <input
+              type="radio"
+              id="female"
+              name="sex"
+              value="female"
+              formControlName="sexOfUser"
+            />
+            <label for="female" class="radio-label">{{
+              "REGISTER_FORM.SEX_FEMALE_LABEL" | translate
+            }}</label>
+          </div>
         </div>
       </div>
 
       <div class="error">
         <span *ngIf="badLogin$ | async">
-          {{ "LOGIN_FORM.BAD_LOGIN" | translate }}
+          {{ "REGISTER_FORM.BAD_LOGIN" | translate }}
         </span>
       </div>
 
       <button (click)="onSubmitForm()" class="button">
-        {{ "LOGIN_FORM.LOGIN" | translate }}
+        {{ "REGISTER_FORM.REGISTER" | translate }}
       </button>
     </div>
   </form>
