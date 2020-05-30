@@ -3,6 +3,7 @@ import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { User } from "../models/user";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { AuthService } from "../services/auth.service";
+import { Gender } from "../models/gender";
 
 @Component({
   selector: "app-user-register-form",
@@ -14,8 +15,11 @@ export class UserRegisterFormComponent implements OnInit {
   userForm: FormGroup;
   constructor(private authService: AuthService) {
     this.userForm = new FormGroup({
-      loginOfUser: new FormControl("", Validators.required),
-      emailOfUser: new FormControl("", Validators.required),
+      loginOfUser: new FormControl("", [
+        Validators.required,
+        Validators.pattern("[a-zA-Z0-9]*"),
+      ]),
+      emailOfUser: new FormControl("", [Validators.required, Validators.email]),
       passwordOfUser: new FormControl("", Validators.required),
       passwordOfUser2: new FormControl("", Validators.required),
       dateOfBirthOfUser: new FormControl("", Validators.required),
@@ -56,7 +60,7 @@ export class UserRegisterFormComponent implements OnInit {
         username: this.loginOfUser.value.trim(),
         password: this.passwordOfUser.value,
         dateOfBirth: this.dateOfBirthOfUser.value,
-        sex: this.sexOfUser.value,
+        gender: this.sexOfUser.value === "male" ? Gender.male : Gender.female,
       } as User);
     } else {
       this.userForm.markAllAsTouched();

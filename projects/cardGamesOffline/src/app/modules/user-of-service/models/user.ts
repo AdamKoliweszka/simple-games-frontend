@@ -1,8 +1,8 @@
-import { Sex } from "./sex";
+import { Gender } from "./gender";
 
 export interface User {
   username: string;
   password: string;
   dateOfBirth?: Date;
-  sex?: Sex;
+  gender?: Gender;
 }

@@ -4,7 +4,7 @@
       <div class="register-button">
         <mat-icon>person_add</mat-icon>
       </div>
-      <div class="login-button">
+      <div class="login-button" [routerLink]="['/users/login']">
         <mat-icon>person</mat-icon>
       </div>
     </div>
@@ -24,7 +24,13 @@
           }"
         />
         <div class="error">
-          <span *ngIf="loginOfUser.hasError('required') && loginOfUser.touched">
+          <span
+            *ngIf="
+              (loginOfUser.hasError('pattern') ||
+                loginOfUser.hasError('required')) &&
+              loginOfUser.touched
+            "
+          >
             {{ "REGISTER_FORM.BAD_LOGIN" | translate }}
           </span>
         </div>
@@ -40,12 +46,20 @@
           id="email-input"
           [ngClass]="{
             'error-input':
-              emailOfUser.hasError('required') && emailOfUser.touched,
+              (emailOfUser.hasError('required') ||
+                emailOfUser.hasError('email')) &&
+              emailOfUser.touched,
             'text-input': true
           }"
         />
         <div class="error">
-          <span *ngIf="emailOfUser.hasError('required') && emailOfUser.touched">
+          <span
+            *ngIf="
+              (emailOfUser.hasError('required') ||
+                emailOfUser.hasError('email')) &&
+              emailOfUser.touched
+            "
+          >
             {{ "REGISTER_FORM.BAD_EMAIL" | translate }}
           </span>
         </div>
@@ -139,7 +153,7 @@
             <input
               type="radio"
               id="male"
-              name="sex"
+              name="sexOfUser"
               value="male"
               formControlName="sexOfUser"
             />
@@ -152,7 +166,7 @@
             <input
               type="radio"
               id="female"
-              name="sex"
+              name="sexOfUser"
               value="female"
               formControlName="sexOfUser"
             />

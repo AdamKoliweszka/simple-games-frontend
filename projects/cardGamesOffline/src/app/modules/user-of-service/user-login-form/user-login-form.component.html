@@ -1,7 +1,7 @@
 <div class="container">
   <form [formGroup]="userForm" class="form">
     <div class="navigation-bar">
-      <div class="register-button">
+      <div class="register-button" [routerLink]="['/users/register']">
         <mat-icon>person_add</mat-icon>
       </div>
       <div class="login-button">
@@ -30,7 +30,9 @@
       </div>
 
       <div>
-        <label for="password-input">{{ "LOGIN_FORM.PASSWORD_LABEL" | translate }}</label>
+        <label for="password-input">{{
+          "LOGIN_FORM.PASSWORD_LABEL" | translate
+        }}</label>
         <input
           formControlName="passwordOfUser"
           type="password"

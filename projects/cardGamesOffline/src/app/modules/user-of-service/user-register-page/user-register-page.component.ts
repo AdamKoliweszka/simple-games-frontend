@@ -15,6 +15,7 @@ export class UserRegisterPageComponent implements OnInit {
   ngOnInit() {}
 
   onUserSubmit(user: User) {
-    this.authService.loginUser(user);
+    console.log(user);
+    // this.authService.loginUser(user);
   }
 }
