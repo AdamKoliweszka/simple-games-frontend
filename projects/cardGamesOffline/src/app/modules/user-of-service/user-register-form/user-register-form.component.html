@@ -24,14 +24,11 @@
           }"
         />
         <div class="error">
-          <span
-            *ngIf="
-              (loginOfUser.hasError('pattern') ||
-                loginOfUser.hasError('required')) &&
-              loginOfUser.touched
-            "
-          >
+          <span *ngIf="loginOfUser.hasError('pattern') && loginOfUser.touched">
             {{ "REGISTER_FORM.BAD_LOGIN" | translate }}
+          </span>
+          <span *ngIf="loginOfUser.hasError('required') && loginOfUser.touched">
+            {{ "REGISTER_FORM.NO_LOGIN" | translate }}
           </span>
         </div>
       </div>
@@ -53,14 +50,11 @@
           }"
         />
         <div class="error">
-          <span
-            *ngIf="
-              (emailOfUser.hasError('required') ||
-                emailOfUser.hasError('email')) &&
-              emailOfUser.touched
-            "
-          >
+          <span *ngIf="emailOfUser.hasError('email') && emailOfUser.touched">
             {{ "REGISTER_FORM.BAD_EMAIL" | translate }}
+          </span>
+          <span *ngIf="emailOfUser.hasError('required') && emailOfUser.touched">
+            {{ "REGISTER_FORM.NO_EMAIL" | translate }}
           </span>
         </div>
       </div>
@@ -86,33 +80,48 @@
               passwordOfUser.hasError('required') && passwordOfUser.touched
             "
           >
-            {{ "REGISTER_FORM.PASSWORD_INPUT_ERROR" | translate }}
+            {{ "REGISTER_FORM.NO_PASSWORD" | translate }}
           </span>
         </div>
       </div>
 
       <div>
-        <label class="main-label" for="password-input2">{{
-          "REGISTER_FORM.PASSWORD_LABEL2" | translate
+        <label class="main-label" for="passwordOfUserConfirmation">{{
+          "REGISTER_FORM.PASSWORD_CONFIRMATION_LABEL" | translate
         }}</label>
         <input
-          formControlName="passwordOfUser2"
+          formControlName="passwordOfUserConfirmation"
           type="password"
-          placeholder="{{ 'REGISTER_FORM.PASSWORD_EXAMPLE2' | translate }}"
-          id="password-input2"
+          placeholder="{{
+            'REGISTER_FORM.PASSWORD_CONFIRMATION_EXAMPLE' | translate
+          }}"
+          id="passwordOfUserConfirmation"
           [ngClass]="{
             'error-input':
-              passwordOfUser2.hasError('required') && passwordOfUser2.touched,
+              (userForm.errors?.difference ||
+                passwordOfUserConfirmation.hasError('required')) &&
+              passwordOfUserConfirmation.touched,
             'text-input': true
           }"
         />
         <div class="error">
           <span
             *ngIf="
-              passwordOfUser2.hasError('required') && passwordOfUser2.touched
+              passwordOfUserConfirmation.hasError('required') &&
+              passwordOfUserConfirmation.touched
             "
           >
-            {{ "REGISTER_FORM.PASSWORD_INPUT_ERROR2" | translate }}
+            {{ "REGISTER_FORM.NO_PASSWORD_CONFIRMATION" | translate }}
+          </span>
+
+          <span
+            *ngIf="
+              userForm.errors?.difference &&
+              !passwordOfUserConfirmation.hasError('required') &&
+              passwordOfUserConfirmation.touched
+            "
+          >
+            {{ "REGISTER_FORM.BAD_PASSWORD_CONFIRMATION" | translate }}
           </span>
         </div>
       </div>
@@ -140,38 +149,38 @@
               dateOfBirthOfUser.touched
             "
           >
-            {{ "REGISTER_FORM.BAD_DATE" | translate }}
+            {{ "REGISTER_FORM.NO_DATE" | translate }}
           </span>
         </div>
       </div>
       <div>
         <label class="main-label">{{
-          "REGISTER_FORM.SEX_LABEL" | translate
+          "REGISTER_FORM.GENDER_LABEL" | translate
         }}</label>
-        <div class="sex-container">
+        <div class="gender-container">
           <div class="radio-input">
             <input
               type="radio"
               id="male"
-              name="sexOfUser"
+              name="genderOfUser"
               value="male"
-              formControlName="sexOfUser"
+              formControlName="genderOfUser"
             />
 
             <label for="male" class="radio-label">{{
-              "REGISTER_FORM.SEX_MALE_LABEL" | translate
+              "REGISTER_FORM.GENDER_MALE_LABEL" | translate
             }}</label>
           </div>
           <div class="radio-input">
             <input
               type="radio"
               id="female"
-              name="sexOfUser"
+              name="genderOfUser"
               value="female"
-              formControlName="sexOfUser"
+              formControlName="genderOfUser"
             />
             <label for="female" class="radio-label">{{
-              "REGISTER_FORM.SEX_FEMALE_LABEL" | translate
+              "REGISTER_FORM.GENDER_FEMALE_LABEL" | translate
             }}</label>
           </div>
         </div>

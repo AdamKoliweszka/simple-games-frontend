@@ -1,7 +1,13 @@
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 
 import { User } from "../models/user";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
+import {
+  FormGroup,
+  FormControl,
+  Validators,
+  ValidatorFn,
+  ValidationErrors,
+} from "@angular/forms";
 import { AuthService } from "../services/auth.service";
 import { Gender } from "../models/gender";
 
@@ -14,17 +20,23 @@ export class UserRegisterFormComponent implements OnInit {
   @Output() userSubmit: EventEmitter<User> = new EventEmitter<User>();
   userForm: FormGroup;
   constructor(private authService: AuthService) {
-    this.userForm = new FormGroup({
-      loginOfUser: new FormControl("", [
-        Validators.required,
-        Validators.pattern("[a-zA-Z0-9]*"),
-      ]),
-      emailOfUser: new FormControl("", [Validators.required, Validators.email]),
-      passwordOfUser: new FormControl("", Validators.required),
-      passwordOfUser2: new FormControl("", Validators.required),
-      dateOfBirthOfUser: new FormControl("", Validators.required),
-      sexOfUser: new FormControl("male", Validators.required),
-    });
+    this.userForm = new FormGroup(
+      {
+        loginOfUser: new FormControl("", [
+          Validators.required,
+          Validators.pattern("[a-zA-Z0-9]*"),
+        ]),
+        emailOfUser: new FormControl("", [
+          Validators.required,
+          Validators.email,
+        ]),
+        passwordOfUser: new FormControl("", Validators.required),
+        passwordOfUserConfirmation: new FormControl("", [Validators.required]),
+        dateOfBirthOfUser: new FormControl("", Validators.required),
+        genderOfUser: new FormControl("male", Validators.required),
+      },
+      { validators: this.identityPasswordValidator }
+    );
   }
 
   get badLogin$() {
@@ -42,16 +54,16 @@ export class UserRegisterFormComponent implements OnInit {
     return this.userForm.get("passwordOfUser");
   }
 
-  get passwordOfUser2() {
-    return this.userForm.get("passwordOfUser2");
+  get passwordOfUserConfirmation() {
+    return this.userForm.get("passwordOfUserConfirmation");
   }
 
   get dateOfBirthOfUser() {
     return this.userForm.get("dateOfBirthOfUser");
   }
 
-  get sexOfUser() {
-    return this.userForm.get("sexOfUser");
+  get genderOfUser() {
+    return this.userForm.get("genderOfUser");
   }
 
   onSubmitForm() {
@@ -60,7 +72,9 @@ export class UserRegisterFormComponent implements OnInit {
         username: this.loginOfUser.value.trim(),
         password: this.passwordOfUser.value,
         dateOfBirth: this.dateOfBirthOfUser.value,
-        gender: this.sexOfUser.value === "male" ? Gender.male : Gender.female,
+        gender:
+          this.genderOfUser.value === "male" ? Gender.male : Gender.female,
+        email: this.emailOfUser.value,
       } as User);
     } else {
       this.userForm.markAllAsTouched();
@@ -68,4 +82,16 @@ export class UserRegisterFormComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  identityPasswordValidator: ValidatorFn = (
+    control: FormGroup
+  ): ValidationErrors | null => {
+    const password = control.get("passwordOfUser");
+    const passwordConfirmation = control.get("passwordOfUserConfirmation");
+    return password &&
+      passwordConfirmation &&
+      password.value === passwordConfirmation.value
+      ? null
+      : { difference: true };
+  };
 }
