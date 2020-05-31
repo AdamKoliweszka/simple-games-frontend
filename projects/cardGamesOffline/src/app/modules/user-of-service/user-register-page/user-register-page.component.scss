@@ -1,67 +1,62 @@
-.left-bar {
-  background-color: #1ae8ad;
-  width: 20vw;
-  height: 100vh;
-  position: relative;
-  animation-name: left-bar-appear;
-  animation-duration: 0.5s;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.logo {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-.game-icon {
-  width: 80%;
-}
-
+@import "../../../../variables.scss";
 .container {
   display: flex;
   flex-direction: row;
-}
-.form {
   width: 80vw;
   height: 100vh;
 }
+.form {
+  width: 30%;
+  height: 60%;
+  border: solid #1ae8ad 0.2vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  animation-name: form-appear;
+  animation-duration: 0.5s;
+  position: relative;
+}
 
-@keyframes left-bar-appear {
+.loader {
+  width: 10vw;
+  height: 10vw;
+  background-color: $primary-color;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: calc(30vh - 5vw);
+  border-radius: 100%;
+  animation: spin 4s linear infinite;
+}
+.loader-blank {
+  width: 8vw;
+  height: 8vw;
+  background-color: $background-color;
+  border-radius: 100%;
+  position: relative;
+  top: -4vw;
+  left: 1vw;
+}
+.loader-blank-second {
+  width: 5vw;
+  height: 5vw;
+  background-color: $background-color;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes form-appear {
   0% {
-    left: -20vw;
+    top: -50vh;
   }
   100% {
-    left: 0vw;
+    top: 0vh;
   }
-}
-
-.inscription-one {
-  font-size: 5vh;
-  text-align: center;
-  height: 6vh;
-  line-height: 5vh;
-  font-family: Rasa;
-}
-
-.inscription-second {
-  font-size: 4vh;
-  text-align: center;
-  height: 5vh;
-  line-height: 4vh;
-  font-family: Rasa;
-}
-
-.inscription-third {
-  font-size: 3vh;
-  text-align: center;
-  height: 4vh;
-  line-height: 3vh;
-  font-family: Rasa;
-}
-
-.left-bar-content {
-  display: flex;
-  flex-direction: column;
 }

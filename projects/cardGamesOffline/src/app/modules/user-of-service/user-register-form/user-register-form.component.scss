@@ -7,14 +7,13 @@
 }
 
 form {
-  width: 30%;
-  height: 60%;
+  width: 100%;
+  height: 100%;
   margin-left: auto;
   margin-right: auto;
-  border: solid #1ae8ad 0.2vw;
+  border: none;
   border-radius: 10px;
-  animation-name: form-appear;
-  animation-duration: 0.5s;
+
   position: relative;
   background-color: #ffffff;
 
@@ -102,15 +101,6 @@ form {
     width: 20%;
     margin-left: 70%;
     justify-content: space-between;
-  }
-}
-
-@keyframes form-appear {
-  0% {
-    top: -50vh;
-  }
-  100% {
-    top: 0vh;
   }
 }
 
