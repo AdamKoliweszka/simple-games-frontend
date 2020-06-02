@@ -41,7 +41,7 @@
   z-index: 2;
 }
 
-.login-button {
+.nonactive-button {
   width: 2vw;
   height: 2vw;
   background-color: #cededb;
@@ -49,17 +49,19 @@
   text-align: center;
   line-height: 1.5vw;
   font-size: 1.5vw;
+  cursor: pointer;
+  outline: none;
 }
 
-.register-button {
+.active-button {
   width: 2vw;
   height: 2vw;
   background-color: #1ae8ad;
   border-radius: 10px;
-  cursor: pointer;
   text-align: center;
   line-height: 1.5vw;
   font-size: 1.5vw;
+  outline: none;
 }
 
 .form-content {
