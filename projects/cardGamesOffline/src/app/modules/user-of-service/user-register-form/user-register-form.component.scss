@@ -1,21 +1,13 @@
-.container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
 form {
   width: 100%;
   height: 100%;
-  margin-left: auto;
-  margin-right: auto;
   border: none;
   border-radius: 10px;
-
   position: relative;
   background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 
   .text-input {
     width: calc(80% - 0.4vw);
@@ -60,8 +52,9 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 80%;
-    margin-top: 10%;
+    height: 90%;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 
   .error-input {

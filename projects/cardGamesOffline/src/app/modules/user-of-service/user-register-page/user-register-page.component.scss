@@ -1,21 +1,8 @@
 @import "../../../../variables.scss";
-.container {
-  display: flex;
-  flex-direction: row;
-  width: 80vw;
-  height: 100vh;
-}
+
 .form {
-  width: 30%;
-  height: 60%;
-  border: solid #1ae8ad 0.2vw;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
-  margin-bottom: auto;
-  animation-name: form-appear;
-  animation-duration: 0.5s;
-  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .loader {

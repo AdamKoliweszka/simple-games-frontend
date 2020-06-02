@@ -1,200 +1,186 @@
-<div class="container">
-  <form [formGroup]="userForm" class="form">
-    <div class="navigation-bar">
-      <div class="register-button">
-        <mat-icon>person_add</mat-icon>
-      </div>
-      <div class="login-button" [routerLink]="['/users/login']">
-        <mat-icon>person</mat-icon>
-      </div>
-    </div>
-    <div class="form-content">
-      <div>
-        <label class="main-label" for="login-input">{{
-          "REGISTER_FORM.LOGIN_LABEL" | translate
-        }}</label>
-        <input
-          formControlName="loginOfUser"
-          placeholder="{{ 'REGISTER_FORM.LOGIN_EXAMPLE' | translate }}"
-          id="login-input"
-          [ngClass]="{
-            'error-input':
-              loginOfUser.hasError('required') && loginOfUser.touched,
-            'text-input': true
-          }"
-        />
-        <div class="error">
-          <span *ngIf="loginOfUser.hasError('pattern') && loginOfUser.touched">
-            {{ "REGISTER_FORM.BAD_LOGIN" | translate }}
-          </span>
-          <span *ngIf="loginOfUser.hasError('required') && loginOfUser.touched">
-            {{ "REGISTER_FORM.NO_LOGIN" | translate }}
-          </span>
-        </div>
-      </div>
-
-      <div>
-        <label class="main-label" for="email-input">{{
-          "REGISTER_FORM.EMAIL_LABEL" | translate
-        }}</label>
-        <input
-          formControlName="emailOfUser"
-          placeholder="{{ 'REGISTER_FORM.EMAIL_EXAMPLE' | translate }}"
-          id="email-input"
-          [ngClass]="{
-            'error-input':
-              (emailOfUser.hasError('required') ||
-                emailOfUser.hasError('email')) &&
-              emailOfUser.touched,
-            'text-input': true
-          }"
-        />
-        <div class="error">
-          <span *ngIf="emailOfUser.hasError('email') && emailOfUser.touched">
-            {{ "REGISTER_FORM.BAD_EMAIL" | translate }}
-          </span>
-          <span *ngIf="emailOfUser.hasError('required') && emailOfUser.touched">
-            {{ "REGISTER_FORM.NO_EMAIL" | translate }}
-          </span>
-        </div>
-      </div>
-
-      <div>
-        <label class="main-label" for="password-input">{{
-          "REGISTER_FORM.PASSWORD_LABEL" | translate
-        }}</label>
-        <input
-          formControlName="passwordOfUser"
-          type="password"
-          placeholder="{{ 'REGISTER_FORM.PASSWORD_EXAMPLE' | translate }}"
-          id="password-input"
-          [ngClass]="{
-            'error-input':
-              passwordOfUser.hasError('required') && passwordOfUser.touched,
-            'text-input': true
-          }"
-        />
-        <div class="error">
-          <span
-            *ngIf="
-              passwordOfUser.hasError('required') && passwordOfUser.touched
-            "
-          >
-            {{ "REGISTER_FORM.NO_PASSWORD" | translate }}
-          </span>
-        </div>
-      </div>
-
-      <div>
-        <label class="main-label" for="passwordOfUserConfirmation">{{
-          "REGISTER_FORM.PASSWORD_CONFIRMATION_LABEL" | translate
-        }}</label>
-        <input
-          formControlName="passwordOfUserConfirmation"
-          type="password"
-          placeholder="{{
-            'REGISTER_FORM.PASSWORD_CONFIRMATION_EXAMPLE' | translate
-          }}"
-          id="passwordOfUserConfirmation"
-          [ngClass]="{
-            'error-input':
-              (userForm.errors?.difference ||
-                passwordOfUserConfirmation.hasError('required')) &&
-              passwordOfUserConfirmation.touched,
-            'text-input': true
-          }"
-        />
-        <div class="error">
-          <span
-            *ngIf="
-              passwordOfUserConfirmation.hasError('required') &&
-              passwordOfUserConfirmation.touched
-            "
-          >
-            {{ "REGISTER_FORM.NO_PASSWORD_CONFIRMATION" | translate }}
-          </span>
-
-          <span
-            *ngIf="
-              userForm.errors?.difference &&
-              !passwordOfUserConfirmation.hasError('required') &&
-              passwordOfUserConfirmation.touched
-            "
-          >
-            {{ "REGISTER_FORM.BAD_PASSWORD_CONFIRMATION" | translate }}
-          </span>
-        </div>
-      </div>
-
-      <div>
-        <label class="main-label" for="date-input">{{
-          "REGISTER_FORM.DATE_LABEL" | translate
-        }}</label>
-        <input
-          type="date"
-          formControlName="dateOfBirthOfUser"
-          placeholder="{{ 'REGISTER_FORM.DATE_EXAMPLE' | translate }}"
-          id="date-input"
-          [ngClass]="{
-            'error-input':
-              dateOfBirthOfUser.hasError('required') &&
-              dateOfBirthOfUser.touched,
-            'text-input': true
-          }"
-        />
-        <div class="error">
-          <span
-            *ngIf="
-              dateOfBirthOfUser.hasError('required') &&
-              dateOfBirthOfUser.touched
-            "
-          >
-            {{ "REGISTER_FORM.NO_DATE" | translate }}
-          </span>
-        </div>
-      </div>
-      <div>
-        <label class="main-label">{{
-          "REGISTER_FORM.GENDER_LABEL" | translate
-        }}</label>
-        <div class="gender-container">
-          <div class="radio-input">
-            <input
-              type="radio"
-              id="male"
-              name="genderOfUser"
-              value="male"
-              formControlName="genderOfUser"
-            />
-
-            <label for="male" class="radio-label">{{
-              "REGISTER_FORM.GENDER_MALE_LABEL" | translate
-            }}</label>
-          </div>
-          <div class="radio-input">
-            <input
-              type="radio"
-              id="female"
-              name="genderOfUser"
-              value="female"
-              formControlName="genderOfUser"
-            />
-            <label for="female" class="radio-label">{{
-              "REGISTER_FORM.GENDER_FEMALE_LABEL" | translate
-            }}</label>
-          </div>
-        </div>
-      </div>
-
+<form [formGroup]="userForm" class="form">
+  <div class="form-content">
+    <div>
+      <label class="main-label" for="login-input">{{
+        "REGISTER_FORM.LOGIN_LABEL" | translate
+      }}</label>
+      <input
+        formControlName="loginOfUser"
+        placeholder="{{ 'REGISTER_FORM.LOGIN_EXAMPLE' | translate }}"
+        id="login-input"
+        [ngClass]="{
+          'error-input':
+            loginOfUser.hasError('required') && loginOfUser.touched,
+          'text-input': true
+        }"
+      />
       <div class="error">
-        <span *ngIf="badLogin$ | async">
+        <span *ngIf="loginOfUser.hasError('pattern') && loginOfUser.touched">
           {{ "REGISTER_FORM.BAD_LOGIN" | translate }}
         </span>
+        <span *ngIf="loginOfUser.hasError('required') && loginOfUser.touched">
+          {{ "REGISTER_FORM.NO_LOGIN" | translate }}
+        </span>
       </div>
-
-      <button (click)="onSubmitForm()" class="button">
-        {{ "REGISTER_FORM.REGISTER" | translate }}
-      </button>
     </div>
-  </form>
-</div>
+
+    <div>
+      <label class="main-label" for="email-input">{{
+        "REGISTER_FORM.EMAIL_LABEL" | translate
+      }}</label>
+      <input
+        formControlName="emailOfUser"
+        placeholder="{{ 'REGISTER_FORM.EMAIL_EXAMPLE' | translate }}"
+        id="email-input"
+        [ngClass]="{
+          'error-input':
+            (emailOfUser.hasError('required') ||
+              emailOfUser.hasError('email')) &&
+            emailOfUser.touched,
+          'text-input': true
+        }"
+      />
+      <div class="error">
+        <span *ngIf="emailOfUser.hasError('email') && emailOfUser.touched">
+          {{ "REGISTER_FORM.BAD_EMAIL" | translate }}
+        </span>
+        <span *ngIf="emailOfUser.hasError('required') && emailOfUser.touched">
+          {{ "REGISTER_FORM.NO_EMAIL" | translate }}
+        </span>
+      </div>
+    </div>
+
+    <div>
+      <label class="main-label" for="password-input">{{
+        "REGISTER_FORM.PASSWORD_LABEL" | translate
+      }}</label>
+      <input
+        formControlName="passwordOfUser"
+        type="password"
+        placeholder="{{ 'REGISTER_FORM.PASSWORD_EXAMPLE' | translate }}"
+        id="password-input"
+        [ngClass]="{
+          'error-input':
+            passwordOfUser.hasError('required') && passwordOfUser.touched,
+          'text-input': true
+        }"
+      />
+      <div class="error">
+        <span
+          *ngIf="passwordOfUser.hasError('required') && passwordOfUser.touched"
+        >
+          {{ "REGISTER_FORM.NO_PASSWORD" | translate }}
+        </span>
+      </div>
+    </div>
+
+    <div>
+      <label class="main-label" for="passwordOfUserConfirmation">{{
+        "REGISTER_FORM.PASSWORD_CONFIRMATION_LABEL" | translate
+      }}</label>
+      <input
+        formControlName="passwordOfUserConfirmation"
+        type="password"
+        placeholder="{{
+          'REGISTER_FORM.PASSWORD_CONFIRMATION_EXAMPLE' | translate
+        }}"
+        id="passwordOfUserConfirmation"
+        [ngClass]="{
+          'error-input':
+            (userForm.errors?.difference ||
+              passwordOfUserConfirmation.hasError('required')) &&
+            passwordOfUserConfirmation.touched,
+          'text-input': true
+        }"
+      />
+      <div class="error">
+        <span
+          *ngIf="
+            passwordOfUserConfirmation.hasError('required') &&
+            passwordOfUserConfirmation.touched
+          "
+        >
+          {{ "REGISTER_FORM.NO_PASSWORD_CONFIRMATION" | translate }}
+        </span>
+
+        <span
+          *ngIf="
+            userForm.errors?.difference &&
+            !passwordOfUserConfirmation.hasError('required') &&
+            passwordOfUserConfirmation.touched
+          "
+        >
+          {{ "REGISTER_FORM.BAD_PASSWORD_CONFIRMATION" | translate }}
+        </span>
+      </div>
+    </div>
+
+    <div>
+      <label class="main-label" for="date-input">{{
+        "REGISTER_FORM.DATE_LABEL" | translate
+      }}</label>
+      <input
+        type="date"
+        formControlName="dateOfBirthOfUser"
+        placeholder="{{ 'REGISTER_FORM.DATE_EXAMPLE' | translate }}"
+        id="date-input"
+        [ngClass]="{
+          'error-input':
+            dateOfBirthOfUser.hasError('required') && dateOfBirthOfUser.touched,
+          'text-input': true
+        }"
+      />
+      <div class="error">
+        <span
+          *ngIf="
+            dateOfBirthOfUser.hasError('required') && dateOfBirthOfUser.touched
+          "
+        >
+          {{ "REGISTER_FORM.NO_DATE" | translate }}
+        </span>
+      </div>
+    </div>
+    <div>
+      <label class="main-label">{{
+        "REGISTER_FORM.GENDER_LABEL" | translate
+      }}</label>
+      <div class="gender-container">
+        <div class="radio-input">
+          <input
+            type="radio"
+            id="male"
+            name="genderOfUser"
+            value="male"
+            formControlName="genderOfUser"
+          />
+
+          <label for="male" class="radio-label">{{
+            "REGISTER_FORM.GENDER_MALE_LABEL" | translate
+          }}</label>
+        </div>
+        <div class="radio-input">
+          <input
+            type="radio"
+            id="female"
+            name="genderOfUser"
+            value="female"
+            formControlName="genderOfUser"
+          />
+          <label for="female" class="radio-label">{{
+            "REGISTER_FORM.GENDER_FEMALE_LABEL" | translate
+          }}</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="error">
+      <span *ngIf="badLogin$ | async">
+        {{ "REGISTER_FORM.BAD_LOGIN" | translate }}
+      </span>
+    </div>
+
+    <button (click)="onSubmitForm()" class="button">
+      {{ "REGISTER_FORM.REGISTER" | translate }}
+    </button>
+  </div>
+</form>

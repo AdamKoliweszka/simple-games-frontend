@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="form">
+    <div class="navigation-bar">
+      <div class="register-button" [routerLink]="['/users/register']">
+        <mat-icon>person_add</mat-icon>
+      </div>
+      <div class="login-button" [routerLink]="['/users/login']">
+        <mat-icon>person</mat-icon>
+      </div>
+    </div>
+    <div class="form-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
