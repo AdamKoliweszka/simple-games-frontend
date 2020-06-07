@@ -2,6 +2,7 @@
 .container {
   width: 80vw;
   height: 80vh;
+  z-index: 2;
 }
 .form {
   animation-name: form-appear;
@@ -18,7 +19,7 @@
   border: solid #1ae8ad 0.2vw;
   margin-top: 20vh;
   border-radius: 10px;
-  z-index: 1;
+  z-index: 2;
 }
 
 @keyframes form-appear {
@@ -38,7 +39,7 @@
   position: relative;
   top: calc(20vh + 1vw);
   left: 17vw;
-  z-index: 2;
+  z-index: 3;
 }
 
 .nonactive-button {
