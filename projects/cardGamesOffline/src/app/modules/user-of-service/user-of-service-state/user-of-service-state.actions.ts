@@ -42,3 +42,8 @@ export const setIsLastLoginBad = createAction(
   "[User_Of_Service] Set flag of last login",
   props<{ isLastLoginBad: boolean }>()
 );
+
+export const setIsInLoginProcess = createAction(
+  "[User_Of_Service] Set flag of login process",
+  props<{ isInLoginProcess: boolean }>()
+);

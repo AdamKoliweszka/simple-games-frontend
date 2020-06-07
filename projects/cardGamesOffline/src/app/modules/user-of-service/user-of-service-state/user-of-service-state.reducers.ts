@@ -6,6 +6,7 @@ export interface UserOfServiceState {
   refreshToken: string;
   isRefreshing: boolean;
   isLastLoginBad: boolean;
+  isInLoginProcess: boolean;
 }
 
 const initialState: UserOfServiceState = {
@@ -13,6 +14,7 @@ const initialState: UserOfServiceState = {
   refreshToken: null,
   isRefreshing: false,
   isLastLoginBad: false,
+  isInLoginProcess: false,
 };
 
 const userOfServiceReducer = createReducer(
@@ -37,6 +39,14 @@ const userOfServiceReducer = createReducer(
   on(UsersActions.setIsLastLoginBad, (state, { isLastLoginBad }) => ({
     ...state,
     isLastLoginBad: isLastLoginBad,
+  })),
+  on(UsersActions.setIsInLoginProcess, (state, { isInLoginProcess }) => ({
+    ...state,
+    isInLoginProcess: isInLoginProcess,
+  })),
+  on(UsersActions.loginUser, (state) => ({
+    ...state,
+    isInLoginProcess: true,
   }))
 );
 

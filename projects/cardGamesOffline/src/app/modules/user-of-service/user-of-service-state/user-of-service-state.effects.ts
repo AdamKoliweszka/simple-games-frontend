@@ -16,6 +16,7 @@ import {
   setRefreshingFlag,
   tryRefreshAccessToken,
   setIsLastLoginBad,
+  setIsInLoginProcess,
 } from "./user-of-service-state.actions";
 import { AuthApiService } from "../services/auth-api.service";
 import { AuthStorageContainerService } from "../services/auth-storage-container.service";
@@ -50,11 +51,15 @@ export class UserOfServiceEffect {
             setAccessToken({ accessToken: value.accessToken }),
             setRefreshToken({ refreshToken: value.refreshToken }),
             setIsLastLoginBad({ isLastLoginBad: false }),
+            setIsInLoginProcess({ isInLoginProcess: false }),
           ];
         }),
         catchError((error) => {
           if (error instanceof HttpErrorResponse && error.status === 401)
-            return [setIsLastLoginBad({ isLastLoginBad: true })];
+            return [
+              setIsLastLoginBad({ isLastLoginBad: true }),
+              setIsInLoginProcess({ isInLoginProcess: false }),
+            ];
           return throwError(error);
         })
       );

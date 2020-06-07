@@ -30,3 +30,8 @@ export const selectIsLastLoginBad = createSelector(
   selectUserOfServiceState,
   (state) => state.isLastLoginBad
 );
+
+export const selectIsInLoginProcess = createSelector(
+  selectUserOfServiceState,
+  (state) => state.isInLoginProcess
+);
