@@ -3,6 +3,8 @@ import { User } from "../models/user";
 import { Router } from "@angular/router";
 import { AuthApiService } from "../services/auth-api.service";
 import { AuthService } from "../services/auth.service";
+import { UsersService } from "../services/users.service";
+import { Gender } from "../models/gender";
 
 @Component({
   selector: "app-register-page",
@@ -10,12 +12,19 @@ import { AuthService } from "../services/auth.service";
   styleUrls: ["./user-register-page.component.scss"],
 })
 export class UserRegisterPageComponent implements OnInit {
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(private router: Router, private usersService: UsersService) {
+    // this.usersService.registerUser({
+    //   email: "test@test.pl",
+    //   password: "test",
+    //   username: "janusz",
+    //   dateOfBirth: new Date(),
+    //   gender: Gender.male,
+    // } as User);
+  }
 
   ngOnInit() {}
 
   onUserSubmit(user: User) {
-    console.log(user);
-    // this.authService.loginUser(user);
+    this.usersService.registerUser(user);
   }
 }

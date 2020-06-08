@@ -7,6 +7,8 @@ export interface UserOfServiceState {
   isRefreshing: boolean;
   isLastLoginBad: boolean;
   isInLoginProcess: boolean;
+  isInRegisterProcess: boolean;
+  registerErrors: string[];
 }
 
 const initialState: UserOfServiceState = {
@@ -15,6 +17,8 @@ const initialState: UserOfServiceState = {
   isRefreshing: false,
   isLastLoginBad: false,
   isInLoginProcess: false,
+  isInRegisterProcess: false,
+  registerErrors: null,
 };
 
 const userOfServiceReducer = createReducer(
@@ -47,6 +51,18 @@ const userOfServiceReducer = createReducer(
   on(UsersActions.loginUser, (state) => ({
     ...state,
     isInLoginProcess: true,
+  })),
+  on(UsersActions.setIsInRegisterProcess, (state, { isInRegisterProcess }) => ({
+    ...state,
+    isInRegisterProcess: isInRegisterProcess,
+  })),
+  on(UsersActions.registerUser, (state) => ({
+    ...state,
+    isInRegisterProcess: true,
+  })),
+  on(UsersActions.setRegisterErrors, (state, { registerErrors }) => ({
+    ...state,
+    registerErrors: [...registerErrors],
   }))
 );
 

@@ -35,3 +35,13 @@ export const selectIsInLoginProcess = createSelector(
   selectUserOfServiceState,
   (state) => state.isInLoginProcess
 );
+
+export const selectIsInRegisterProcess = createSelector(
+  selectUserOfServiceState,
+  (state) => state.isInRegisterProcess
+);
+
+export const selectRegisterErrors = createSelector(
+  selectUserOfServiceState,
+  (state) => state.registerErrors
+);
