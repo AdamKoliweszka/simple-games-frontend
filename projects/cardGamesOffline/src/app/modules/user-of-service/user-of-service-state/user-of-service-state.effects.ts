@@ -146,11 +146,12 @@ export class UserOfServiceEffect {
           return setIsInRegisterProcess({ isInRegisterProcess: false });
         }),
         catchError((error) => {
-          if (error instanceof HttpErrorResponse && error.status === 422)
+          if (error instanceof HttpErrorResponse && error.status === 422) {
             return [
-              setRegisterErrors({ registerErrors: error.message.split(",") }),
+              setRegisterErrors({ registerErrors: error.error.errors }),
               setIsInLoginProcess({ isInLoginProcess: false }),
             ];
+          }
           return throwError(error);
         })
       );
