@@ -10,12 +10,16 @@
         id="login-input"
         [ngClass]="{
           'error-input':
-            (isUsernameExistError || loginOfUser.hasError('required')) &&
+            ((isUsernameExistError && !loginOfUser.touched) ||
+              loginOfUser.hasError('required')) &&
             loginOfUser.touched,
           'text-input': true
         }"
       />
       <div class="error">
+        <span *ngIf="isUsernameExistError && !loginOfUser.touched">
+          {{ "REGISTER_FORM.LOGIN_EXIST" | translate }}
+        </span>
         <span *ngIf="loginOfUser.hasError('pattern') && loginOfUser.touched">
           {{ "REGISTER_FORM.BAD_LOGIN" | translate }}
         </span>
@@ -35,7 +39,7 @@
         id="email-input"
         [ngClass]="{
           'error-input':
-            (isEmailExistError ||
+            ((isEmailExistError && !emailOfUser.touched) ||
               emailOfUser.hasError('required') ||
               emailOfUser.hasError('email')) &&
             emailOfUser.touched,
@@ -43,6 +47,9 @@
         }"
       />
       <div class="error">
+        <span *ngIf="isEmailExistError && !emailOfUser.touched">
+          {{ "REGISTER_FORM.EMAIL_EXIST" | translate }}
+        </span>
         <span *ngIf="emailOfUser.hasError('email') && emailOfUser.touched">
           {{ "REGISTER_FORM.BAD_EMAIL" | translate }}
         </span>

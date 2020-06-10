@@ -3,7 +3,4 @@
   class="form"
   (userSubmit)="onUserSubmit($event)"
 ></app-user-login-form>
-<div class="loader" *ngIf="isLoginProcessStart | async">
-  <div class="loader-blank-second"></div>
-  <div class="loader-blank"></div>
-</div>
+<app-load-spinner *ngIf="isLoginProcessStart | async"> </app-load-spinner>

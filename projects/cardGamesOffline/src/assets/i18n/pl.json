@@ -54,7 +54,9 @@
     "NO_PASSWORD": "Hasło jest wymagane!",
     "NO_PASSWORD_CONFIRMATION": "Potwierdzenie hasła jest wymagane!",
     "BAD_PASSWORD": "Hasło jest niepoprawne!",
-    "BAD_PASSWORD_CONFIRMATION": "Potwierdzenie hasła różni się od hasła!"
+    "BAD_PASSWORD_CONFIRMATION": "Potwierdzenie hasła różni się od hasła!",
+    "EMAIL_EXIST": "Podany email jest już zajęty!",
+    "LOGIN_EXIST": "Podana nazwa użytkownika jest już zajęta!"
   },
   "PLAYERS_FORM": {
     "FIRST_PLAYER": "Nazwa pierwszego gracza",

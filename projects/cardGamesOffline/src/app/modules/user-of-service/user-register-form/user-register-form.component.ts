@@ -85,6 +85,7 @@ export class UserRegisterFormComponent implements OnInit {
           this.genderOfUser.value === "male" ? Gender.male : Gender.female,
         email: this.emailOfUser.value,
       } as User);
+      this.userForm.markAsUntouched();
     } else {
       this.userForm.markAllAsTouched();
     }
