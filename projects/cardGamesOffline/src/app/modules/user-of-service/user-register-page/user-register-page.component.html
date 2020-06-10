@@ -1,6 +1,7 @@
 <div class="form">
   <app-user-register-form
     (userSubmit)="onUserSubmit($event)"
+    [registerErrors]="registerErrors$ | async"
   ></app-user-register-form>
   <!-- <div class="loader">
       <div class="loader-blank-second"></div>

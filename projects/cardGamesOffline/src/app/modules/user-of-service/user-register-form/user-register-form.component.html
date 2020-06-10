@@ -10,7 +10,8 @@
         id="login-input"
         [ngClass]="{
           'error-input':
-            loginOfUser.hasError('required') && loginOfUser.touched,
+            (isUsernameExistError || loginOfUser.hasError('required')) &&
+            loginOfUser.touched,
           'text-input': true
         }"
       />
@@ -34,7 +35,8 @@
         id="email-input"
         [ngClass]="{
           'error-input':
-            (emailOfUser.hasError('required') ||
+            (isEmailExistError ||
+              emailOfUser.hasError('required') ||
               emailOfUser.hasError('email')) &&
             emailOfUser.touched,
           'text-input': true

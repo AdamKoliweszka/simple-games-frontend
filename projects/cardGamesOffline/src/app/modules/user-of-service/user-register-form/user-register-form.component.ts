@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter, Input } from "@angular/core";
 
 import { User } from "../models/user";
 import {
@@ -18,6 +18,7 @@ import { Gender } from "../models/gender";
 })
 export class UserRegisterFormComponent implements OnInit {
   @Output() userSubmit: EventEmitter<User> = new EventEmitter<User>();
+  @Input() registerErrors: string[];
   userForm: FormGroup;
   constructor(private authService: AuthService) {
     this.userForm = new FormGroup(
@@ -64,6 +65,14 @@ export class UserRegisterFormComponent implements OnInit {
 
   get genderOfUser() {
     return this.userForm.get("genderOfUser");
+  }
+
+  get isEmailExistError(): boolean {
+    return this.registerErrors.indexOf("EMAIL_EXIST") >= 0;
+  }
+
+  get isUsernameExistError(): boolean {
+    return this.registerErrors.indexOf("USERNAME_EXIST") >= 0;
   }
 
   onSubmitForm() {

@@ -18,7 +18,7 @@ const initialState: UserOfServiceState = {
   isLastLoginBad: false,
   isInLoginProcess: false,
   isInRegisterProcess: false,
-  registerErrors: null,
+  registerErrors: [],
 };
 
 const userOfServiceReducer = createReducer(

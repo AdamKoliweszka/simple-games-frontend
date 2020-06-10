@@ -21,7 +21,7 @@ export class UsersService {
     return this.store.select(UserSelectors.selectIsInRegisterProcess);
   }
 
-  get registerProcess(): Observable<string[]> {
+  get registerErrors(): Observable<string[]> {
     return this.store.select(UserSelectors.selectRegisterErrors);
   }
 }

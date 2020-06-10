@@ -5,6 +5,7 @@ import { AuthApiService } from "../services/auth-api.service";
 import { AuthService } from "../services/auth.service";
 import { UsersService } from "../services/users.service";
 import { Gender } from "../models/gender";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-register-page",
@@ -26,5 +27,9 @@ export class UserRegisterPageComponent implements OnInit {
 
   onUserSubmit(user: User) {
     this.usersService.registerUser(user);
+  }
+
+  get registerErrors$(): Observable<string[]> {
+    return this.usersService.registerErrors;
   }
 }
