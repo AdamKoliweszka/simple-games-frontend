@@ -32,6 +32,7 @@ export class UserLoginFormComponent implements OnInit {
 
   onSubmitForm() {
     if (this.userForm.valid) {
+      this.userForm.markAsUntouched();
       this.userSubmit.emit({
         username: this.loginOfUser.value.trim(),
         password: this.passwordOfUser.value,

@@ -149,7 +149,7 @@ export class UserOfServiceEffect {
           if (error instanceof HttpErrorResponse && error.status === 422) {
             return [
               setRegisterErrors({ registerErrors: error.error.errors }),
-              setIsInLoginProcess({ isInLoginProcess: false }),
+              setIsInRegisterProcess({ isInRegisterProcess: false }),
             ];
           }
           return throwError(error);

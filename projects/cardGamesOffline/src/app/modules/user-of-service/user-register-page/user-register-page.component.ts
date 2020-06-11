@@ -32,4 +32,8 @@ export class UserRegisterPageComponent implements OnInit {
   get registerErrors$(): Observable<string[]> {
     return this.usersService.registerErrors;
   }
+
+  get isInRegisterProgress$(): Observable<boolean> {
+    return this.usersService.isInRegisterProcess;
+  }
 }

@@ -13,7 +13,6 @@ export class UsersService {
   constructor(private store: Store<UserOfServiceState>) {}
 
   registerUser(user: User): void {
-    console.log(user);
     this.store.dispatch(UserActions.registerUser({ user }));
   }
 

@@ -43,7 +43,7 @@
     </div>
 
     <div class="error">
-      <span *ngIf="badLogin$ | async">
+      <span *ngIf="(badLogin$ | async) && !userForm.touched">
         {{ "LOGIN_FORM.BAD_LOGIN" | translate }}
       </span>
     </div>

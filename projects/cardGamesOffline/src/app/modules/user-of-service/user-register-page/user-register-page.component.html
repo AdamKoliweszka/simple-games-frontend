@@ -2,9 +2,10 @@
   <app-user-register-form
     (userSubmit)="onUserSubmit($event)"
     [registerErrors]="registerErrors$ | async"
+    [ngClass]="{ form: true, 'no-display': isInRegisterProgress$ | async }"
   ></app-user-register-form>
-  <!-- <div class="loader">
-      <div class="loader-blank-second"></div>
-      <div class="loader-blank"></div>
-    </div> -->
+  <app-load-spinner
+    class="spinner"
+    *ngIf="isInRegisterProgress$ | async"
+  ></app-load-spinner>
 </div>

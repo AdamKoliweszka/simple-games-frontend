@@ -1,6 +1,6 @@
 <app-user-login-form
-  *ngIf="!(isLoginProcessStart | async)"
-  class="form"
+  [ngClass]="{ form: true, 'no-display': isLoginProcessStart | async }"
   (userSubmit)="onUserSubmit($event)"
 ></app-user-login-form>
-<app-load-spinner *ngIf="isLoginProcessStart | async"> </app-load-spinner>
+<app-load-spinner class="spinner" *ngIf="isLoginProcessStart | async">
+</app-load-spinner>
