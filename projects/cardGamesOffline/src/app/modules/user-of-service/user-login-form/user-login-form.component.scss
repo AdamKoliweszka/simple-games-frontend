@@ -1,22 +1,14 @@
-.container {
+form {
   width: 100%;
   height: 100%;
+  border-radius: 10px;
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-}
-
-form {
-  width: 30%;
-  height: 30%;
-  margin-left: auto;
-  margin-right: auto;
-  border: solid #1ae8ad 0.2vw;
-  border-radius: 10px;
-  animation-name: form-appear;
+  animation-name: login-form-appear;
   animation-duration: 0.5s;
   position: relative;
-
   input {
     width: calc(80% - 0.4vw);
     height: 2.5vh;
@@ -60,8 +52,7 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 70%;
-    margin-top: 10%;
+    height: 35%;
   }
 
   .error-input {
@@ -104,11 +95,13 @@ form {
   }
 }
 
-@keyframes form-appear {
+@keyframes login-form-appear {
   0% {
-    top: -50vh;
+    width: 0%;
+    left: 100%;
   }
   100% {
-    top: 0vh;
+    width: 100%;
+    left: 0;
   }
 }

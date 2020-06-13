@@ -5,11 +5,11 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { AuthService } from "../services/auth.service";
 
 @Component({
-  selector: "app-user-of-service-form",
-  templateUrl: "./user-of-service-form.component.html",
-  styleUrls: ["./user-of-service-form.component.scss"],
+  selector: "app-user-login-form",
+  templateUrl: "./user-login-form.component.html",
+  styleUrls: ["./user-login-form.component.scss"],
 })
-export class UserOfServiceFormComponent implements OnInit {
+export class UserLoginFormComponent implements OnInit {
   @Output() userSubmit: EventEmitter<User> = new EventEmitter<User>();
   userForm: FormGroup;
   constructor(private authService: AuthService) {
@@ -32,6 +32,7 @@ export class UserOfServiceFormComponent implements OnInit {
 
   onSubmitForm() {
     if (this.userForm.valid) {
+      this.userForm.markAsUntouched();
       this.userSubmit.emit({
         username: this.loginOfUser.value.trim(),
         password: this.passwordOfUser.value,

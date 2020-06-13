@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserOfServicePageComponent } from './user-of-service-page.component';
+import { LoadSpinnerComponent } from './load-spinner.component';
 
-describe('UserOfServicePageComponent', () => {
-  let component: UserOfServicePageComponent;
-  let fixture: ComponentFixture<UserOfServicePageComponent>;
+describe('LoadSpinnerComponent', () => {
+  let component: LoadSpinnerComponent;
+  let fixture: ComponentFixture<LoadSpinnerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserOfServicePageComponent ]
+      declarations: [ LoadSpinnerComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UserOfServicePageComponent);
+    fixture = TestBed.createComponent(LoadSpinnerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -19,13 +19,6 @@ export class AuthApiService {
     );
   }
 
-  registerUser(user: User) {
-    return this.http.post(
-      "http://" + environment.apiIp + ":" + environment.apiPort + "/users",
-      user
-    );
-  }
-
   logoutUser(refreshToken: string) {
     return this.http.post(
       "http://" + environment.apiIp + ":" + environment.apiPort + "/logout",

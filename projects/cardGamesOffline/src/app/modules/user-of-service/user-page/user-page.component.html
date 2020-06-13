@@ -1,0 +1,27 @@
+<div class="container" *ngIf="!(isLoged$ | async)">
+  <div class="form">
+    <div class="navigation-bar">
+      <div
+        [ngClass]="{
+          'active-button': isOnRegisterPage,
+          'nonactive-button': isOnLoginPage
+        }"
+        [routerLink]="['/users/register']"
+      >
+        <mat-icon>person_add</mat-icon>
+      </div>
+      <div
+        [ngClass]="{
+          'active-button': isOnLoginPage,
+          'nonactive-button': isOnRegisterPage
+        }"
+        [routerLink]="['/users/login']"
+      >
+        <mat-icon>person</mat-icon>
+      </div>
+    </div>
+    <div class="form-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

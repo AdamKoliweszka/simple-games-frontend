@@ -30,6 +30,10 @@ export class AuthService {
     return this.store.select(UserSelectors.selectIsLastLoginBad);
   }
 
+  get isInLoginProcess(): Observable<boolean> {
+    return this.store.select(UserSelectors.selectIsInLoginProcess);
+  }
+
   loginUser(user: User) {
     this.store.dispatch(UserActions.loginUser({ user }));
   }

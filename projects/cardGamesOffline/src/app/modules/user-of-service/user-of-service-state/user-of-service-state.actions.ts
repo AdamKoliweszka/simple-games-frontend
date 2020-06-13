@@ -1,5 +1,6 @@
 import { createAction, props } from "@ngrx/store";
 import { User } from "../models/user";
+import { StatusOfRegistration } from "../models/statusOfRegistration";
 
 export const setAccessToken = createAction(
   "[User_Of_Service] Set access token",
@@ -17,6 +18,11 @@ export const loadTokens = createAction(
 
 export const loginUser = createAction(
   "[User_Of_Service] Start process of login of user",
+  props<{ user: User }>()
+);
+
+export const registerUser = createAction(
+  "[User_Of_Service] Start process of register of user",
   props<{ user: User }>()
 );
 
@@ -41,4 +47,19 @@ export const setRefreshingFlag = createAction(
 export const setIsLastLoginBad = createAction(
   "[User_Of_Service] Set flag of last login",
   props<{ isLastLoginBad: boolean }>()
+);
+
+export const setIsInLoginProcess = createAction(
+  "[User_Of_Service] Set flag of login process",
+  props<{ isInLoginProcess: boolean }>()
+);
+
+export const setStatusOfRegistration = createAction(
+  "[User_Of_Service] Set status of register process",
+  props<{ statusOfRegistration: StatusOfRegistration }>()
+);
+
+export const setRegisterErrors = createAction(
+  "[User_Of_Service] Set register errors",
+  props<{ registerErrors: string[] }>()
 );

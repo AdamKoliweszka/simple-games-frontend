@@ -16,6 +16,10 @@ import {
   setRefreshingFlag,
   tryRefreshAccessToken,
   setIsLastLoginBad,
+  setIsInLoginProcess,
+  registerUser,
+  setRegisterErrors,
+  setStatusOfRegistration,
 } from "./user-of-service-state.actions";
 import { AuthApiService } from "../services/auth-api.service";
 import { AuthStorageContainerService } from "../services/auth-storage-container.service";
@@ -27,6 +31,8 @@ import {
 } from "./users-of-service.selectors";
 import { EMPTY, throwError } from "rxjs";
 import { HttpErrorResponse } from "@angular/common/http";
+import { UsersApiService } from "../services/users-api.service";
+import { StatusOfRegistration } from "../models/statusOfRegistration";
 
 @Injectable()
 export class UserOfServiceEffect {
@@ -34,6 +40,7 @@ export class UserOfServiceEffect {
     private action: Actions,
     private usersStore: Store<UserOfServiceState>,
     private authApiService: AuthApiService,
+    private usersApiService: UsersApiService,
     private authStorageService: AuthStorageContainerService,
     private router: Router
   ) {}
@@ -50,11 +57,15 @@ export class UserOfServiceEffect {
             setAccessToken({ accessToken: value.accessToken }),
             setRefreshToken({ refreshToken: value.refreshToken }),
             setIsLastLoginBad({ isLastLoginBad: false }),
+            setIsInLoginProcess({ isInLoginProcess: false }),
           ];
         }),
         catchError((error) => {
           if (error instanceof HttpErrorResponse && error.status === 401)
-            return [setIsLastLoginBad({ isLastLoginBad: true })];
+            return [
+              setIsLastLoginBad({ isLastLoginBad: true }),
+              setIsInLoginProcess({ isInLoginProcess: false }),
+            ];
           return throwError(error);
         })
       );
@@ -122,6 +133,34 @@ export class UserOfServiceEffect {
             setAccessToken({ accessToken: value.accessToken }),
             setRefreshingFlag({ refreshFlag: false }),
           ];
+        })
+      );
+    })
+  );
+
+  @Effect()
+  registerUser$ = this.action.pipe(
+    ofType(registerUser),
+    mergeMap((value) => {
+      return this.usersApiService.registerUser(value.user).pipe(
+        mergeMap((value) => {
+          return [
+            setStatusOfRegistration({
+              statusOfRegistration: StatusOfRegistration.success,
+            }),
+            setRegisterErrors({ registerErrors: [] }),
+          ];
+        }),
+        catchError((error) => {
+          if (error instanceof HttpErrorResponse && error.status === 422) {
+            return [
+              setRegisterErrors({ registerErrors: error.error.errors }),
+              setStatusOfRegistration({
+                statusOfRegistration: StatusOfRegistration.bad,
+              }),
+            ];
+          }
+          return throwError(error);
         })
       );
     })

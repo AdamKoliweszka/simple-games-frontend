@@ -1,11 +1,15 @@
 import * as UsersActions from "./user-of-service-state.actions";
 import { createReducer, on, Action } from "@ngrx/store";
+import { StatusOfRegistration } from "../models/statusOfRegistration";
 
 export interface UserOfServiceState {
   accessToken: string;
   refreshToken: string;
   isRefreshing: boolean;
   isLastLoginBad: boolean;
+  isInLoginProcess: boolean;
+  statusOfRegistration: StatusOfRegistration;
+  registerErrors: string[];
 }
 
 const initialState: UserOfServiceState = {
@@ -13,6 +17,9 @@ const initialState: UserOfServiceState = {
   refreshToken: null,
   isRefreshing: false,
   isLastLoginBad: false,
+  isInLoginProcess: false,
+  statusOfRegistration: StatusOfRegistration.noAttempt,
+  registerErrors: [],
 };
 
 const userOfServiceReducer = createReducer(
@@ -37,6 +44,29 @@ const userOfServiceReducer = createReducer(
   on(UsersActions.setIsLastLoginBad, (state, { isLastLoginBad }) => ({
     ...state,
     isLastLoginBad: isLastLoginBad,
+  })),
+  on(UsersActions.setIsInLoginProcess, (state, { isInLoginProcess }) => ({
+    ...state,
+    isInLoginProcess: isInLoginProcess,
+  })),
+  on(UsersActions.loginUser, (state) => ({
+    ...state,
+    isInLoginProcess: true,
+  })),
+  on(
+    UsersActions.setStatusOfRegistration,
+    (state, { statusOfRegistration }) => ({
+      ...state,
+      statusOfRegistration: statusOfRegistration,
+    })
+  ),
+  on(UsersActions.registerUser, (state) => ({
+    ...state,
+    statusOfRegistration: StatusOfRegistration.inProgress,
+  })),
+  on(UsersActions.setRegisterErrors, (state, { registerErrors }) => ({
+    ...state,
+    registerErrors: [...registerErrors],
   }))
 );
 

@@ -1,0 +1,75 @@
+@import "../../../../variables.scss";
+.container {
+  width: 80vw;
+  height: 80vh;
+  z-index: 2;
+}
+.form {
+  animation-name: form-appear;
+  animation-duration: 0.5s;
+  position: relative;
+  width: 30%;
+  height: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.form-content {
+  width: 30%;
+  height: 100%;
+  border: solid #1ae8ad 0.2vw;
+  margin-top: 20vh;
+  border-radius: 10px;
+  z-index: 2;
+  background-color: #ffffff;
+}
+
+@keyframes form-appear {
+  0% {
+    top: -50vh;
+  }
+  100% {
+    top: 0vh;
+  }
+}
+
+.navigation-bar {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 20%;
+  justify-content: space-between;
+  position: relative;
+  top: calc(20vh + 1vw);
+  left: 17vw;
+  z-index: 3;
+}
+
+.nonactive-button {
+  width: 2vw;
+  height: 2vw;
+  background-color: #cededb;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 1.5vw;
+  font-size: 1.5vw;
+  cursor: pointer;
+  outline: none;
+}
+
+.active-button {
+  width: 2vw;
+  height: 2vw;
+  background-color: #1ae8ad;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 1.5vw;
+  font-size: 1.5vw;
+  outline: none;
+}
+
+.form-content {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
