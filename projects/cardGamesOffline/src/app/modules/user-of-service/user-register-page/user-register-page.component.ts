@@ -6,6 +6,7 @@ import { AuthService } from "../services/auth.service";
 import { UsersService } from "../services/users.service";
 import { Gender } from "../models/gender";
 import { Observable } from "rxjs";
+import { StatusOfRegistration } from "../models/statusOfRegistration";
 
 @Component({
   selector: "app-register-page",
@@ -13,6 +14,8 @@ import { Observable } from "rxjs";
   styleUrls: ["./user-register-page.component.scss"],
 })
 export class UserRegisterPageComponent implements OnInit {
+  statusOfRegistration = StatusOfRegistration;
+
   constructor(private router: Router, private usersService: UsersService) {
     // this.usersService.registerUser({
     //   email: "test@test.pl",
@@ -33,7 +36,11 @@ export class UserRegisterPageComponent implements OnInit {
     return this.usersService.registerErrors;
   }
 
-  get isInRegisterProgress$(): Observable<boolean> {
-    return this.usersService.isInRegisterProcess;
+  get registerStatus$(): Observable<StatusOfRegistration> {
+    return this.usersService.statusOfRegistration;
+  }
+
+  onNewRegister() {
+    this.usersService.resetRegister();
   }
 }

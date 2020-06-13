@@ -36,9 +36,9 @@ export const selectIsInLoginProcess = createSelector(
   (state) => state.isInLoginProcess
 );
 
-export const selectIsInRegisterProcess = createSelector(
+export const selectStatusOfRegistration = createSelector(
   selectUserOfServiceState,
-  (state) => state.isInRegisterProcess
+  (state) => state.statusOfRegistration
 );
 
 export const selectRegisterErrors = createSelector(

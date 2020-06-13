@@ -18,8 +18,8 @@ import {
   setIsLastLoginBad,
   setIsInLoginProcess,
   registerUser,
-  setIsInRegisterProcess,
   setRegisterErrors,
+  setStatusOfRegistration,
 } from "./user-of-service-state.actions";
 import { AuthApiService } from "../services/auth-api.service";
 import { AuthStorageContainerService } from "../services/auth-storage-container.service";
@@ -32,6 +32,7 @@ import {
 import { EMPTY, throwError } from "rxjs";
 import { HttpErrorResponse } from "@angular/common/http";
 import { UsersApiService } from "../services/users-api.service";
+import { StatusOfRegistration } from "../models/statusOfRegistration";
 
 @Injectable()
 export class UserOfServiceEffect {
@@ -142,14 +143,21 @@ export class UserOfServiceEffect {
     ofType(registerUser),
     mergeMap((value) => {
       return this.usersApiService.registerUser(value.user).pipe(
-        map((value) => {
-          return setIsInRegisterProcess({ isInRegisterProcess: false });
+        mergeMap((value) => {
+          return [
+            setStatusOfRegistration({
+              statusOfRegistration: StatusOfRegistration.success,
+            }),
+            setRegisterErrors({ registerErrors: [] }),
+          ];
         }),
         catchError((error) => {
           if (error instanceof HttpErrorResponse && error.status === 422) {
             return [
               setRegisterErrors({ registerErrors: error.error.errors }),
-              setIsInRegisterProcess({ isInRegisterProcess: false }),
+              setStatusOfRegistration({
+                statusOfRegistration: StatusOfRegistration.bad,
+              }),
             ];
           }
           return throwError(error);

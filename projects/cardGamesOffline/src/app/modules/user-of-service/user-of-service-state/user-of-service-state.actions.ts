@@ -1,5 +1,6 @@
 import { createAction, props } from "@ngrx/store";
 import { User } from "../models/user";
+import { StatusOfRegistration } from "../models/statusOfRegistration";
 
 export const setAccessToken = createAction(
   "[User_Of_Service] Set access token",
@@ -53,9 +54,9 @@ export const setIsInLoginProcess = createAction(
   props<{ isInLoginProcess: boolean }>()
 );
 
-export const setIsInRegisterProcess = createAction(
-  "[User_Of_Service] Set flag of register process",
-  props<{ isInRegisterProcess: boolean }>()
+export const setStatusOfRegistration = createAction(
+  "[User_Of_Service] Set status of register process",
+  props<{ statusOfRegistration: StatusOfRegistration }>()
 );
 
 export const setRegisterErrors = createAction(

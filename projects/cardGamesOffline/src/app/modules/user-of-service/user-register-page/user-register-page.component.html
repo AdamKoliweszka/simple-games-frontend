@@ -1,11 +1,35 @@
-<div class="form">
+<div
+  class="form"
+  *ngIf="(registerStatus$ | async) !== statusOfRegistration.success"
+>
   <app-user-register-form
     (userSubmit)="onUserSubmit($event)"
     [registerErrors]="registerErrors$ | async"
-    [ngClass]="{ form: true, 'no-display': isInRegisterProgress$ | async }"
+    [ngClass]="{
+      form: true,
+      'no-display':
+        (registerStatus$ | async) === statusOfRegistration.inProgress
+    }"
   ></app-user-register-form>
   <app-load-spinner
     class="spinner"
-    *ngIf="isInRegisterProgress$ | async"
+    *ngIf="(registerStatus$ | async) === statusOfRegistration.inProgress"
   ></app-load-spinner>
+</div>
+<div
+  class="success"
+  *ngIf="(registerStatus$ | async) === statusOfRegistration.success"
+>
+  <div class="icon">
+    <mat-icon class="check-icon">check_circle</mat-icon>
+  </div>
+  <div class="text">
+    <span>Rejestracja powiodła się!</span>
+    <br />
+    <span class="link" [routerLink]="['/users/login']"
+      >Przejdź do logowania...</span
+    >
+    <br />
+    <span (click)="onNewRegister()" class="link">Przejdź do ponownej rejestracji...</span>
+  </div>
 </div>

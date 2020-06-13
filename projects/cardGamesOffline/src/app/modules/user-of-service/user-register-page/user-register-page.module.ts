@@ -6,6 +6,7 @@ import { UserRegisterPageRoutingModule } from "./user-register-page-routing.modu
 import { TranslateModule } from "@ngx-translate/core";
 import { UserRegisterFormModule } from "../user-register-form/user-register-form.module";
 import { LoadSpinnerModule } from "../load-spinner/load-spinner.module";
+import { MaterialModule } from "../../material/material.module";
 @NgModule({
   declarations: [UserRegisterPageComponent],
   imports: [
@@ -15,6 +16,7 @@ import { LoadSpinnerModule } from "../load-spinner/load-spinner.module";
     UserRegisterPageRoutingModule,
     TranslateModule,
     LoadSpinnerModule,
+    MaterialModule,
   ],
 })
 export class UserRegisterPageModule {}

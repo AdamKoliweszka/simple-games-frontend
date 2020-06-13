@@ -1,5 +1,6 @@
 import * as UsersActions from "./user-of-service-state.actions";
 import { createReducer, on, Action } from "@ngrx/store";
+import { StatusOfRegistration } from "../models/statusOfRegistration";
 
 export interface UserOfServiceState {
   accessToken: string;
@@ -7,7 +8,7 @@ export interface UserOfServiceState {
   isRefreshing: boolean;
   isLastLoginBad: boolean;
   isInLoginProcess: boolean;
-  isInRegisterProcess: boolean;
+  statusOfRegistration: StatusOfRegistration;
   registerErrors: string[];
 }
 
@@ -17,7 +18,7 @@ const initialState: UserOfServiceState = {
   isRefreshing: false,
   isLastLoginBad: false,
   isInLoginProcess: false,
-  isInRegisterProcess: false,
+  statusOfRegistration: StatusOfRegistration.noAttempt,
   registerErrors: [],
 };
 
@@ -52,13 +53,16 @@ const userOfServiceReducer = createReducer(
     ...state,
     isInLoginProcess: true,
   })),
-  on(UsersActions.setIsInRegisterProcess, (state, { isInRegisterProcess }) => ({
-    ...state,
-    isInRegisterProcess: isInRegisterProcess,
-  })),
+  on(
+    UsersActions.setStatusOfRegistration,
+    (state, { statusOfRegistration }) => ({
+      ...state,
+      statusOfRegistration: statusOfRegistration,
+    })
+  ),
   on(UsersActions.registerUser, (state) => ({
     ...state,
-    isInRegisterProcess: true,
+    statusOfRegistration: StatusOfRegistration.inProgress,
   })),
   on(UsersActions.setRegisterErrors, (state, { registerErrors }) => ({
     ...state,

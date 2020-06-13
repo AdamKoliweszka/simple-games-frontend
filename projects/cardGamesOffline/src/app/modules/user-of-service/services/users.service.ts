@@ -5,6 +5,7 @@ import { User } from "../models/user";
 import * as UserActions from "../user-of-service-state/user-of-service-state.actions";
 import * as UserSelectors from "../user-of-service-state/users-of-service.selectors";
 import { Observable } from "rxjs";
+import { StatusOfRegistration } from "../models/statusOfRegistration";
 
 @Injectable({
   providedIn: "root",
@@ -16,8 +17,17 @@ export class UsersService {
     this.store.dispatch(UserActions.registerUser({ user }));
   }
 
-  get isInRegisterProcess(): Observable<boolean> {
-    return this.store.select(UserSelectors.selectIsInRegisterProcess);
+  resetRegister(): void {
+    this.store.dispatch(UserActions.setRegisterErrors({ registerErrors: [] }));
+    this.store.dispatch(
+      UserActions.setStatusOfRegistration({
+        statusOfRegistration: StatusOfRegistration.noAttempt,
+      })
+    );
+  }
+
+  get statusOfRegistration(): Observable<StatusOfRegistration> {
+    return this.store.select(UserSelectors.selectStatusOfRegistration);
   }
 
   get registerErrors(): Observable<string[]> {
