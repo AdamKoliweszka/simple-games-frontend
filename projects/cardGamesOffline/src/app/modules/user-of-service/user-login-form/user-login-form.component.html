@@ -13,7 +13,10 @@
         }"
       />
       <div class="error">
-        <span *ngIf="loginOfUser.hasError('required') && loginOfUser.touched">
+        <span
+          id="badLogin"
+          *ngIf="loginOfUser.hasError('required') && loginOfUser.touched"
+        >
           {{ "LOGIN_FORM.BAD_LOGIN" | translate }}
         </span>
       </div>
