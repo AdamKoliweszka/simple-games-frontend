@@ -38,7 +38,34 @@ describe("Test login functionality", () => {
     cy.get("[formControlName=loginOfUser]").type(correctUser.username);
     cy.get("button").contains("Zaloguj").click();
     cy.contains("Hasło jest wymagane!");
-    cy.contains("Login jest wymagany!").should("not.exist");
+  });
+  it("Cant login if username not correct", () => {
+    cy.get("mat-icon")
+      .contains(/^person$/)
+      .click();
+    let fakeUsername;
+    do {
+      fakeUsername = faker.internet.userName();
+    } while (fakeUsername === correctUser.username);
+    cy.get("[formControlName=loginOfUser]").type(fakeUsername);
+    cy.get("[formControlName=passwordOfUser]").type(correctUser.password);
+    cy.get("button").contains("Zaloguj").click();
+    cy.contains("Login lub hasło jest niepoprawne!");
+    cy.url().should("include", "/users/login");
+  });
+  it("Cant login if password not correct", () => {
+    cy.get("mat-icon")
+      .contains(/^person$/)
+      .click();
+    let fakePassword;
+    do {
+      fakePassword = faker.internet.password();
+    } while (fakePassword === correctUser.password);
+    cy.get("[formControlName=loginOfUser]").type(fakePassword);
+    cy.get("[formControlName=passwordOfUser]").type(correctUser.password);
+    cy.get("button").contains("Zaloguj").click();
+    cy.contains("Login lub hasło jest niepoprawne!");
+    cy.url().should("include", "/users/login");
   });
   it("Can login if username and password correct", () => {
     cy.get("mat-icon")
