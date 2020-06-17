@@ -3,10 +3,9 @@ import * as faker from "faker/locale/pl";
 let correctUser = {
   username: faker.internet.userName(),
   password: faker.internet.password(),
-  confirmationPassword: password,
   email: faker.internet.email(),
-  gender: Math.floor(Math.random() * 2) === 0 ? "male" : "female",
-  birthDate: faker.date.past(),
+  gender: Math.floor(Math.random() * 2),
+  dateOfBirth: faker.date.past(),
 };
 
 describe("Test login functionality", () => {
