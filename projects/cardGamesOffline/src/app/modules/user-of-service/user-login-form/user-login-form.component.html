@@ -17,7 +17,7 @@
           id="badLogin"
           *ngIf="loginOfUser.hasError('required') && loginOfUser.touched"
         >
-          {{ "LOGIN_FORM.BAD_LOGIN" | translate }}
+          {{ "LOGIN_FORM.LOGIN_REQUIRED" | translate }}
         </span>
       </div>
     </div>
@@ -40,7 +40,7 @@
         <span
           *ngIf="passwordOfUser.hasError('required') && passwordOfUser.touched"
         >
-          {{ "LOGIN_FORM.PASSWORD_INPUT_ERROR" | translate }}
+          {{ "LOGIN_FORM.PASSWORD_REQUIRED" | translate }}
         </span>
       </div>
     </div>
