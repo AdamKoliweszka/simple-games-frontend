@@ -17,6 +17,25 @@ describe("Test login functionality", () => {
     cy.removeLocalStorage("accessToken");
     cy.removeLocalStorage("refreshToken");
   });
+  it("Appear login page", () => {
+    cy.url().should("include", "/users/login");
+  });
+  it("Green outline login input on focus", () => {
+    cy.get("[formControlName=loginOfUser]").focus();
+    cy.get("[formControlName=loginOfUser]").should(
+      "have.css",
+      "outline-color",
+      "rgb(26, 232, 173)"
+    );
+  });
+  it("Green outline password input on focus", () => {
+    cy.get("[formControlName=passwordOfUser]").focus();
+    cy.get("[formControlName=passwordOfUser]").should(
+      "have.css",
+      "outline-color",
+      "rgb(26, 232, 173)"
+    );
+  });
   it("Cant login if not typed login and password", () => {
     cy.get("mat-icon")
       .contains(/^person$/)
@@ -35,6 +54,7 @@ describe("Test login functionality", () => {
     cy.get("button").contains("Zaloguj").click();
     cy.contains("Hasło jest wymagane!").should("not.exist");
     cy.contains("Login jest wymagany!");
+    cy.url().should("include", "/users/login");
     cy.getLocalStorage("accessToken").should("eq", null);
     cy.getLocalStorage("refreshToken").should("eq", null);
   });
@@ -45,6 +65,7 @@ describe("Test login functionality", () => {
     cy.get("[formControlName=loginOfUser]").type(correctUser.username);
     cy.get("button").contains("Zaloguj").click();
     cy.contains("Hasło jest wymagane!");
+    cy.url().should("include", "/users/login");
     cy.getLocalStorage("accessToken").should("eq", null);
     cy.getLocalStorage("refreshToken").should("eq", null);
   });
