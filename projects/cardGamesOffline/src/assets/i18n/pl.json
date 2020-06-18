@@ -22,10 +22,10 @@
     "GAMES": "Gry"
   },
   "LOGIN_FORM": {
-    "LOGIN_INPUT_ERROR": "Login jest wymagany!",
-    "PASSWORD_INPUT_ERROR": "Hasło jest wymagane!",
+    "LOGIN_REQUIRED": "Login jest wymagany!",
+    "PASSWORD_REQUIRED": "Hasło jest wymagane!",
     "LOGIN": "Zaloguj",
-    "BAD_LOGIN": "Niepoprawny login lub hasło!",
+    "BAD_LOGIN": "Login lub hasło jest niepoprawne!",
     "LOGIN_LABEL": "Email lub login",
     "LOGIN_EXAMPLE": "jan.kowalski@email.com",
     "PASSWORD_LABEL": "Hasło",
