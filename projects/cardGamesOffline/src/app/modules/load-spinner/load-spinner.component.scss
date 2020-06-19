@@ -1,4 +1,5 @@
-@import "../../../../variables.scss";
+@import "../../../variables.scss";
+
 .loader {
   width: 10vw;
   height: 10vw;
@@ -12,7 +13,7 @@
 .loader-blank {
   width: 8vw;
   height: 8vw;
-  background-color: #ffffff;
+  // background-color: #ffffff;
   border-radius: 100%;
   position: relative;
   top: -4vw;
@@ -21,7 +22,7 @@
 .loader-blank-second {
   width: 5vw;
   height: 5vw;
-  background-color: #ffffff;
+  // background-color: #ffffff;
   position: relative;
   top: 0;
   left: 0;

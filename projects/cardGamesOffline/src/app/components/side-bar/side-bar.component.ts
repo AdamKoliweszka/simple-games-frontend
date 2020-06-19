@@ -55,10 +55,6 @@ export class SideBarComponent implements OnInit {
     );
   }
 
-  onLogout() {
-    this.authService.logoutUser();
-  }
-
   mouseEnter(item: string) {
     this.houverItem = item;
   }

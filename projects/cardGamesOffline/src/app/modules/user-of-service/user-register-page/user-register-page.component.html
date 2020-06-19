@@ -12,6 +12,7 @@
     }"
   ></app-user-register-form>
   <app-load-spinner
+    backgroundColor="#ffffff"
     class="spinner"
     *ngIf="(registerStatus$ | async) === statusOfRegistration.inProgress"
   ></app-load-spinner>
@@ -30,6 +31,8 @@
       >Przejdź do logowania...</span
     >
     <br />
-    <span (click)="onNewRegister()" class="link">Przejdź do ponownej rejestracji...</span>
+    <span (click)="onNewRegister()" class="link"
+      >Przejdź do ponownej rejestracji...</span
+    >
   </div>
 </div>
