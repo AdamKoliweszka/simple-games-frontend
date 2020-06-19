@@ -5,7 +5,7 @@ import { HomeSideBarModule } from "../../../components/home-side-bar/home-side-b
 import { UserRegisterPageRoutingModule } from "./user-register-page-routing.module";
 import { TranslateModule } from "@ngx-translate/core";
 import { UserRegisterFormModule } from "../user-register-form/user-register-form.module";
-import { LoadSpinnerModule } from "../load-spinner/load-spinner.module";
+import { LoadSpinnerModule } from "../../load-spinner/load-spinner.module";
 import { MaterialModule } from "../../material/material.module";
 @NgModule({
   declarations: [UserRegisterPageComponent],

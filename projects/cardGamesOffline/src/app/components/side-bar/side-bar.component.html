@@ -115,7 +115,7 @@
     (mouseenter)="mouseEnter('logout')"
     (mouseleave)="mouseLeave()"
   >
-    <div class="item-content" (click)="onLogout()">
+    <div class="item-content" [routerLink]="['\logout']">
       <mat-icon>power_settings_new</mat-icon>
       <p>{{ "SIDE_BAR.LOGOUT" | translate }}</p>
     </div>

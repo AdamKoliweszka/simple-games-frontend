@@ -8,16 +8,7 @@ import {
 } from "@angular/common/http";
 import { AuthService } from "./auth.service";
 import { Observable, throwError } from "rxjs";
-import {
-  take,
-  withLatestFrom,
-  map,
-  mergeMap,
-  catchError,
-  takeUntil,
-  takeWhile,
-  filter,
-} from "rxjs/operators";
+import { take, mergeMap, catchError, takeWhile, filter } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root",

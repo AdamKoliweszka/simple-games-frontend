@@ -100,10 +100,10 @@ export class UserOfServiceEffect {
     ofType(logoutUser),
     map((action) => {
       let refreshToken = this.authStorageService.refreshToken;
-      this.authApiService.logoutUser(refreshToken).subscribe((value) => {});
-      this.authStorageService.removeAccessToken();
-      this.authStorageService.removeRefreshToken();
-      this.router.navigate(["/login"]);
+      this.authApiService.logoutUser(refreshToken).subscribe((value) => {
+        this.authStorageService.removeAccessToken();
+        this.authStorageService.removeRefreshToken();
+      });
     })
   );
 

@@ -21,12 +21,20 @@ const routes: Routes = [
     canActivate: [IsLogedGuardService],
   },
   {
-    path: "404",
+    path: "logout",
     loadChildren: () =>
-      import("./pages/not-found-page/not-found-page.module").then(
-        (m) => m.NotFoundPageModule
+      import("./modules/logout-page/logout-page.module").then(
+        (m) => m.LogoutPageModule
       ),
+    canActivate: [IsLogedGuardService],
   },
+  // {
+  //   path: "404",
+  //   loadChildren: () =>
+  //     import("./pages/not-found-page/not-found-page.module").then(
+  //       (m) => m.NotFoundPageModule
+  //     ),
+  // },
   {
     path: "users",
     loadChildren: () =>

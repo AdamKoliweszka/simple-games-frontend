@@ -2,5 +2,9 @@
   [ngClass]="{ form: true, 'no-display': isLoginProcessStart | async }"
   (userSubmit)="onUserSubmit($event)"
 ></app-user-login-form>
-<app-load-spinner class="spinner" *ngIf="isLoginProcessStart | async">
+<app-load-spinner
+  backgroundColor="#ffffff"
+  class="spinner"
+  *ngIf="isLoginProcessStart | async"
+>
 </app-load-spinner>
