@@ -11,6 +11,7 @@ import { take } from "rxjs/operators";
 export class ChatWsService {
   constructor(private socket: Socket, private authService: AuthService) {
     this.authService.accessToken.pipe(take(1)).subscribe((value) => {
+      console.log("emit auth");
       this.socket.emit("authentication", { accessToken: value });
     });
   }
