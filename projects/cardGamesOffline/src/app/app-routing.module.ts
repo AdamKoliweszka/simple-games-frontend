@@ -28,6 +28,12 @@ const routes: Routes = [
       ),
     canActivate: [IsLogedGuardService],
   },
+  {
+    path: "friends",
+    loadChildren: () =>
+      import("./modules/friends/friends.module").then((m) => m.FriendsModule),
+    canActivate: [IsLogedGuardService],
+  },
   // {
   //   path: "404",
   //   loadChildren: () =>
