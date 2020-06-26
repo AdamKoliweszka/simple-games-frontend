@@ -1,8 +1,6 @@
-.top-bar {
-  width: 100%;
-  display: flex;
-  flex-direction: row-reverse;
-  margin-top: 2vh;
+app-underline-top-bar {
+  float: right;
+  margin-bottom: 1vh;
 }
 .container {
   width: 90vw;
