@@ -1,0 +1,32 @@
+@import "../../../../variables.scss";
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  min-width: 5vw;
+  height: 4vh;
+  margin-right: 0.5vw;
+}
+
+.underline {
+  width: 3vw;
+  height: 1vh;
+  background-color: $primary-color;
+  border-radius: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text {
+  height: 3vh;
+  line-height: 3vh;
+  text-align: center;
+}
+
+.can-click {
+  cursor: pointer;
+}

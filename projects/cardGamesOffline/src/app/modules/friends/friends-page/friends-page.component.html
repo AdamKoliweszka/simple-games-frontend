@@ -1,1 +1,8 @@
-<p>friends-page works!</p>
+<div class="container">
+  <p>friends-page works!</p>
+  <app-underline-top-bar
+    [items]="items"
+    [activeIndex]="activeIndex"
+    (clickItem)="onClickItem($event)"
+  ></app-underline-top-bar>
+</div>

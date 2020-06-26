@@ -7,6 +7,10 @@
     "LABEL": "Wyszukiwany tytuł gry...",
     "BUTTON": "Szukaj"
   },
+  "FRIENDS_TOP_BAR": {
+    "FRIENDS": "Znajomi",
+    "USERS": "Użytkownicy"
+  },
   "MESSAGES_TOP_BAR": {
     "CHAT": "Czat",
     "FORUM": "Forum",
