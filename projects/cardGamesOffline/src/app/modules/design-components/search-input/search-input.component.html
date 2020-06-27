@@ -1,0 +1,7 @@
+<form class="container" [formGroup]="searchForm">
+  <input
+    placeholder="{{ placeholder | translate }}"
+    formControlName="searchInput"
+  />
+  <button (click)="onSubmit()">{{ "SEARCH_BAR.BUTTON" | translate }}</button>
+</form>
