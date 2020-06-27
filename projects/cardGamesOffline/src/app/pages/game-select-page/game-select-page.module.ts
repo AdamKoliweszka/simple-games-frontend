@@ -4,7 +4,7 @@ import { GameSelectPageComponent } from "./game-select-page.component";
 import { GameSelectPageRoutingModule } from "./game-select-page-routing.module";
 import { GamesListModule } from "../../components/games-list/games-list.module";
 import { GamesStateModule } from "../../modules/games-state/games-state.module";
-import { SearchBarModule } from "../../components/search-bar/search-bar.module";
+import { SearchInputModule } from "../../modules/design-components/search-input/search-input.module";
 
 @NgModule({
   declarations: [GameSelectPageComponent],
@@ -13,7 +13,7 @@ import { SearchBarModule } from "../../components/search-bar/search-bar.module";
     GamesStateModule,
     GameSelectPageRoutingModule,
     GamesListModule,
-    SearchBarModule,
+    SearchInputModule,
   ],
 })
 export class GameSelectPageModule {}
