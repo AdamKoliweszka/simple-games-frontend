@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { FriendsDataContainerService } from "../services/friends-data-container.service";
 
 @Component({
   selector: "app-friends-page",
@@ -9,7 +10,12 @@ import { Router } from "@angular/router";
 export class FriendsPageComponent implements OnInit {
   items = ["FRIENDS_PAGE.USERS", "FRIENDS_PAGE.FRIENDS"];
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private friendsDataContainerService: FriendsDataContainerService
+  ) {
+    this.friendsDataContainerService.loadUsersList();
+  }
 
   get activeIndex() {
     let url = this.router.url;

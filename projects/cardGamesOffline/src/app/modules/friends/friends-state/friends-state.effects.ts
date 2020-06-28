@@ -8,7 +8,7 @@ import { FriendsState } from "./friends-state.reducers";
 import { FriendsApiService } from "../services/friends-api.service";
 
 @Injectable()
-export class WarGameEffect {
+export class FriendsStateEffect {
   constructor(
     private action: Actions,
     private friendsStore: Store<FriendsState>,
