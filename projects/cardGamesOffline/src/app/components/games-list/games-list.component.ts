@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Game } from "../../modules/games-state/models/game";
 import { GamesDataContainerService } from "../../modules/games-state/services/games-data-container.service";
 import { Observable } from "rxjs";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-games-list",
@@ -10,9 +11,17 @@ import { Observable } from "rxjs";
 })
 export class GamesListComponent implements OnInit {
   games$: Observable<Game[]>;
-  constructor(private gamesDataService: GamesDataContainerService) {
+  constructor(
+    private router: Router,
+    private gamesDataService: GamesDataContainerService
+  ) {
     this.gamesDataService.loadGamesList();
     this.games$ = this.gamesDataService.listOfGames;
+  }
+
+  onCardClick(game: Game) {
+    console.log(game);
+    this.router.navigate(["games/" + game.url]);
   }
 
   ngOnInit() {}

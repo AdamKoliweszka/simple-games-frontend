@@ -1,7 +1,7 @@
 <div class="container">
-  <app-games-list-item
+  <app-card
     *ngFor="let game of games$ | async"
-    class="item"
-    [game]="game"
-  ></app-games-list-item>
+    [name]="game.name"
+    (cardClick)="onCardClick(game)"
+  ></app-card>
 </div>
