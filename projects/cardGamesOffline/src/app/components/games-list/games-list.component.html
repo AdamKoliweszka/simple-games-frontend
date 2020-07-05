@@ -1,7 +1,6 @@
-<div class="container">
-  <app-card
-    *ngFor="let game of games$ | async"
-    [name]="game.name"
-    (cardClick)="onCardClick(game)"
-  ></app-card>
+<div class="container" *ngIf="games$ | async as games">
+  <app-card-container
+    [names]="games | names"
+    (cardClick)="onCardClick(games[$event])"
+  ></app-card-container>
 </div>

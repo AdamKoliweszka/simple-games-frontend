@@ -19,6 +19,11 @@ export class GamesListComponent implements OnInit {
     this.games$ = this.gamesDataService.listOfGames;
   }
 
+  // get names() {
+  //   let names = [];
+  //   return names;
+  // }
+
   onCardClick(game: Game) {
     console.log(game);
     this.router.navigate(["games/" + game.url]);
