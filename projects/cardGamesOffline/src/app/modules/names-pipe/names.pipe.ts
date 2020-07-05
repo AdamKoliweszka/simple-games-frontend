@@ -6,6 +6,7 @@ import { haveName } from "./have-name.interface";
 })
 export class NamesPipe implements PipeTransform {
   transform(values: haveName[]): string[] {
+    console.log(values);
     if (!values || values.length == 0) return [];
     let names = [];
     values.forEach((value) => {

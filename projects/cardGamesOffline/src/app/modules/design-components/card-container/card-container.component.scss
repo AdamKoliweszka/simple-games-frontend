@@ -1,0 +1,15 @@
+.container {
+  width: 95vw;
+  height: 90vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.item {
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+}

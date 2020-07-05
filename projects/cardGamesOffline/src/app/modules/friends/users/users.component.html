@@ -4,4 +4,7 @@
       placeholder="FRIENDS_PAGE.SEARCH_USER_PLACEHOLDER"
     ></app-search-input>
   </div>
+  <app-card-container
+    [names]="allUsers$ | async | usernames"
+  ></app-card-container>
 </div>
