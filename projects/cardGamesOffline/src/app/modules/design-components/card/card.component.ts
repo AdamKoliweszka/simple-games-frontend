@@ -7,6 +7,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 })
 export class CardComponent implements OnInit {
   @Input() name: string;
+  @Input() mainIcon: string = "person";
+  @Input() colorOfMainIcon: string = "#1059FC";
+  @Input() leftIcon: string = "thumb_up_alt";
+  @Input() rightIcon: string = "chat";
   @Output() leftButtonClick = new EventEmitter<boolean>();
   @Output() rightButtonClick = new EventEmitter<boolean>();
   @Output() cardClick = new EventEmitter<boolean>();

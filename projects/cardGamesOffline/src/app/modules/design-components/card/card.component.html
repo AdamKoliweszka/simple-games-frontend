@@ -1,8 +1,12 @@
 <div class="card">
-  <div class="logo" (click)="onCardClick()"></div>
+  <div class="logo" (click)="onCardClick()">
+    <mat-icon class="logo-icon" [ngStyle]="{ color: colorOfMainIcon }">{{
+      mainIcon
+    }}</mat-icon>
+  </div>
   <div class="name" (click)="onCardClick()">{{ name }}</div>
   <div class="buttons">
-    <mat-icon (click)="onLetfButtonClick()">thumb_up_alt</mat-icon>
-    <mat-icon (click)="onRightButtonClick()">chat</mat-icon>
+    <mat-icon (click)="onLetfButtonClick()">{{ leftIcon }}</mat-icon>
+    <mat-icon (click)="onRightButtonClick()">{{ rightIcon }}</mat-icon>
   </div>
 </div>

@@ -1,10 +1,23 @@
 <div class="container">
-  <app-card
-    *ngFor="let name of names; let i = index"
-    [name]="name"
-    (leftButtonClick)="onLeftButtonClick(i)"
-    (rightButtonClick)="onRightButtonClick(i)"
-    (cardClick)="onCardClick(i)"
-    class="item"
-  ></app-card>
+  <ng-container *ngIf="colorsOfMainIcons">
+    <app-card
+      *ngFor="let name of names; let i = index"
+      [name]="name"
+      [colorOfMainIcon]="colorsOfMainIcons[i]"
+      (leftButtonClick)="onLeftButtonClick(i)"
+      (rightButtonClick)="onRightButtonClick(i)"
+      (cardClick)="onCardClick(i)"
+      class="item"
+    ></app-card>
+  </ng-container>
+  <ng-container *ngIf="!colorsOfMainIcons">
+    <app-card
+      *ngFor="let name of names; let i = index"
+      [name]="name"
+      (leftButtonClick)="onLeftButtonClick(i)"
+      (rightButtonClick)="onRightButtonClick(i)"
+      (cardClick)="onCardClick(i)"
+      class="item"
+    ></app-card>
+  </ng-container>
 </div>
