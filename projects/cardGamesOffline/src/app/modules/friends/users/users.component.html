@@ -8,5 +8,6 @@
     *ngIf="allUsers$ | async as users"
     [names]="users | usernames"
     [colorsOfMainIcons]="users | colorsGender"
+    leftIcon="add"
   ></app-card-container>
 </div>
