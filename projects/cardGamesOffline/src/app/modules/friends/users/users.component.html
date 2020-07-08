@@ -5,6 +5,8 @@
     ></app-search-input>
   </div>
   <app-card-container
-    [names]="allUsers$ | async | usernames"
+    *ngIf="allUsers$ | async as users"
+    [names]="users | usernames"
+    [colorsOfMainIcons]="users | colorsGender"
   ></app-card-container>
 </div>
