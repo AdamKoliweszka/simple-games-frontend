@@ -2,6 +2,7 @@
   <div class="search-input">
     <app-search-input
       placeholder="FRIENDS_PAGE.SEARCH_USER_PLACEHOLDER"
+      (textSubmit)="onSearchSubmit($event)"
     ></app-search-input>
   </div>
   <app-card-container

@@ -8,5 +8,13 @@ export const selectFriendState = createFeatureSelector<FriendsState>(
 
 export const selectAllUsers = createSelector(
   selectFriendState,
-  (state) => state.users
+  (state: FriendsState) => state.users
+);
+
+export const selectUsersByUsername = createSelector(
+  selectFriendState,
+  (state: FriendsState, props) =>
+    state.users.filter((user) =>
+      user.username.toLowerCase().includes(props.username.toLowerCase())
+    )
 );

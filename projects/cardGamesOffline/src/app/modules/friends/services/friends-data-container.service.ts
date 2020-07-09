@@ -19,4 +19,10 @@ export class FriendsDataContainerService {
   get listOfUsers(): Observable<User[]> {
     return this.store.select(FriendsSelectors.selectAllUsers);
   }
+
+  listOfUsersByUsername(username: string): Observable<User[]> {
+    return this.store.select(FriendsSelectors.selectUsersByUsername, {
+      username,
+    });
+  }
 }
