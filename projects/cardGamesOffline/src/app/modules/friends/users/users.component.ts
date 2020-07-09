@@ -31,7 +31,7 @@ export class UsersComponent implements OnInit {
       );
   }
 
-  onRemove() {
+  onReset() {
     this.allUsers$ = this.friendsDataContainerService.listOfUsers;
   }
 }

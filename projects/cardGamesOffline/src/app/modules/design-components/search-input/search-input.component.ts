@@ -9,6 +9,7 @@ import { FormControl, FormGroup } from "@angular/forms";
 export class SearchInputComponent implements OnInit {
   @Input() placeholder: string;
   @Output() textSubmit = new EventEmitter<String>();
+  @Output() resetSubmit = new EventEmitter<boolean>();
   searchForm = new FormGroup({
     searchInput: new FormControl(""),
   });
@@ -22,5 +23,9 @@ export class SearchInputComponent implements OnInit {
 
   onSubmit() {
     this.textSubmit.emit(this.searchInput.value);
+  }
+  onReset() {
+    this.searchInput.setValue("");
+    this.resetSubmit.emit(true);
   }
 }
