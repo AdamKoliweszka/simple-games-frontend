@@ -1,6 +1,11 @@
 import { Injectable } from "@angular/core";
 import { Actions, Effect, ofType } from "@ngrx/effects";
-import { loadAllUsers, initAllUsers } from "./friends-state.actions";
+import {
+  loadAllUsers,
+  initAllUsers,
+  loadAllFriends,
+  initAllFriends,
+} from "./friends-state.actions";
 import { mergeMap, map } from "rxjs/operators";
 import { OfflinePlayersState } from "../../offline-players/offline-players-state/offline-players-state.reducers";
 import { Store } from "@ngrx/store";
@@ -22,6 +27,18 @@ export class FriendsStateEffect {
       return this.friendsApiService.getUsersList().pipe(
         map((value) => {
           return initAllUsers({ users: value });
+        })
+      );
+    })
+  );
+
+  @Effect()
+  loadFriendsList$ = this.action.pipe(
+    ofType(loadAllFriends),
+    mergeMap((action) => {
+      return this.friendsApiService.getFriendsList().pipe(
+        map((value) => {
+          return initAllFriends({ friends: value });
         })
       );
     })

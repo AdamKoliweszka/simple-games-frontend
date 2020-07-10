@@ -4,10 +4,12 @@ import { User } from "../../user-of-service/models/user";
 
 export interface FriendsState {
   users: User[];
+  friends: User[];
 }
 
 const initialState: FriendsState = {
   users: null,
+  friends: null,
 };
 
 const friendsReducer = createReducer(
@@ -15,6 +17,10 @@ const friendsReducer = createReducer(
   on(GamesActions.initAllUsers, (state, { users }) => ({
     ...state,
     users,
+  })),
+  on(GamesActions.initAllFriends, (state, { friends }) => ({
+    ...state,
+    friends,
   }))
 );
 
