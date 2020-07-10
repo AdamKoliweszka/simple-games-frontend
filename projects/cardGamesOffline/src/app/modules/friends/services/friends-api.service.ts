@@ -10,9 +10,22 @@ import { Observable } from "rxjs";
 export class FriendsApiService {
   constructor(private http: HttpClient) {}
 
-  getGamesList(): Observable<User[]> {
+  getUsersList(): Observable<User[]> {
     return this.http.get<User[]>(
       "http://" + environment.apiIp + ":" + environment.apiPort + "/users"
+    );
+  }
+
+  sendInviteToFriend(friendUsername: string) {
+    return this.http.post(
+      "http://" + environment.apiIp + ":" + environment.apiPort + "/friends",
+      { friendUsername }
+    );
+  }
+
+  getFriendsList(): Observable<User[]> {
+    return this.http.get<User[]>(
+      "http://" + environment.apiIp + ":" + environment.apiPort + "/friends"
     );
   }
 }
