@@ -19,7 +19,7 @@ export class FriendsStateEffect {
   loadUsersList$ = this.action.pipe(
     ofType(loadAllUsers),
     mergeMap((action) => {
-      return this.friendsApiService.getGamesList().pipe(
+      return this.friendsApiService.getUsersList().pipe(
         map((value) => {
           return initAllUsers({ users: value });
         })
