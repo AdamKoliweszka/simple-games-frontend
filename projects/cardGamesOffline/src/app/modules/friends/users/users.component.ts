@@ -34,4 +34,9 @@ export class UsersComponent implements OnInit {
   onReset() {
     this.allUsers$ = this.friendsDataContainerService.listOfUsers;
   }
+
+  onLeftClick(user: User) {
+    this.friendsDataContainerService.inviteFriend(user.username);
+    console.log(user);
+  }
 }

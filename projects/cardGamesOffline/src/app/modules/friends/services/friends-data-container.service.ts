@@ -16,6 +16,16 @@ export class FriendsDataContainerService {
     this.store.dispatch(FriendsActions.loadAllUsers());
   }
 
+  loadFriendshipsList() {
+    this.store.dispatch(FriendsActions.loadAllFriendships());
+  }
+
+  inviteFriend(username: string) {
+    this.store.dispatch(
+      FriendsActions.inviteFriend({ friendUsername: username })
+    );
+  }
+
   get listOfUsers(): Observable<User[]> {
     return this.store.select(FriendsSelectors.selectAllUsers);
   }

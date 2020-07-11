@@ -15,6 +15,7 @@ export class FriendsPageComponent implements OnInit {
     private friendsDataContainerService: FriendsDataContainerService
   ) {
     this.friendsDataContainerService.loadUsersList();
+    this.friendsDataContainerService.loadFriendshipsList();
   }
 
   get activeIndex() {

@@ -3,14 +3,16 @@ import { Actions, Effect, ofType } from "@ngrx/effects";
 import {
   loadAllUsers,
   initAllUsers,
-  loadAllFriends,
-  initAllFriends,
+  inviteFriend,
+  loadAllFriendships,
+  initAllFriendships,
 } from "./friends-state.actions";
 import { mergeMap, map } from "rxjs/operators";
 import { OfflinePlayersState } from "../../offline-players/offline-players-state/offline-players-state.reducers";
 import { Store } from "@ngrx/store";
 import { FriendsState } from "./friends-state.reducers";
 import { FriendsApiService } from "../services/friends-api.service";
+import { dispatch } from "rxjs/internal/observable/pairs";
 
 @Injectable()
 export class FriendsStateEffect {
@@ -33,14 +35,27 @@ export class FriendsStateEffect {
   );
 
   @Effect()
-  loadFriendsList$ = this.action.pipe(
-    ofType(loadAllFriends),
+  loadFriendships$ = this.action.pipe(
+    ofType(loadAllFriendships),
     mergeMap((action) => {
-      return this.friendsApiService.getFriendsList().pipe(
+      return this.friendsApiService.getFriendshipList().pipe(
         map((value) => {
-          return initAllFriends({ friends: value });
+          return initAllFriendships({ friendships: value });
         })
       );
+    })
+  );
+
+  @Effect({ dispatch: false })
+  addToFriends$ = this.action.pipe(
+    ofType(inviteFriend),
+    mergeMap((action) => {
+      return this.friendsApiService.sendInviteToFriend(action.friendUsername);
+      // .pipe(
+      //   map((value) => {
+      //     return initAllFriends({ friends: value });
+      //   })
+      // );
     })
   );
 }

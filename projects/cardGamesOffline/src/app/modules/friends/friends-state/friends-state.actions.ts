@@ -7,11 +7,16 @@ export const initAllUsers = createAction(
   props<{ users }>()
 );
 
-export const loadAllFriends = createAction(
-  "[FRIENDS] Load all friends from Api"
+export const loadAllFriendships = createAction(
+  "[FRIENDS] Load all friendships from Api"
 );
 
-export const initAllFriends = createAction(
-  "[FRIENDS] Init all friends",
-  props<{ friends }>()
+export const initAllFriendships = createAction(
+  "[FRIENDS] Init all friendships",
+  props<{ friendships }>()
+);
+
+export const inviteFriend = createAction(
+  "[FRIENDS] Invite user to friend",
+  props<{ friendUsername: string }>()
 );

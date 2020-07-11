@@ -11,5 +11,6 @@
     [names]="users | usernames"
     [colorsOfMainIcons]="users | colorsGender"
     leftIcon="add"
+    (leftButtonClick)="onLeftClick(users[$event])"
   ></app-card-container>
 </div>

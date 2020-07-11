@@ -1,15 +1,16 @@
 import * as GamesActions from "./friends-state.actions";
 import { createReducer, on, Action } from "@ngrx/store";
 import { User } from "../../user-of-service/models/user";
+import { Friendship } from "../interface/friendship.interface";
 
 export interface FriendsState {
   users: User[];
-  friends: User[];
+  friendships: Friendship[];
 }
 
 const initialState: FriendsState = {
   users: null,
-  friends: null,
+  friendships: null,
 };
 
 const friendsReducer = createReducer(
@@ -18,9 +19,9 @@ const friendsReducer = createReducer(
     ...state,
     users,
   })),
-  on(GamesActions.initAllFriends, (state, { friends }) => ({
+  on(GamesActions.initAllFriendships, (state, { friendships }) => ({
     ...state,
-    friends,
+    friendships,
   }))
 );
 
