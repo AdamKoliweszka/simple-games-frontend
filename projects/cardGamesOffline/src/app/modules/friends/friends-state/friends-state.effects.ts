@@ -6,6 +6,7 @@ import {
   inviteFriend,
   loadAllFriendships,
   initAllFriendships,
+  addFriendship,
 } from "./friends-state.actions";
 import { mergeMap, map } from "rxjs/operators";
 import { OfflinePlayersState } from "../../offline-players/offline-players-state/offline-players-state.reducers";
@@ -46,16 +47,17 @@ export class FriendsStateEffect {
     })
   );
 
-  @Effect({ dispatch: false })
+  @Effect()
   addToFriends$ = this.action.pipe(
     ofType(inviteFriend),
     mergeMap((action) => {
-      return this.friendsApiService.sendInviteToFriend(action.friendUsername);
-      // .pipe(
-      //   map((value) => {
-      //     return initAllFriends({ friends: value });
-      //   })
-      // );
+      return this.friendsApiService
+        .sendInviteToFriend(action.friendUsername)
+        .pipe(
+          map((value) => {
+            return addFriendship({ friendship: value });
+          })
+        );
     })
   );
 }

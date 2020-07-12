@@ -1,12 +1,16 @@
 <div class="card">
   <div class="logo" (click)="onCardClick()">
-    <mat-icon class="logo-icon" [ngStyle]="{ color: colorOfMainIcon }">{{
+    <mat-icon class="logo-icon" [ngStyle]="{ color: _colorOfMainIcon }">{{
       mainIcon
     }}</mat-icon>
   </div>
   <div class="name" (click)="onCardClick()">{{ name }}</div>
   <div class="buttons">
-    <mat-icon (click)="onLetfButtonClick()">{{ leftIcon }}</mat-icon>
-    <mat-icon (click)="onRightButtonClick()">{{ rightIcon }}</mat-icon>
+    <mat-icon
+      [ngClass]="{ disable: !_leftIconEnable }"
+      (click)="onLetfButtonClick()"
+      >{{ _leftIcon }}</mat-icon
+    >
+    <mat-icon (click)="onRightButtonClick()">{{ _rightIcon }}</mat-icon>
   </div>
 </div>

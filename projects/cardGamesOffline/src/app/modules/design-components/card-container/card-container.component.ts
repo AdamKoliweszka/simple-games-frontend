@@ -8,6 +8,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from "@angular/core";
 export class CardContainerComponent implements OnInit {
   @Input() names: string[];
   @Input() colorsOfMainIcons: string[];
+  @Input() leftIconEnables: boolean[];
   @Input() leftIcon: string;
   @Output() leftButtonClick = new EventEmitter<number>();
   @Output() rightButtonClick = new EventEmitter<number>();

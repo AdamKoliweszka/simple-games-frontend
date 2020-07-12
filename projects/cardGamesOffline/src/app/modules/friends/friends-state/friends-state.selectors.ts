@@ -18,3 +18,19 @@ export const selectUsersByUsername = createSelector(
       user.username.toLowerCase().includes(props.username.toLowerCase())
     )
 );
+
+export const selectIsNotInRelationList = createSelector(
+  selectFriendState,
+  (state: FriendsState) => {
+    return state.users.map((user) => {
+      return (
+        state.friendships.find((friendship) => {
+          return (
+            friendship.usernameOfSecondUser === user.username ||
+            friendship.usernameOfStartingRelationshipUser === user.username
+          );
+        }) === undefined
+      );
+    });
+  }
+);

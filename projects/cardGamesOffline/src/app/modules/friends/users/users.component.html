@@ -6,11 +6,19 @@
       (resetSubmit)="onReset()"
     ></app-search-input>
   </div>
-  <app-card-container
-    *ngIf="allUsers$ | async as users"
-    [names]="users | usernames"
-    [colorsOfMainIcons]="users | colorsGender"
-    leftIcon="add"
-    (leftButtonClick)="onLeftClick(users[$event])"
-  ></app-card-container>
+  <ng-container
+    *ngIf="{
+      users: allUsers$ | async,
+      isInRelationList: listOfIsNotInRelationWithUser$ | async
+    } as data"
+  >
+    <app-card-container
+      *ngIf="data.users"
+      [names]="data.users | usernames"
+      [colorsOfMainIcons]="data.users | colorsGender"
+      [leftIconEnables]="data.isInRelationList"
+      leftIcon="add"
+      (leftButtonClick)="onLeftClick(data.users[$event])"
+    ></app-card-container>
+  </ng-container>
 </div>

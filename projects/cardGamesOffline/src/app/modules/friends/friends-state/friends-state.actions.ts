@@ -1,10 +1,12 @@
 import { createAction, props } from "@ngrx/store";
+import { Friendship } from "../interface/friendship.interface";
+import { User } from "../../user-of-service/models/user";
 
 export const loadAllUsers = createAction("[FRIENDS] Load all users from Api");
 
 export const initAllUsers = createAction(
   "[FRIENDS] Init all users",
-  props<{ users }>()
+  props<{ users: User[] }>()
 );
 
 export const loadAllFriendships = createAction(
@@ -13,7 +15,12 @@ export const loadAllFriendships = createAction(
 
 export const initAllFriendships = createAction(
   "[FRIENDS] Init all friendships",
-  props<{ friendships }>()
+  props<{ friendships: Friendship[] }>()
+);
+
+export const addFriendship = createAction(
+  "[FRIENDS] Add friendship",
+  props<{ friendship: Friendship }>()
 );
 
 export const inviteFriend = createAction(

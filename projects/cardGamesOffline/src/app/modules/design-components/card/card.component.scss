@@ -43,3 +43,8 @@ mat-icon {
   margin-top: auto;
   margin-bottom: auto;
 }
+
+.disable {
+  color: $secondary-color;
+  cursor: default;
+}

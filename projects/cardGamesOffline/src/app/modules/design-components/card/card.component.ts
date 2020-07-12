@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { inject } from "@angular/core/testing";
+import { THIS_EXPR } from "@angular/compiler/src/output/output_ast";
 
 @Component({
   selector: "app-card",
@@ -6,11 +8,26 @@ import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
   styleUrls: ["./card.component.scss"],
 })
 export class CardComponent implements OnInit {
+  _colorOfMainIcon = "#1059FC";
+  _leftIconEnable = true;
+  _leftIcon: string = "thumb_up_alt";
+  _rightIcon: string = "chat";
+  _mainIcon: string = "person";
+
   @Input() name: string;
   @Input() mainIcon: string = "person";
-  @Input() colorOfMainIcon: string = "#1059FC";
-  @Input() leftIcon: string = "thumb_up_alt";
-  @Input() rightIcon: string = "chat";
+  @Input() set colorOfMainIcon(colorOfMainIcon: string) {
+    if (colorOfMainIcon) this._colorOfMainIcon = colorOfMainIcon;
+  }
+  @Input() set leftIconEnable(leftIconEnable: boolean) {
+    if (leftIconEnable !== null) this._leftIconEnable = leftIconEnable;
+  }
+  @Input() set leftIcon(leftIcon: string) {
+    if (leftIcon) this._leftIcon = leftIcon;
+  }
+  @Input() set rightIcon(rightIcon: string) {
+    if (rightIcon) this._rightIcon = rightIcon;
+  }
   @Output() leftButtonClick = new EventEmitter<boolean>();
   @Output() rightButtonClick = new EventEmitter<boolean>();
   @Output() cardClick = new EventEmitter<boolean>();
@@ -20,7 +37,9 @@ export class CardComponent implements OnInit {
   ngOnInit() {}
 
   onLetfButtonClick() {
-    this.leftButtonClick.emit(true);
+    if (this._leftIconEnable) {
+      this.leftButtonClick.emit(true);
+    }
   }
 
   onRightButtonClick() {

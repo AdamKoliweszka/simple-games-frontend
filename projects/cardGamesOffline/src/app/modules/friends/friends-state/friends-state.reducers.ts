@@ -9,8 +9,8 @@ export interface FriendsState {
 }
 
 const initialState: FriendsState = {
-  users: null,
-  friendships: null,
+  users: [],
+  friendships: [],
 };
 
 const friendsReducer = createReducer(
@@ -22,6 +22,10 @@ const friendsReducer = createReducer(
   on(GamesActions.initAllFriendships, (state, { friendships }) => ({
     ...state,
     friendships,
+  })),
+  on(GamesActions.addFriendship, (state, { friendship }) => ({
+    ...state,
+    friendships: [...state.friendships, friendship],
   }))
 );
 

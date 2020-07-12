@@ -18,7 +18,7 @@ export class FriendsApiService {
   }
 
   sendInviteToFriend(friendUsername: string) {
-    return this.http.post(
+    return this.http.post<Friendship>(
       "http://" + environment.apiIp + ":" + environment.apiPort + "/friends",
       { friendUsername }
     );

@@ -10,10 +10,12 @@ import { User } from "../../user-of-service/models/user";
 })
 export class UsersComponent implements OnInit {
   allUsers$: Observable<User[]>;
+  listOfIsNotInRelationWithUser$: Observable<boolean[]>;
   constructor(
     private friendsDataContainerService: FriendsDataContainerService
   ) {
     this.allUsers$ = this.friendsDataContainerService.listOfUsers;
+    this.listOfIsNotInRelationWithUser$ = this.friendsDataContainerService.listOfIsNotInRelationWithUser;
   }
 
   ngOnInit() {}
@@ -37,6 +39,5 @@ export class UsersComponent implements OnInit {
 
   onLeftClick(user: User) {
     this.friendsDataContainerService.inviteFriend(user.username);
-    console.log(user);
   }
 }
