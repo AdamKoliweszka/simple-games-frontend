@@ -1,0 +1,8 @@
+@import "../../../../variables.scss";
+
+.underline {
+  background-color: $primary-color;
+  height: 1vh;
+  width: 100%;
+  border-radius: 40px;
+}

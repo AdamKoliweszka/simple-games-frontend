@@ -8,7 +8,7 @@ import { FriendsDataContainerService } from "../services/friends-data-container.
   styleUrls: ["./friends-page.component.scss"],
 })
 export class FriendsPageComponent implements OnInit {
-  items = ["FRIENDS_PAGE.USERS", "FRIENDS_PAGE.FRIENDS"];
+  items = ["FRIENDS_PAGE.USERS", "FRIENDS_PAGE.INVITE", "FRIENDS_PAGE.FRIENDS"];
 
   constructor(
     private router: Router,
@@ -20,7 +20,8 @@ export class FriendsPageComponent implements OnInit {
 
   get activeIndex() {
     let url = this.router.url;
-    if (url.indexOf("friends/user-friends") >= 0) return 1;
+    if (url.indexOf("friends/invites") >= 0) return 1;
+    if (url.indexOf("friends/user-friends") >= 0) return 2;
     if (url.indexOf("friends/users") >= 0) return 0;
   }
 
@@ -30,6 +31,9 @@ export class FriendsPageComponent implements OnInit {
         this.router.navigate(["friends/users"]);
         break;
       case 1:
+        this.router.navigate(["friends/invites"]);
+        break;
+      case 2:
         this.router.navigate(["friends/user-friends"]);
         break;
     }

@@ -34,3 +34,19 @@ export const selectIsNotInRelationList = createSelector(
     });
   }
 );
+
+export const selectInviteToAccept = createSelector(
+  selectFriendState,
+  (state: FriendsState) =>
+    state.friendships.filter((friendship) => {
+      return friendship.usernameOfSecondUser === "test";
+    })
+);
+
+export const selectSentInvite = createSelector(
+  selectFriendState,
+  (state: FriendsState) =>
+    state.friendships.filter((friendship) => {
+      return friendship.usernameOfStartingRelationshipUser === "test";
+    })
+);

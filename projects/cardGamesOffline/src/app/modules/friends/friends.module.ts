@@ -5,6 +5,7 @@ import { FriendsPageModule } from "./friends-page/friends-page.module";
 import { UsersModule } from "./users/users.module";
 import { UserFriendsModule } from "./user-friends/user-friends.module";
 import { FriendsStateModule } from "./friends-state/friends-state.module";
+import { InvitesPageModule } from "./invites-page/invites-page.module";
 
 @NgModule({
   declarations: [],
@@ -15,6 +16,7 @@ import { FriendsStateModule } from "./friends-state/friends-state.module";
     UsersModule,
     UserFriendsModule,
     FriendsStateModule,
+    InvitesPageModule,
   ],
 })
 export class FriendsModule {}

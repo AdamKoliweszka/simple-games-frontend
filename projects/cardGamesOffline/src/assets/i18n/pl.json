@@ -10,7 +10,10 @@
   "FRIENDS_PAGE": {
     "FRIENDS": "Znajomi",
     "USERS": "Użytkownicy",
-    "SEARCH_USER_PLACEHOLDER": "Wyszukiwany użytkownik..."
+    "INVITE": "Zaproszenia",
+    "SEARCH_USER_PLACEHOLDER": "Wyszukiwany użytkownik...",
+    "INVITE_TO_ACCEPT": "Zaproszenia do zaakceptowania",
+    "SENT_INVITATIONS": "Zaproszenia wysłane"
   },
   "MESSAGES_TOP_BAR": {
     "CHAT": "Czat",
