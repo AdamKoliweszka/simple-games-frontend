@@ -5,6 +5,7 @@ import * as FriendsSelectors from "../friends-state/friends-state.selectors";
 import * as FriendsActions from "../friends-state/friends-state.actions";
 import { User } from "../../user-of-service/models/user";
 import { Observable } from "rxjs";
+import { Friendship } from "../interface/friendship.interface";
 
 @Injectable({
   providedIn: "root",
@@ -24,6 +25,14 @@ export class FriendsDataContainerService {
     this.store.dispatch(
       FriendsActions.inviteFriend({ friendUsername: username })
     );
+  }
+
+  get listOfInivitesToAccept(): Observable<Friendship[]> {
+    return this.store.select(FriendsSelectors.selectInviteToAccept);
+  }
+
+  get listOfSentInivites(): Observable<Friendship[]> {
+    return this.store.select(FriendsSelectors.selectSentInvite);
   }
 
   get listOfUsers(): Observable<User[]> {

@@ -1,6 +1,8 @@
 import { FriendsState } from "./friends-state.reducers";
 import { createSelector, createFeatureSelector } from "@ngrx/store";
 import { friendsStateKey } from "./friends-state.key";
+import { selectUserOfServiceState } from "../../user-of-service/user-of-service-state/users-of-service.selectors";
+import { UserOfServiceState } from "../../user-of-service/user-of-service-state/user-of-service-state.reducers";
 
 export const selectFriendState = createFeatureSelector<FriendsState>(
   friendsStateKey
@@ -37,16 +39,20 @@ export const selectIsNotInRelationList = createSelector(
 
 export const selectInviteToAccept = createSelector(
   selectFriendState,
-  (state: FriendsState) =>
+  selectUserOfServiceState,
+  (state: FriendsState, userState: UserOfServiceState) =>
     state.friendships.filter((friendship) => {
-      return friendship.usernameOfSecondUser === "test";
+      return friendship.usernameOfSecondUser === userState.username;
     })
 );
 
 export const selectSentInvite = createSelector(
   selectFriendState,
-  (state: FriendsState) =>
-    state.friendships.filter((friendship) => {
-      return friendship.usernameOfStartingRelationshipUser === "test";
+  selectUserOfServiceState,
+  (friendState: FriendsState, userState: UserOfServiceState) =>
+    friendState.friendships.filter((friendship) => {
+      return (
+        friendship.usernameOfStartingRelationshipUser === userState.username
+      );
     })
 );

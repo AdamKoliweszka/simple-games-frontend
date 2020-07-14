@@ -8,7 +8,6 @@ import { FriendsStateModule } from "./friends-state/friends-state.module";
 import { InvitesPageModule } from "./invites-page/invites-page.module";
 
 @NgModule({
-  declarations: [],
   imports: [
     CommonModule,
     FriendsRoutingModule,

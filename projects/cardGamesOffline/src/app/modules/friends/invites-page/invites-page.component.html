@@ -1,5 +1,27 @@
-<p>invites-page works!</p>
-<div class="separator">
-  <app-line-separator text="FRIENDS_PAGE.INVITE_TO_ACCEPT"></app-line-separator>
-  <app-line-separator text="FRIENDS_PAGE.SENT_INVITATIONS"></app-line-separator>
-</div>
+<ng-container
+  *ngIf="{
+    listInvitesToAccept: listInvitesToAccept$ | async,
+    listSentInvites: listSentInvites$ | async
+  } as data"
+>
+  <div *ngIf="data.listInvitesToAccept.length > 0">
+    <div class="separator">
+      <app-line-separator
+        text="FRIENDS_PAGE.INVITE_TO_ACCEPT"
+      ></app-line-separator>
+    </div>
+    <app-card-container
+      [names]="data.listInvitesToAccept | invitesUsernamesFirstUser"
+    ></app-card-container>
+  </div>
+  <div *ngIf="data.listSentInvites.length > 0">
+    <div class="separator">
+      <app-line-separator
+        text="FRIENDS_PAGE.SENT_INVITATIONS"
+      ></app-line-separator>
+    </div>
+    <app-card-container
+      [names]="data.listSentInvites | invitesUsernamesSecondUser"
+    ></app-card-container>
+  </div>
+</ng-container>
