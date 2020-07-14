@@ -20,6 +20,7 @@ import {
   registerUser,
   setRegisterErrors,
   setStatusOfRegistration,
+  setUsername,
 } from "./user-of-service-state.actions";
 import { AuthApiService } from "../services/auth-api.service";
 import { AuthStorageContainerService } from "../services/auth-storage-container.service";
@@ -53,9 +54,11 @@ export class UserOfServiceEffect {
         mergeMap((value) => {
           this.authStorageService.setAccessToken(value.accessToken);
           this.authStorageService.setRefreshToken(value.refreshToken);
+          this.authStorageService.setUsername(value.username);
           return [
             setAccessToken({ accessToken: value.accessToken }),
             setRefreshToken({ refreshToken: value.refreshToken }),
+            setUsername({ username: value.username }),
             setIsLastLoginBad({ isLastLoginBad: false }),
             setIsInLoginProcess({ isInLoginProcess: false }),
           ];
@@ -78,10 +81,12 @@ export class UserOfServiceEffect {
     mergeMap((action) => {
       let accessToken = this.authStorageService.accessToken;
       let refreshToken = this.authStorageService.refreshToken;
+      let username = this.authStorageService.username;
       if (accessToken && refreshToken) {
         return [
           setAccessToken({ accessToken }),
           setRefreshToken({ refreshToken }),
+          setUsername({ username }),
         ];
       } else return [];
     })
@@ -103,6 +108,7 @@ export class UserOfServiceEffect {
       this.authApiService.logoutUser(refreshToken).subscribe((value) => {
         this.authStorageService.removeAccessToken();
         this.authStorageService.removeRefreshToken();
+        this.authStorageService.removeUsername();
       });
     })
   );

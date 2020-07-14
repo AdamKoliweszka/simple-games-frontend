@@ -3,6 +3,7 @@ import { createReducer, on, Action } from "@ngrx/store";
 import { StatusOfRegistration } from "../models/statusOfRegistration";
 
 export interface UserOfServiceState {
+  username: string;
   accessToken: string;
   refreshToken: string;
   isRefreshing: boolean;
@@ -13,6 +14,7 @@ export interface UserOfServiceState {
 }
 
 const initialState: UserOfServiceState = {
+  username: null,
   accessToken: null,
   refreshToken: null,
   isRefreshing: false,
@@ -67,6 +69,10 @@ const userOfServiceReducer = createReducer(
   on(UsersActions.setRegisterErrors, (state, { registerErrors }) => ({
     ...state,
     registerErrors: [...registerErrors],
+  })),
+  on(UsersActions.setUsername, (state, { username }) => ({
+    ...state,
+    username,
   }))
 );
 
