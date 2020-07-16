@@ -12,6 +12,8 @@
     </div>
     <app-card-container
       [names]="data.listInvitesToAccept | invitesUsernamesFirstUser"
+      [mainIcons]="['mail']"
+      [clickables]="[false]"
     ></app-card-container>
   </div>
   <div *ngIf="data.listSentInvites.length > 0">
@@ -22,6 +24,8 @@
     </div>
     <app-card-container
       [names]="data.listSentInvites | invitesUsernamesSecondUser"
+      [mainIcons]="['mail']"
+      [clickables]="[false]"
     ></app-card-container>
   </div>
 </ng-container>

@@ -2,7 +2,6 @@
 .card {
   width: 12vw;
   height: 25vh;
-  cursor: pointer;
   background-color: $primary-color;
   border-radius: 40px;
   box-shadow: 25px -5px 20px rgba(0, 0, 0, 0.1),
@@ -47,4 +46,8 @@ mat-icon {
 .disable {
   color: $secondary-color;
   cursor: default;
+}
+
+.clickable {
+  cursor: pointer;
 }

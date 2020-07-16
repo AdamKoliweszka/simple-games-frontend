@@ -15,9 +15,11 @@
     <app-card-container
       *ngIf="data.users"
       [names]="data.users | usernames"
-      [colorsOfMainIcons]="data.users | colorsGender"
+      [mainIcons]="['person']"
+      [colorOfMainIcons]="data.users | colorsGender"
       [leftIconEnables]="data.isInRelationList"
-      leftIcon="add"
+      [leftIcons]="['add']"
+      [rightIcons]="['mail']"
       (leftButtonClick)="onLeftClick(data.users[$event])"
     ></app-card-container>
   </ng-container>
