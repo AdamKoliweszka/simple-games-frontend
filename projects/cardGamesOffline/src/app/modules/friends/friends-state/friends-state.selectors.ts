@@ -77,3 +77,19 @@ export const selectAllFriends = createSelector(
       );
     })
 );
+
+export const selectFriendsByUsername = createSelector(
+  selectFriendState,
+  (state: FriendsState, props) =>
+    state.users.filter(
+      (user) =>
+        user.username.toLowerCase().includes(props.username.toLowerCase()) &&
+        state.friendships.find((friendship) => {
+          return (
+            friendship.status === StatusOfFriendship.ACCEPTED &&
+            (friendship.usernameOfSecondUser === user.username ||
+              friendship.usernameOfStartingRelationshipUser === user.username)
+          );
+        }) !== undefined
+    )
+);

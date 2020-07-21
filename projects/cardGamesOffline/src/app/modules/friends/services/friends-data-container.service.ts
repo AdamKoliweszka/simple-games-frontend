@@ -58,4 +58,10 @@ export class FriendsDataContainerService {
       username,
     });
   }
+
+  listOfFriendsByUsername(username: string): Observable<User[]> {
+    return this.store.select(FriendsSelectors.selectFriendsByUsername, {
+      username,
+    });
+  }
 }

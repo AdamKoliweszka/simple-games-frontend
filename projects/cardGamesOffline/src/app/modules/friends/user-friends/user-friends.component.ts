@@ -22,7 +22,7 @@ export class UserFriendsComponent implements OnInit {
     if (text.length === 0)
       this.allFriends$ = this.friendsDataContainerService.listOfUsers;
     else
-      this.allFriends$ = this.friendsDataContainerService.listOfUsersByUsername(
+      this.allFriends$ = this.friendsDataContainerService.listOfFriendsByUsername(
         text
       );
   }
