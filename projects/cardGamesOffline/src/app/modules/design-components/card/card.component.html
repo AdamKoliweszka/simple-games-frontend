@@ -7,12 +7,12 @@
   <div class="name" (click)="onCardClick()">{{ name }}</div>
   <div class="buttons">
     <mat-icon
-      [ngClass]="{ disable: !leftIconEnable }"
+      [ngClass]="{ disable: !leftIconEnable, clickable: leftIconEnable }"
       (click)="onLetfButtonClick()"
       >{{ leftIcon }}</mat-icon
     >
     <mat-icon
-      [ngClass]="{ disable: !rightIconEnable }"
+      [ngClass]="{ disable: !rightIconEnable, clickable: rightIconEnable }"
       (click)="onRightButtonClick()"
       >{{ rightIcon }}</mat-icon
     >

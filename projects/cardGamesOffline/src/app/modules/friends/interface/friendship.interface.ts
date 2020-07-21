@@ -1,6 +1,8 @@
+import { StatusOfFriendship } from "../enum/status-friendship.enum";
+
 export interface Friendship {
   usernameOfStartingRelationshipUser: string;
   usernameOfSecondUser: string;
-  status: number;
+  status: StatusOfFriendship;
   dateOfStartRelationship: Date;
 }

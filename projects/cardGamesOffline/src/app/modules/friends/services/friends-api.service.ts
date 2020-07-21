@@ -24,6 +24,13 @@ export class FriendsApiService {
     );
   }
 
+  acceptInviteToFriend(friendUsername: string) {
+    return this.http.put<Friendship>(
+      "http://" + environment.apiIp + ":" + environment.apiPort + "/friends",
+      { friendUsername }
+    );
+  }
+
   getFriendshipList(): Observable<Friendship[]> {
     return this.http.get<Friendship[]>(
       "http://" + environment.apiIp + ":" + environment.apiPort + "/friends"

@@ -27,6 +27,12 @@ export class FriendsDataContainerService {
     );
   }
 
+  acceptFriendship(friendship: Friendship) {
+    this.store.dispatch(
+      FriendsActions.acceptInviteToFriendship({ friendship })
+    );
+  }
+
   get listOfInivitesToAccept(): Observable<Friendship[]> {
     return this.store.select(FriendsSelectors.selectInviteToAccept);
   }

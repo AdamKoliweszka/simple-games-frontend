@@ -26,6 +26,19 @@ const friendsReducer = createReducer(
   on(GamesActions.addFriendship, (state, { friendship }) => ({
     ...state,
     friendships: [...state.friendships, friendship],
+  })),
+  on(GamesActions.editFriendship, (state, { friendship }) => ({
+    ...state,
+    friendships: state.friendships.map((value) => {
+      if (
+        value.usernameOfStartingRelationshipUser ===
+          friendship.usernameOfStartingRelationshipUser &&
+        value.usernameOfSecondUser === friendship.usernameOfSecondUser
+      ) {
+        return friendship;
+      }
+      return value;
+    }),
   }))
 );
 

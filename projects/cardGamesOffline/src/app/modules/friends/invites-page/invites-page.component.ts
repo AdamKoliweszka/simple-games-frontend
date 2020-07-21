@@ -19,4 +19,8 @@ export class InvitesPageComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  onLeftClick(friendship: Friendship) {
+    this.friendsDataContainerService.acceptFriendship(friendship);
+  }
 }

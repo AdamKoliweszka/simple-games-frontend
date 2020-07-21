@@ -14,6 +14,10 @@
       [names]="data.listInvitesToAccept | invitesUsernamesFirstUser"
       [mainIcons]="['mail']"
       [clickables]="[false]"
+      [leftIcons]="['add']"
+      [rightIcons]="['close']"
+      [leftIconEnables]="[true]"
+      (leftButtonClick)="onLeftClick(data.listInvitesToAccept[$event])"
     ></app-card-container>
   </div>
   <div *ngIf="data.listSentInvites.length > 0">
@@ -27,5 +31,13 @@
       [mainIcons]="['mail']"
       [clickables]="[false]"
     ></app-card-container>
+  </div>
+  <div
+    class="no-invites"
+    *ngIf="
+      data.listSentInvites.length === 0 && data.listInvitesToAccept.length === 0
+    "
+  >
+    {{ "FRIENDS_PAGE.NO_INVITES" | translate }}
   </div>
 </ng-container>

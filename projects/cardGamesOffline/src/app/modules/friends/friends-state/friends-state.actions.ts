@@ -27,3 +27,13 @@ export const inviteFriend = createAction(
   "[FRIENDS] Invite user to friend",
   props<{ friendUsername: string }>()
 );
+
+export const acceptInviteToFriendship = createAction(
+  "[FRIENDS] Accept invite to friendship",
+  props<{ friendship: Friendship }>()
+);
+
+export const editFriendship = createAction(
+  "[FRIENDS] Edit friendship",
+  props<{ friendship: Friendship }>()
+);
