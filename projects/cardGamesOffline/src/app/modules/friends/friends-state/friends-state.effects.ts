@@ -16,6 +16,7 @@ import { Store } from "@ngrx/store";
 import { FriendsState } from "./friends-state.reducers";
 import { FriendsApiService } from "../services/friends-api.service";
 import { dispatch } from "rxjs/internal/observable/pairs";
+import { StatusOfFriendship } from "../enum/status-friendship.enum";
 
 @Injectable()
 export class FriendsStateEffect {
@@ -68,8 +69,9 @@ export class FriendsStateEffect {
     ofType(acceptInviteToFriendship),
     mergeMap((action) => {
       return this.friendsApiService
-        .acceptInviteToFriend(
-          action.friendship.usernameOfStartingRelationshipUser
+        .changeStatusOfFriendship(
+          action.friendship.usernameOfStartingRelationshipUser,
+          StatusOfFriendship.ACCEPTED
         )
         .pipe(
           map((value) => {

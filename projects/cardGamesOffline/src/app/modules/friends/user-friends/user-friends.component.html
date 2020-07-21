@@ -16,8 +16,8 @@
       [names]="data.friends | usernames"
       [mainIcons]="['person']"
       [colorOfMainIcons]="data.friends | colorsGender"
-      [leftIconEnables]="[false]"
-      [leftIcons]="['add']"
+      [leftIconEnables]="[true]"
+      [leftIcons]="['close']"
       [rightIcons]="['mail']"
       (leftButtonClick)="onLeftClick(data.friends[$event])"
     ></app-card-container>
