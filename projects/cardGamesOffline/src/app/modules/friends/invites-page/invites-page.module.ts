@@ -6,18 +6,16 @@ import { CardContainerModule } from "../../design-components/card-container/card
 import { InvitesUsernamesSecondUserPipe } from "../pipes/invites-usernames-second-user.pipe";
 import { InvitesUsernamesFirstUserPipe } from "../pipes/invites-usernames-first-user.pipe";
 import { TranslateModule } from "@ngx-translate/core";
+import { FriendsPipeModule } from "../pipes/friends-pipe.module";
 
 @NgModule({
-  declarations: [
-    InvitesPageComponent,
-    InvitesUsernamesFirstUserPipe,
-    InvitesUsernamesSecondUserPipe,
-  ],
+  declarations: [InvitesPageComponent],
   imports: [
     CommonModule,
     LineSeparatorModule,
     CardContainerModule,
     TranslateModule,
+    FriendsPipeModule,
   ],
 })
 export class InvitesPageModule {}

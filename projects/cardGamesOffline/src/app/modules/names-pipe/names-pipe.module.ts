@@ -4,9 +4,9 @@ import { NamesPipe } from "./names.pipe";
 import { UsernamesPipe } from "./usernames.pipe";
 
 @NgModule({
-  declarations: [NamesPipe, UsernamesPipe],
+  declarations: [NamesPipe],
   imports: [CommonModule],
-  providers: [NamesPipe, UsernamesPipe],
-  exports: [NamesPipe, UsernamesPipe],
+  providers: [NamesPipe],
+  exports: [NamesPipe],
 })
 export class NamesPipeModule {}

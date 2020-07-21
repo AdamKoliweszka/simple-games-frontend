@@ -1,1 +1,25 @@
-<p>user-friends works!</p>
+<div class="container">
+  <div class="search-input">
+    <app-search-input
+      placeholder="FRIENDS_PAGE.SEARCH_USER_PLACEHOLDER"
+      (textSubmit)="onSearchSubmit($event)"
+      (resetSubmit)="onReset()"
+    ></app-search-input>
+  </div>
+  <ng-container
+    *ngIf="{
+      friends: allFriends$ | async
+    } as data"
+  >
+    <app-card-container
+      *ngIf="data.friends"
+      [names]="data.friends | usernames"
+      [mainIcons]="['person']"
+      [colorOfMainIcons]="data.friends | colorsGender"
+      [leftIconEnables]="[false]"
+      [leftIcons]="['add']"
+      [rightIcons]="['mail']"
+      (leftButtonClick)="onLeftClick(data.friends[$event])"
+    ></app-card-container>
+  </ng-container>
+</div>

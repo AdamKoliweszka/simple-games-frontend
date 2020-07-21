@@ -5,14 +5,16 @@ import { SearchInputModule } from "../../design-components/search-input/search-i
 import { NamesPipeModule } from "../../names-pipe/names-pipe.module";
 import { CardContainerModule } from "../../design-components/card-container/card-container.module";
 import { ColorsGenderPipe } from "../pipes/colors-gender.pipe";
+import { FriendsPipeModule } from "../pipes/friends-pipe.module";
 
 @NgModule({
-  declarations: [UsersComponent, ColorsGenderPipe],
+  declarations: [UsersComponent],
   imports: [
     CommonModule,
     SearchInputModule,
     NamesPipeModule,
     CardContainerModule,
+    FriendsPipeModule,
   ],
 })
 export class UsersModule {}

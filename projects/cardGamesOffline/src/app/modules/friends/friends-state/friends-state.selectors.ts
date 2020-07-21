@@ -69,10 +69,11 @@ export const selectAllFriends = createSelector(
       return (
         state.friendships.find((friendship) => {
           return (
-            friendship.usernameOfSecondUser === user.username ||
-            friendship.usernameOfStartingRelationshipUser === user.username
+            friendship.status === StatusOfFriendship.ACCEPTED &&
+            (friendship.usernameOfSecondUser === user.username ||
+              friendship.usernameOfStartingRelationshipUser === user.username)
           );
-        }) !== null
+        }) !== undefined
       );
     })
 );
