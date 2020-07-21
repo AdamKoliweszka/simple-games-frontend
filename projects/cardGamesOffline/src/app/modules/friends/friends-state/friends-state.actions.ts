@@ -33,6 +33,16 @@ export const acceptInviteToFriendship = createAction(
   props<{ friendship: Friendship }>()
 );
 
+export const discardInviteToFriendship = createAction(
+  "[FRIENDS] Discard invite to friendship",
+  props<{ friendship: Friendship }>()
+);
+
+export const removeFriendship = createAction(
+  "[FRIENDS] Remove friendship",
+  props<{ friendship: Friendship }>()
+);
+
 export const editFriendship = createAction(
   "[FRIENDS] Edit friendship",
   props<{ friendship: Friendship }>()
