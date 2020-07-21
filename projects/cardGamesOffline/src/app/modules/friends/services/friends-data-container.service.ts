@@ -33,6 +33,16 @@ export class FriendsDataContainerService {
     );
   }
 
+  removeFriendship(friendship: Friendship) {
+    this.store.dispatch(FriendsActions.removeFriendship({ friendship }));
+  }
+
+  discardInviteToFriendship(friendship: Friendship) {
+    this.store.dispatch(
+      FriendsActions.discardInviteToFriendship({ friendship })
+    );
+  }
+
   get listOfInivitesToAccept(): Observable<Friendship[]> {
     return this.store.select(FriendsSelectors.selectInviteToAccept);
   }
