@@ -61,3 +61,18 @@ export const selectSentInvite = createSelector(
       );
     })
 );
+
+export const selectAllFriends = createSelector(
+  selectFriendState,
+  (state: FriendsState) =>
+    state.users.filter((user) => {
+      return (
+        state.friendships.find((friendship) => {
+          return (
+            friendship.usernameOfSecondUser === user.username ||
+            friendship.usernameOfStartingRelationshipUser === user.username
+          );
+        }) !== null
+      );
+    })
+);

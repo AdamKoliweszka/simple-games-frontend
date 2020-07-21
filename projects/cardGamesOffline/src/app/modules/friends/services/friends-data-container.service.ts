@@ -45,6 +45,10 @@ export class FriendsDataContainerService {
     return this.store.select(FriendsSelectors.selectAllUsers);
   }
 
+  get listOfFriends(): Observable<User[]> {
+    return this.store.select(FriendsSelectors.selectAllFriends);
+  }
+
   get listOfIsNotInRelationWithUser(): Observable<boolean[]> {
     return this.store.select(FriendsSelectors.selectIsNotInRelationList);
   }
