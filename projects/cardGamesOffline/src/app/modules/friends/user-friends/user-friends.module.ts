@@ -5,6 +5,7 @@ import { SearchInputModule } from "../../design-components/search-input/search-i
 import { UsernamesPipe } from "../../names-pipe/usernames.pipe";
 import { FriendsPipeModule } from "../pipes/friends-pipe.module";
 import { CardContainerModule } from "../../design-components/card-container/card-container.module";
+import { TranslateModule } from "@ngx-translate/core";
 
 @NgModule({
   declarations: [UserFriendsComponent],
@@ -14,6 +15,7 @@ import { CardContainerModule } from "../../design-components/card-container/card
     FriendsPipeModule,
     CardContainerModule,
     SearchInputModule,
+    TranslateModule,
   ],
 })
 export class UserFriendsModule {}

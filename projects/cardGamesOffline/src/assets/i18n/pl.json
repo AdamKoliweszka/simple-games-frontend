@@ -14,7 +14,8 @@
     "SEARCH_USER_PLACEHOLDER": "Wyszukiwany użytkownik...",
     "INVITE_TO_ACCEPT": "Zaproszenia do zaakceptowania",
     "SENT_INVITATIONS": "Zaproszenia wysłane",
-    "NO_INVITES": "Brak zaproszeń!"
+    "NO_INVITES": "Brak zaproszeń!",
+    "NO_FRIENDS": "Brak znajomych!"
   },
   "MESSAGES_TOP_BAR": {
     "CHAT": "Czat",
