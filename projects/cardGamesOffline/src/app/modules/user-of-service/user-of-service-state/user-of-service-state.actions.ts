@@ -12,6 +12,11 @@ export const setRefreshToken = createAction(
   props<{ refreshToken: string }>()
 );
 
+export const setUsername = createAction(
+  "[User_Of_Service] Set username",
+  props<{ username: string }>()
+);
+
 export const loadTokens = createAction(
   "[User_Of_Service] Load tokens from local storage"
 );

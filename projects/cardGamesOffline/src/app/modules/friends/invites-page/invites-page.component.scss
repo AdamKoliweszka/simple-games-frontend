@@ -1,0 +1,14 @@
+@import "../../../../variables.scss";
+
+.separator {
+  width: 90vw;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.no-invites {
+  text-align: center;
+  font-size: 4vh;
+  line-height: 90vh;
+  color: $primary-color;
+}

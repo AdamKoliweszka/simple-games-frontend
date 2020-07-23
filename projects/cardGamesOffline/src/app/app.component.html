@@ -1,6 +1,6 @@
 <div class="container" *ngIf="isLoged | async">
   <app-side-bar class="bar"></app-side-bar>
-  <router-outlet></router-outlet>
+  <router-outlet class="content"></router-outlet>
 </div>
 
 <div class="container" *ngIf="!(isLoged | async)">

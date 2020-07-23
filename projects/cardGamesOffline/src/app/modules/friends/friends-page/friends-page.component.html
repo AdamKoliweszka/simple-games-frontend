@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="top-bar">
+    <app-underline-top-bar
+      [items]="items"
+      [activeIndex]="activeIndex"
+      (clickItem)="onClickItem($event)"
+    ></app-underline-top-bar>
+  </div>
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,16 @@
+@import "../../../../variables.scss";
+.search-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.container {
+  width: 95vw;
+}
+
+.no-friends {
+  text-align: center;
+  font-size: 4vh;
+  line-height: 90vh;
+  color: $primary-color;
+}

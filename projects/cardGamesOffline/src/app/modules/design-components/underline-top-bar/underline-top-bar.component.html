@@ -1,0 +1,12 @@
+<div class="container">
+  <div
+    *ngFor="let item of items; let i = index"
+    (click)="onClick(i)"
+    [ngClass]="{ item: true, 'can-click': i !== activeIndex }"
+  >
+    <div class="text">
+      {{ item | translate }}
+    </div>
+    <div *ngIf="i === activeIndex" class="underline"></div>
+  </div>
+</div>

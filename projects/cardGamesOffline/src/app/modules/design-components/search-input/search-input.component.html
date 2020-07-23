@@ -1,0 +1,14 @@
+<form class="container" [formGroup]="searchForm">
+  <input
+    placeholder="{{ placeholder | translate }}"
+    formControlName="searchInput"
+  />
+  <mat-icon
+    (click)="onReset()"
+    *ngIf="searchInput.value.length > 0"
+    class="icon"
+    >clear</mat-icon
+  >
+
+  <button (click)="onSubmit()">{{ "SEARCH_BAR.BUTTON" | translate }}</button>
+</form>

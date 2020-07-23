@@ -1,0 +1,39 @@
+@import "../../../../variables.scss";
+
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 50vw;
+  position: relative;
+}
+
+input {
+  width: 80%;
+  height: 3vh;
+  border: solid $secondary-color 0.1vw;
+  outline-color: $primary-color;
+  box-sizing: border-box;
+}
+
+input::placeholder {
+  color: $secondary-color;
+  text-align: center;
+}
+
+button {
+  width: 20%;
+  height: 3vh;
+  background-color: $primary-color;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.icon {
+  position: absolute;
+  right: 10vw;
+  line-height: 3vh;
+  font-size: 2.5vh;
+  color: $error-color;
+  cursor: pointer;
+}

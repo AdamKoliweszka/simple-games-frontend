@@ -1,0 +1,23 @@
+<div class="container">
+  <app-card
+    *ngFor="let name of names; let i = index"
+    [name]="names.length === 1 ? names[0] : names[i]"
+    [mainIcon]="mainIcons.length === 1 ? mainIcons[0] : mainIcons[i]"
+    [clickable]="clickables.length === 1 ? clickables[0] : clickables[i]"
+    [colorOfMainIcon]="
+      colorOfMainIcons.length === 1 ? colorOfMainIcons[0] : colorOfMainIcons[i]
+    "
+    [leftIcon]="leftIcons.length === 1 ? leftIcons[0] : leftIcons[i]"
+    [rightIcon]="rightIcons.length === 1 ? rightIcons[0] : rightIcons[i]"
+    [leftIconEnable]="
+      leftIconEnables.length === 1 ? leftIconEnables[0] : leftIconEnables[i]
+    "
+    [rightIconEnable]="
+      rightIconEnables.length === 1 ? rightIconEnables[0] : rightIconEnables[i]
+    "
+    (leftButtonClick)="onLeftButtonClick(i)"
+    (rightButtonClick)="onRightButtonClick(i)"
+    (cardClick)="onCardClick(i)"
+    class="item"
+  ></app-card>
+</div>

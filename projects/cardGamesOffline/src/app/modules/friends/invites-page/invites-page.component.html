@@ -1,0 +1,45 @@
+<ng-container
+  *ngIf="{
+    listInvitesToAccept: listInvitesToAccept$ | async,
+    listSentInvites: listSentInvites$ | async
+  } as data"
+>
+  <div *ngIf="data.listInvitesToAccept.length > 0">
+    <div class="separator">
+      <app-line-separator
+        text="FRIENDS_PAGE.INVITE_TO_ACCEPT"
+      ></app-line-separator>
+    </div>
+    <app-card-container
+      [names]="data.listInvitesToAccept | invitesUsernamesFirstUser"
+      [mainIcons]="['mail']"
+      [clickables]="[false]"
+      [leftIcons]="['add']"
+      [rightIcons]="['close']"
+      [leftIconEnables]="[true]"
+      [rightIconEnables]="[true]"
+      (leftButtonClick)="onLeftClick(data.listInvitesToAccept[$event])"
+      (rightButtonClick)="onRightClick(data.listInvitesToAccept[$event])"
+    ></app-card-container>
+  </div>
+  <div *ngIf="data.listSentInvites.length > 0">
+    <div class="separator">
+      <app-line-separator
+        text="FRIENDS_PAGE.SENT_INVITATIONS"
+      ></app-line-separator>
+    </div>
+    <app-card-container
+      [names]="data.listSentInvites | invitesUsernamesSecondUser"
+      [mainIcons]="['mail']"
+      [clickables]="[false]"
+    ></app-card-container>
+  </div>
+  <div
+    class="no-invites"
+    *ngIf="
+      data.listSentInvites.length === 0 && data.listInvitesToAccept.length === 0
+    "
+  >
+    {{ "FRIENDS_PAGE.NO_INVITES" | translate }}
+  </div>
+</ng-container>

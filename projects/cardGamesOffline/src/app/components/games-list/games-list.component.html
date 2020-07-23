@@ -1,7 +1,6 @@
-<div class="container">
-  <app-games-list-item
-    *ngFor="let game of games$ | async"
-    class="item"
-    [game]="game"
-  ></app-games-list-item>
+<div class="container" *ngIf="games$ | async as games">
+  <app-card-container
+    [names]="games | names"
+    (cardClick)="onCardClick(games[$event])"
+  ></app-card-container>
 </div>
