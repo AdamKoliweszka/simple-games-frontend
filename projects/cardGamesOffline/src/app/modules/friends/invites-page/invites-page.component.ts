@@ -23,4 +23,7 @@ export class InvitesPageComponent implements OnInit {
   onLeftClick(friendship: Friendship) {
     this.friendsDataContainerService.acceptFriendship(friendship);
   }
+  onRightClick(friendship: Friendship) {
+    this.friendsDataContainerService.discardFriendship(friendship);
+  }
 }

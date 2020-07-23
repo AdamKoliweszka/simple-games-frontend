@@ -17,7 +17,9 @@
       [leftIcons]="['add']"
       [rightIcons]="['close']"
       [leftIconEnables]="[true]"
+      [rightIconEnables]="[true]"
       (leftButtonClick)="onLeftClick(data.listInvitesToAccept[$event])"
+      (rightButtonClick)="onRightClick(data.listInvitesToAccept[$event])"
     ></app-card-container>
   </div>
   <div *ngIf="data.listSentInvites.length > 0">
