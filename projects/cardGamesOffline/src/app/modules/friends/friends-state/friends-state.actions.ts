@@ -40,7 +40,7 @@ export const discardInviteToFriendship = createAction(
 
 export const removeFriendship = createAction(
   "[FRIENDS] Remove friendship",
-  props<{ friendship: Friendship }>()
+  props<{ friendUsername: string }>()
 );
 
 export const editFriendship = createAction(

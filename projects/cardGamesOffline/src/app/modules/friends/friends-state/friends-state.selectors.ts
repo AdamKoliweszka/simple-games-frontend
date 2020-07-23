@@ -93,3 +93,17 @@ export const selectFriendsByUsername = createSelector(
         }) !== undefined
     )
 );
+
+export const selectAllFriendship = createSelector(
+  selectFriendState,
+  (state: FriendsState) => state.friendships
+);
+
+export const selectOneFriendship = createSelector(
+  selectFriendState,
+  (state: FriendsState, props) => {
+    let index = state.friendships.findIndex(props.username);
+    if (index < 0) return null;
+    return state.friendships[index];
+  }
+);

@@ -32,6 +32,6 @@ export class UserFriendsComponent implements OnInit {
   }
 
   onLeftClick(user: User) {
-    // this.friendsDataContainerService.inviteFriend(user.username);
+    this.friendsDataContainerService.removeFriendship(user.username);
   }
 }

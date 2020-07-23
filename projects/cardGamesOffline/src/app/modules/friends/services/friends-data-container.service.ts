@@ -33,8 +33,8 @@ export class FriendsDataContainerService {
     );
   }
 
-  removeFriendship(friendship: Friendship) {
-    this.store.dispatch(FriendsActions.removeFriendship({ friendship }));
+  removeFriendship(friendUsername: string) {
+    this.store.dispatch(FriendsActions.removeFriendship({ friendUsername }));
   }
 
   discardInviteToFriendship(friendship: Friendship) {

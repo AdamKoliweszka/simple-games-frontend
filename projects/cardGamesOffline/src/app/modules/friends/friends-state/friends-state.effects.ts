@@ -12,13 +12,18 @@ import {
   discardInviteToFriendship,
   removeFriendship,
 } from "./friends-state.actions";
-import { mergeMap, map } from "rxjs/operators";
+import { mergeMap, map, withLatestFrom } from "rxjs/operators";
 import { OfflinePlayersState } from "../../offline-players/offline-players-state/offline-players-state.reducers";
-import { Store } from "@ngrx/store";
+import { Store, select } from "@ngrx/store";
 import { FriendsState } from "./friends-state.reducers";
 import { FriendsApiService } from "../services/friends-api.service";
 import { dispatch } from "rxjs/internal/observable/pairs";
 import { StatusOfFriendship } from "../enum/status-friendship.enum";
+import {
+  selectAllFriends,
+  selectAllFriendship,
+  selectOneFriendship,
+} from "./friends-state.selectors";
 
 @Injectable()
 export class FriendsStateEffect {
@@ -43,6 +48,7 @@ export class FriendsStateEffect {
   @Effect()
   loadFriendships$ = this.action.pipe(
     ofType(loadAllFriendships),
+
     mergeMap((action) => {
       return this.friendsApiService.getFriendshipList().pipe(
         map((value) => {
@@ -106,7 +112,7 @@ export class FriendsStateEffect {
     mergeMap((action) => {
       return this.friendsApiService
         .changeStatusOfFriendship(
-          action.friendship.usernameOfStartingRelationshipUser,
+          action.friendUsername,
           StatusOfFriendship.REMOVED
         )
         .pipe(
