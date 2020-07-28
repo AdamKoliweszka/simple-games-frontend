@@ -21,6 +21,7 @@ import { SideBarModule } from "./components/side-bar/side-bar.module";
 import { HomeSideBarModule } from "./components/home-side-bar/home-side-bar.module";
 import { SocketIoModule, SocketIoConfig } from "ngx-socket-io";
 import { UserOfServiceStateModule } from "./modules/user-of-service/user-of-service-state/user-of-service-state.module";
+import { SnackbarModule } from "./modules/design-components/snackbar/snackbar.module";
 
 const config: SocketIoConfig = { url: "http://localhost:3001", options: {} };
 
@@ -42,6 +43,7 @@ const config: SocketIoConfig = { url: "http://localhost:3001", options: {} };
     ReactiveFormsModule,
     HomeSideBarModule,
     UserOfServiceStateModule,
+    SnackbarModule,
     SocketIoModule.forRoot(config),
     TranslateModule.forRoot({
       loader: {
